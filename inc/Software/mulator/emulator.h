@@ -23,6 +23,8 @@
 #include "boost/random/uniform_int.hpp"
 
 // #define DEBUG
+#define J_DEBUG
+#define SINGLE_ROUND
 
 namespace mulator
 {

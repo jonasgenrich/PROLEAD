@@ -231,6 +231,9 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     //the isa encoded instruction will be decoded and returns instruction class
     auto [status, instr] = m_decoder.decode_instruction(address, memory, m_decoder.get_instruction_size(memory), in_IT_block(), last_in_IT_block());
+    #ifdef J_DEBUG
+    std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl; 
+    #endif
     if (status != ReturnCode::OK)
     {
         m_return_code = status;
