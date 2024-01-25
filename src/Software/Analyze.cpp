@@ -95,9 +95,7 @@ void Software::Analyze::ProbingSecurity(Software::SettingsStruct& Settings,  std
 
             
             for(uint32_t CycleSplit = 0; CycleSplit < GlobalThreadSimulations.at(ThreadIndex).NumberOfCycleSplits; ++CycleSplit){
-
                 for(uint32_t SimulationIndex = 0; SimulationIndex < Settings.NumberOfStepSimulations; ++SimulationIndex){
-
                     if(CycleSplit ==  0){
                         mulator::Emulator Emulator(Settings.arch, ThreadPrng, Settings.NumberOfPipelineStages);
                         Software::Simulate::Instantiate_Emulator(Emulator, GlobalThreadSimulations.at(ThreadIndex), SimulationIndex, Settings, SharedInputData[SimulationIndex], GlobalThreadSimulations.at(ThreadIndex).CycleStart.at(CycleSplit), ProbeTracker.at(SimulationIndex), GlobalHelper, ProbeValues.at(SimulationIndex >> 3));
@@ -112,7 +110,9 @@ void Software::Analyze::ProbingSecurity(Software::SettingsStruct& Settings,  std
                     if(!Settings.TestMultivariate){
                         Software::Probing::GetProbingSets(GlobalThreadSimulations.at(ThreadIndex), Settings, GlobalTests.at(ThreadIndex), OrderOverTwoCombination, ProbeInfoToStandardProbe, SimulationIndex);
                     }
-
+                    #ifdef J_SINGLE_ROUND
+                    break;
+                    #endif
                 }
                 if(!Settings.TestMultivariate){
                     if (GlobalTests.at(ThreadIndex).GlobalProbingSets.empty()){

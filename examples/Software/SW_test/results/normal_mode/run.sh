@@ -1,1 +1,1 @@
-./../../../../../release/PROLEAD -pf sw -ldf ../../source/linker.ld -df ../../source/main.c ../../source/test_Sboxes.s -cf config.set 2>&1 | tee Report.dat
+./../../../../../release/PROLEAD -pf sw -ldf ../../source/linker.ld -df ../../source/main.c ../../source/test.s -cf config.set 2>&1 | tee Report.dat

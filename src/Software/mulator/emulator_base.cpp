@@ -231,15 +231,16 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     //the isa encoded instruction will be decoded and returns instruction class
     auto [status, instr] = m_decoder.decode_instruction(address, memory, m_decoder.get_instruction_size(memory), in_IT_block(), last_in_IT_block());
-    #ifdef J_DEBUG
-    std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl; 
-    #endif
+    
     if (status != ReturnCode::OK)
     {
         m_return_code = status;
         return;
     }
 
+    #ifdef J_DEBUG
+    std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl; 
+    #endif
 
     bool InTestClockCycles = false;
 
@@ -247,8 +248,40 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         InTestClockCycles = true;
     }
 
-    execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+    #ifdef J_BRANCH // erster Entwurf um "der falschen Branch zu folgen"
+    bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
+    if (!alwaysExecuted && instr.name == Mnemonic::B) // check whether it is a conditional branch instruction
+    {
+        Emulator EmuClone(*this);
 
+        bool branchTaken = execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+
+        #ifdef J_DEBUG
+        std::cout << "start of the wrong branch" << std::endl;
+        #endif
+        if(branchTaken)
+        {
+            EmuClone.branch_write_PC(EmuClone.read_register_internal(Register::PC) - 4 + instr.size);
+        }else
+        {
+            EmuClone.branch_write_PC(EmuClone.read_register_internal(Register::PC) + instr.imm);
+        }
+
+        // for(uint32_t CloneInstructionNr = InstrNr ; CloneInstructionNr <= InstrNr + 2 ; CloneInstructionNr++)
+        for(uint32_t CloneInstructionNr = (uint32_t) 99999999999 ; CloneInstructionNr <= (uint32_t) 99999999999 + 2 ; CloneInstructionNr++)
+        {
+            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTracker, Helper, ProbeValues, CloneInstructionNr, SimulationIdx, randomness_start_addr, randomness_end_addr);
+        }
+        #ifdef J_DEBUG
+        std::cout << "end of the wrong branch" << std::endl;
+        #endif
+
+    }else{
+        execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+    }
+    #else
+    execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+    #endif
     
     u32 PSR_value = 0;
     if (m_psr_updated)

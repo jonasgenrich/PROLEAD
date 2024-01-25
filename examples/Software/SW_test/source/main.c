@@ -65,7 +65,7 @@ __attribute__((noinline)) void cipher(){
     int a = 0;
     int b = 1;
     int c = a + b;
-  test_Sboxes(c);
+  test(c);
 
 }
 

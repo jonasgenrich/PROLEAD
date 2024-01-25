@@ -130,7 +130,6 @@ void Software::Simulate::Run(mulator::Emulator& Emu, ::Software::ThreadSimulatio
 
     for(uint32_t InstructionNr = ThreadSimulation.CycleStart.at(CycleSplit); InstructionNr <= ThreadSimulation.CycleEnd.at(CycleSplit); ++InstructionNr){
         Emu.emulate_PROLEAD(ThreadSimulation, ProbeTracker, Helper, ProbeValues, InstructionNr, SimulationIdx, Settings.randomness_start_addr, Settings.randomness_end_addr);
-        
 		//when instructionNr greater than biggest TestClockCycle in ThreadSimulation then break
 		if((ThreadSimulation.TestClockCycles.empty()) || (InstructionNr > (uint32_t)ThreadSimulation.TestClockCycles.back())){
 			break;

@@ -1,2 +1,2 @@
 #include <stdint.h>
-void test_Sboxes(int a);
+void test(int a);
