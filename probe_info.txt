@@ -1,0 +1,160 @@
+struct ProbesStruct
+{
+uint64_t 							TransitionCycles; 			
+uint64_t							ProbeInfo;					
+uint64_t							SpecialInfo;
+
+};
+
+Memory Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[26:23] = Probe Identifier = 0
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[1:0] = ** probed value in load/store memory register **
+
+Memory Shadow Register Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[26:23] = Probe Identifier = 1
+	ProbeInfo[22:18]  = memory shadow register
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** probed value in load/store memory register **
+	TransitionCycles[63:32] = ** transition probed value in load/store memory register **
+	SpecialInfo[31:0] = Transition Instruction number
+
+Memory Seperate Load Store Register
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[26:23] = Probe Identifier = 2
+	ProbeInfo[22:18]  = Load/Store Flag (was it load or was it store)
+	ProbeInfo[17:13]  = Partner Register Number (load register or store register)
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** probed value in load/store memory register **
+	TransitionCycles[63:32] = ** transition probed value in load/store memory register **
+	SpecialInfo[31:0] = Transition Instruction number
+
+Horizontal Memory Shadow Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[26:23] = Probe Identifier = 3
+	ProbeInfo[22:18]  = shadow register
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** probed value in load/store memory register **
+	TransitionCycles[63:32] = ** transition probed value in load/store memory register **
+	SpecialInfo[31:0] = Transition Instruction number
+
+Normal Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[27:24] = Probe Identifier (decodes which probe, i.e., normal, vertical, horizontal etc. we have. This is because internally are of form ProbesStruct) = 4
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = Transition Instruction number
+
+Horizontal Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[27:24] = Probe Identifier = 5
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = Transition Instruction number
+
+Small Vertical Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 6
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = Transition Instruction number of register number
+	TransitionCycles[63:32] = Transition Instruction number of partner register number
+
+Large Vertical Probe
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 7
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = Transition Instruction number of register number
+	TransitionCycles[63:32] = Transition Instruction number of partner register number
+
+Small Full Horizontal
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 8
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = Transition Instruction number of register number
+	TransitionCycles[63:32] = Transition Instruction number of partner register number	
+
+Large Full Horizontal
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 9
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = Transition Instruction number of register number
+	TransitionCycles[63:32] = Transition Instruction number of partner register number
+
+Small Full Vertical
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 10
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
+
+Large Full Vertical
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 11
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
+
+One Register Full Vertical
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 12
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
+
+DSP Small Full Vertical
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 13
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
+
+DSP Large Full Vertical
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 14
+	ProbeInfo[22:18]  = Register Number
+	ProbeInfo[17:13]  = Partner Register Number
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[31:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
+
+Pipeline Forwarding
+	ProbeInfo[63:32] = Instruction number
+	ProbeInfo[31:27] = Dependency 
+	ProbeInfo[26:23] = Probe Identifier = 15
+	ProbeInfo[12:8]  = Bit Number
+	ProbeInfo[7:0]  = Extension Size
+	TransitionCycles[63:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
+	SpecialInfo[63:0] = ** actual probed values ** (in other probes before they are stored in ProbeValues)
