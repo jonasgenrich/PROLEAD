@@ -26,6 +26,7 @@
 // #define J_DEBUG
 // #define J_SINGLE_ROUND
 #define J_BRANCH
+#define J_MAX_BP_RECURSION_DEPTH 1
 
 namespace mulator
 {
@@ -55,6 +56,22 @@ namespace mulator
         u32 time;
 
         bool containing_valid_pipeline_values;
+    };
+
+    class InstructionCounter
+    {
+        public:
+        InstructionCounter();
+        InstructionCounter(uint32_t);
+        void Set(uint32_t);
+        void Set(uint32_t, uint32_t);
+        uint32_t IncLogical();
+        uint32_t IncReal();
+        uint32_t Logical();
+        uint32_t Real();
+        private:
+        uint32_t logical;
+        uint32_t real;
     };
 
     class Emulator
@@ -127,7 +144,7 @@ namespace mulator
         /*
         *   Starts emulation for PROLEAD
         */
-        void emulate_PROLEAD(::Software::ThreadSimulationStruct& , ::Software::ProbeTrackingStruct&, ::Software::HelperStruct&, std::vector<std::vector<std::vector<uint8_t>>>&, const int , const uint64_t , const uint32_t , const uint32_t);    
+        void emulate_PROLEAD(::Software::ThreadSimulationStruct& , ::Software::ProbeTrackingStruct&, ::Software::HelperStruct&, std::vector<std::vector<std::vector<uint8_t>>>&, mulator::InstructionCounter& , const uint64_t , const uint32_t , const uint32_t, int);    
         
         /*
         * Stop the ongoing emulation. Useful in hooks.

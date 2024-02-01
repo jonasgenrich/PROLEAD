@@ -87,6 +87,7 @@ void Software::Analyze::ProbingSecurity(Software::SettingsStruct& Settings,  std
             boost::variate_generator<boost::mt19937&, boost::uniform_int<uint64_t>> ThreadPrng(ThreadRng.at(ThreadIndex), LocalThreadDist);
 
             std::vector<mulator::Emulator> EmulatorsPerThread;
+            std::vector<mulator::InstructionCounter> InstructionCounterPerThread;
             std::vector<::Software::ProbeTrackingStruct> ProbeTracker(Settings.NumberOfStepSimulations);
             std::vector<std::vector<bool>> HighOrderUnivariateRedundancy(34, std::vector<bool>(32, false)); //17 register each 32 bit, consider transitions -> 34 registers
 
@@ -100,11 +101,13 @@ void Software::Analyze::ProbingSecurity(Software::SettingsStruct& Settings,  std
                         mulator::Emulator Emulator(Settings.arch, ThreadPrng, Settings.NumberOfPipelineStages);
                         Software::Simulate::Instantiate_Emulator(Emulator, GlobalThreadSimulations.at(ThreadIndex), SimulationIndex, Settings, SharedInputData[SimulationIndex], GlobalThreadSimulations.at(ThreadIndex).CycleStart.at(CycleSplit), ProbeTracker.at(SimulationIndex), GlobalHelper, ProbeValues.at(SimulationIndex >> 3));
 
-                        Software::Simulate::Run(Emulator, GlobalThreadSimulations.at(ThreadIndex), Settings, ProbeTracker.at(SimulationIndex), GlobalHelper, ProbeValues.at(SimulationIndex >> 3), SimulationIndex, CycleSplit);
+                        mulator::InstructionCounter InstructionCounter( GlobalThreadSimulations.at(ThreadIndex).CycleStart.at(CycleSplit) );
+                        Software::Simulate::Run(Emulator, GlobalThreadSimulations.at(ThreadIndex), Settings, ProbeTracker.at(SimulationIndex), GlobalHelper, ProbeValues.at(SimulationIndex >> 3), SimulationIndex, CycleSplit, InstructionCounter);
                         EmulatorsPerThread.emplace_back(Emulator);
+                        InstructionCounterPerThread.emplace_back(InstructionCounter);
                     }
                     else{
-                        Software::Simulate::Run(EmulatorsPerThread.at(SimulationIndex), GlobalThreadSimulations.at(ThreadIndex), Settings, ProbeTracker.at(SimulationIndex), GlobalHelper, ProbeValues.at(SimulationIndex >> 3), SimulationIndex, CycleSplit);
+                        Software::Simulate::Run(EmulatorsPerThread.at(SimulationIndex), GlobalThreadSimulations.at(ThreadIndex), Settings, ProbeTracker.at(SimulationIndex), GlobalHelper, ProbeValues.at(SimulationIndex >> 3), SimulationIndex, CycleSplit, InstructionCounterPerThread.at(SimulationIndex));
                     }
 
                     if(!Settings.TestMultivariate){

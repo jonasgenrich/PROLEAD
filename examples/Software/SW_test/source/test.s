@@ -15,11 +15,19 @@ test:
     eor r3, r4, r5
     mov r1, #1
     cmp r1, #0
-    bne test1
+    beq test1
     sub R1, R2, R3
     sub R2, R3, R5
     sub R5, R2, R6
     test2:
+    a:
+    mov r1, #1
+    cmp r1, #1
+    bne b
+    b:
+    mov r2, #2
+    cmp r2, #2
+    bne a
     eor r5, r6, r7
     eor r6, r7, r8
     eor r7, r8, r9
