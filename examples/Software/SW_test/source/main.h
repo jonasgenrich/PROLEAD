@@ -1,2 +1,2 @@
 #include <stdint.h>
-void test(int a);
+void test(unsigned char a[] , unsigned char b[]);

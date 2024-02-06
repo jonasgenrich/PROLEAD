@@ -149,6 +149,7 @@ namespace Software{
 		uint32_t StoreMemoryLatestClockCycle = 0; ///< Cycle that last used a store memory instruction
 		std::vector<uint32_t> VerticalLatestClockCycle;
 		ProbeTrackingStruct();
+		ProbeTrackingStruct(const ProbeTrackingStruct& other);
 	};
 
 

@@ -51,3 +51,12 @@ Software::ProbeTrackingStruct::ProbeTrackingStruct(){
     VerticalLatestClockCycle.resize(17, 0);
 	MemoryLatestClockCycle = 0;
 }
+
+Software::ProbeTrackingStruct::ProbeTrackingStruct(const ProbeTrackingStruct& other){
+	RegisterLatestValue = other.RegisterLatestValue;
+	RegisterLatestClockCycle = other.RegisterLatestClockCycle;
+	MemoryLatestClockCycle = other.MemoryLatestClockCycle;
+	LoadMemoryLatestClockCycle = other.LoadMemoryLatestClockCycle;
+	StoreMemoryLatestClockCycle = other.StoreMemoryLatestClockCycle;
+	VerticalLatestClockCycle = other.VerticalLatestClockCycle;
+}

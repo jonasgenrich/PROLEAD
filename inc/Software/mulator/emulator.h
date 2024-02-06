@@ -25,7 +25,7 @@
 // #define DEBUG
 // #define J_DEBUG
 // #define J_SINGLE_ROUND
-#define J_BRANCH
+// #define J_BRANCH
 #define J_MAX_BP_RECURSION_DEPTH 1
 
 namespace mulator

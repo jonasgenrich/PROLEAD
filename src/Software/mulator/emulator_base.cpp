@@ -315,16 +315,15 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         {
             EmuClone.branch_write_PC(EmuClone.read_register_internal(Register::PC) + instr.imm);
         }
-
-        // for(uint32_t CloneInstrNr = (uint32_t) 99999999999 ; CloneInstrNr <= (uint32_t) 99999999999 + 2 ; CloneInstrNr++)
+        // copy ProbeTracker:
+        ::Software::ProbeTrackingStruct ProbeTrackerFalseBranch(ProbeTracker);
         for( ; InstrCounter.Real() < InstrNr + (uint32_t) 3 ; InstrCounter.IncReal())
         {
-            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTracker, Helper, ProbeValues, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, branchPredictionRecursionDepth + 1);
+            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, branchPredictionRecursionDepth + 1);
         }
         #ifdef J_DEBUG
         std::cout << "end of the wrong branch" << std::endl;
         #endif
-
     }else{
         execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
     }
