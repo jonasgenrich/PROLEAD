@@ -8,7 +8,7 @@
 .type   test, %function;
 
 test:
-    b testD
+    b testB
 
 testA: // test(input_s0_local, input_s1_local)
     push {r4-r11,lr}
@@ -37,6 +37,9 @@ testB: // test(input_s0_local, input_s1_local)
     cmp r3, #1
     beq skipB
     ldr r2, [r1]
+    nop
+    nop
+    nop
     skipB:
     ldr r2, [r0]
     mov r3, #123
@@ -55,7 +58,10 @@ testC: // test(input_s0_local, input_s1_local)
     cmp r3, #1
     beq skipC
     ldr r2, [r1]
-    mov r2, #0
+    //mov r2, #0
+    nop
+    nop
+    nop
     skipC:
     ldr r2, [r0]
     mov r3, #123
