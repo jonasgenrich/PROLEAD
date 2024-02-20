@@ -140,6 +140,9 @@ namespace Software{
 		uint64_t 							TransitionCycles; ///< Contains previous cycle where probed register was used last
 		uint64_t							ProbeInfo;		 ///< Uniquly identifies a probe, (Cycle | Dependency | ID | RegNr1 | RegNr2 | Bit | ExtensionSize)			
 		uint64_t							SpecialInfo;	///< Contains information that might change depending on type of probe
+
+		bool								InMisprediction = false; // J_TODO
+		uint32_t							LogicalCycle;	// J_TODO
 	};
 
 	/**

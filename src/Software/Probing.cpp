@@ -3,10 +3,16 @@
 #include <iostream>
 
 
-void Software::Probing::CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegister, std::vector<Software::ProbesStruct>& StandardProbes, std::vector<std::vector<uint8_t>>& ProbeValueRegister, uint32_t& ProbeIndex, uint64_t& ProbeInfo, uint32_t RegisterTransitionCycle, uint32_t InstrNr, uint64_t SimulationIdx, uint32_t DestinationRegisterValue, uint8_t RegNr){
-    for(const auto& BitIdx: NormalProbesRegister){
+void Software::Probing::CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegister, std::vector<Software::ProbesStruct>& StandardProbes, std::vector<std::vector<uint8_t>>& ProbeValueRegister, uint32_t& ProbeIndex, uint64_t& ProbeInfo, uint32_t RegisterTransitionCycle, mulator::InstructionCounter& InstrCounter, uint64_t SimulationIdx, uint32_t DestinationRegisterValue, uint8_t RegNr){
+    const int InstrNr = InstrCounter.Real();
+	for(const auto& BitIdx: NormalProbesRegister){
         StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo | (RegNr << REG1_OFFSET) | (BitIdx << BIT_OFFSET));
         StandardProbes.at(ProbeIndex).TransitionCycles = RegisterTransitionCycle;
+		if (InstrCounter.branchPredictionRecursionDepth)
+		{
+			StandardProbes.at(ProbeIndex).InMisprediction = true;
+			StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+		}
         ProbeValueRegister.at(BitIdx).at(InstrNr) |= (((DestinationRegisterValue >> BitIdx) & 1) << (SimulationIdx & 0x7));
         ProbeIndex++;
     }
@@ -242,6 +248,14 @@ void Software::Probing::ExtractDependencyProbeInfo(uint8_t& Dependency, Software
 
 void Software::Probing::ExtractExtensionSizeProbeInfo(uint16_t& ExtensionSize, Software::ProbesStruct& ProbeFromProbingSet){
 	ExtensionSize = (ProbeFromProbingSet.ProbeInfo & EXTENSION_MASK);
+}
+
+void Software::Probing::ExtractInMispredictionProbeInfo(bool& InMisprediction, Software::ProbesStruct& ProbeFromProbingSet){
+	InMisprediction = ProbeFromProbingSet.InMisprediction;
+}
+
+void Software::Probing::ExtractLogicalCycleProbeInfo(uint32_t& LogicalCycle, Software::ProbesStruct& ProbeFromProbingSet){
+	LogicalCycle = ProbeFromProbingSet.LogicalCycle;
 }
 
 

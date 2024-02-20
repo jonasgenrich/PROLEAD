@@ -48,8 +48,9 @@ void Software::Print::EvaluationTableHeader(){
 //***************************************************************************************
 void Software::Print::SoftwareMaximumProbingSet(uint32_t TestOrder, ::Software::TestStruct& Test, int& MaximumProbingSet, std::string& ProbingSet)
 {
+	bool InMisprediction;
 	uint8_t Id, RegisterNumber, Bit;
-	uint32_t Cycle;
+	uint32_t Cycle, LogicalCycle;
 	uint16_t ExtensionSize;
 
 	ProbingSet = " ";
@@ -59,6 +60,8 @@ void Software::Print::SoftwareMaximumProbingSet(uint32_t TestOrder, ::Software::
 		Software::Probing::ExtractBitProbeInfo(Bit, Test.GlobalProbingSets.at(MaximumProbingSet).StandardProbe.at(probeIndex));
 		Software::Probing::ExtractRegisterProbeInfo(RegisterNumber, Test.GlobalProbingSets.at(MaximumProbingSet).StandardProbe.at(probeIndex));
 		Software::Probing::ExtractExtensionSizeProbeInfo(ExtensionSize, Test.GlobalProbingSets.at(MaximumProbingSet).StandardProbe.at(probeIndex));
+		Software::Probing::ExtractInMispredictionProbeInfo(InMisprediction, Test.GlobalProbingSets.at(MaximumProbingSet).StandardProbe.at(probeIndex));
+		Software::Probing::ExtractLogicalCycleProbeInfo(LogicalCycle, Test.GlobalProbingSets.at(MaximumProbingSet).StandardProbe.at(probeIndex));
 		
 		if(ExtensionSize != 0){
 			switch(Id){
@@ -74,7 +77,15 @@ void Software::Print::SoftwareMaximumProbingSet(uint32_t TestOrder, ::Software::
 					break;
 				}
 				case 3: ProbingSet += "HR_MEMSHADOW(" + std::to_string(Cycle) +  ")"; break;
-				case 4: ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
+				case 4:
+					if(InMisprediction)
+					{
+						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ") in misprediction logicalCycle: " + std::to_string(LogicalCycle);
+					}else
+					{
+						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")";
+					}
+					break;
 				case 5: ProbingSet += "HR" + std::to_string(RegisterNumber) + "(" + std::to_string(Cycle) + ")";break;
 				case 6:
 				case 7: ProbingSet += "VR[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;

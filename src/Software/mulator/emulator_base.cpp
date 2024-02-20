@@ -207,6 +207,7 @@ InstructionCounter::InstructionCounter()
 {
     logical = 0;
     real = 0;
+    offset = 0;
 }
 
 InstructionCounter::InstructionCounter(uint32_t l)
@@ -219,12 +220,21 @@ uint32_t InstructionCounter::IncLogical()
 {
     logical++;
     real++;
+    offset = 0;
     return logical;
 }
 
 uint32_t InstructionCounter::IncReal()
 {
     real++;
+    offset++;
+    return real;
+}
+
+uint32_t InstructionCounter::DecReal()
+{
+    real--;
+    offset--;
     return real;
 }
 
@@ -238,6 +248,10 @@ uint32_t InstructionCounter::Real()
     return real;
 }
 
+uint32_t InstructionCounter::Offset()
+{
+    return offset;
+}
 
 void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, Software::SettingsStruct& Settings){
     const int InstrNr = InstrCounter.Real();
@@ -276,7 +290,8 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     }
 
     #ifdef J_DEBUG
-    std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl; 
+    std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl;
+    std::cout << "Real:" << std::to_string(InstrCounter.Real()) << "  Logical:" << std::to_string(InstrCounter.Logical()) << "  Offset:" << std::to_string(InstrCounter.Offset()) << std::endl;  
     #endif
 
     bool InTestClockCycles = false;
@@ -290,10 +305,10 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     {
         Emulator EmuClone(*this);
 
-        bool branchTaken = execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+        bool branchTaken = execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
 
         #ifdef J_DEBUG
-        std::cout << "start of the wrong branch branchPredictionRecursionDepth: " << branchPredictionRecursionDepth+1 << std::endl;
+        std::cout << "start of the wrong branch branchPredictionRecursionDepth: " << InstrCounter.branchPredictionRecursionDepth+1 << std::endl;
         #endif
         if(branchTaken)
         {
@@ -305,16 +320,18 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         // copy ProbeTracker:
         ::Software::ProbeTrackingStruct ProbeTrackerFalseBranch(ProbeTracker);
         InstrCounter.branchPredictionRecursionDepth++;
-        for( ; InstrCounter.Real() < InstrNr + (uint32_t) Settings.numSeaStepsInWrongBranch ; InstrCounter.IncReal())
+        InstrCounter.IncReal();
+        for( ; InstrCounter.Real() < InstrNr + 1 + (uint32_t) Settings.numSeaStepsInWrongBranch ; InstrCounter.IncReal())
         {
             EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, Settings);
         }
+        InstrCounter.DecReal();
         InstrCounter.branchPredictionRecursionDepth--;
         #ifdef J_DEBUG
         std::cout << "end of the wrong branch" << std::endl;
         #endif
     }else{
-        execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+        execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
     }
     
     u32 PSR_value = 0;
@@ -384,16 +401,16 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                 uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (4 << ID_OFFSET) | (1 << ThreadSimulation.TestTransitional);
 
                 //normal probe Rd
-                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(RegNr), InstrNr, SimulationIdx, DestinationRegisterValue, RegNr);
+                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(RegNr), InstrCounter, SimulationIdx, DestinationRegisterValue, RegNr);
 
                 //normal probe PC
                 if(SeperatePCUpdate){
-                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PC), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PC), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), InstrNr, SimulationIdx, PCRegisterValue, Register::PC);
+                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PC), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PC), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), InstrCounter, SimulationIdx, PCRegisterValue, Register::PC);
                 }
 
                 //normal probe PSR
                 if(m_psr_updated){
-                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PSR), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PSR), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), InstrNr, SimulationIdx, PSR_value, Register::PSR);
+                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PSR), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PSR), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), InstrCounter, SimulationIdx, PSR_value, Register::PSR);
                 }
 
                 //horizontal probe Rd
@@ -610,17 +627,17 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                 uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (4 << ID_OFFSET) | (1 << ThreadSimulation.TestTransitional);
 
                 //normal probe RdLo
-                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(low_RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(low_RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), InstrNr, SimulationIdx, low_DestinationRegisterValue, low_RegNr);
+                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(low_RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(low_RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), InstrCounter, SimulationIdx, low_DestinationRegisterValue, low_RegNr);
 
                 //normal probe RdHi
-                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(high_RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(high_RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), InstrNr, SimulationIdx, high_DestinationRegisterValue, high_RegNr);
+                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(high_RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(high_RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), InstrCounter, SimulationIdx, high_DestinationRegisterValue, high_RegNr);
 
                 //normal probe PC
-                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PC), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PC), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), InstrNr, SimulationIdx, PCRegisterValue, Register::PC);
+                Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PC), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PC), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), InstrCounter, SimulationIdx, PCRegisterValue, Register::PC);
 
                 //normal probe PSR
                 if(m_psr_updated){
-                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PSR), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PSR), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), InstrNr, SimulationIdx, PSR_value, Register::PSR);
+                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(Register::PSR), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(Register::PSR), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), InstrCounter, SimulationIdx, PSR_value, Register::PSR);
                 }
 
                 //horizontal probe RdLo

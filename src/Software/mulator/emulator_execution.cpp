@@ -201,8 +201,9 @@ void Emulator::check_shadow_register_constraints(uint32_t& next_shadow_register_
     SwapEndian(next_shadow_register_value);
 }
 
-bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, bool InTestClockCycles, bool& MemoryOperation, const int InstrNr, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues)
+bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, bool InTestClockCycles, bool& MemoryOperation, mulator::InstructionCounter& InstructionCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues)
 {
+    const int InstrNr = InstructionCounter.Real();
     m_psr_updated             = false;
     bool instruction_executed = false;
     bool increment_pc         = true;
@@ -1432,7 +1433,7 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
                     uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (4 << ID_OFFSET) | (1 << ThreadSimulation.TestTransitional);
 
                     //normal probe Rd
-                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(RegNr), InstrNr, SimulationIdx, DestinationRegisterValue, RegNr);
+                    Software::Probing::CreateNormalProbe(Helper.NormalProbesIncluded.at(RegNr), ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeValues.at(RegNr), ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestClockCycle.at(RegNr), InstructionCounter, SimulationIdx, DestinationRegisterValue, RegNr);
                 }
 
                 //horizontal probes

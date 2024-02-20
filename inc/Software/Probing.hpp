@@ -70,12 +70,12 @@ namespace Software
          * @param ProbeIndex index of probe in list of standard probes where new probe will be inserted
          * @param ProbeInfo probe information of ProbesStruct that will be filled
          * @param RegisterTransitionCycle transition cycle of register
-         * @param InstrNr instruction number when probe was generated
+         * @param InstrCounter J_TODO: instruction number when probe was generated
          * @param SimulationIdx current simulation number
          * @param DestinationRegisterValue value of probed destination register
          * @param RegNr Number of Register that is probed
          */
-        void CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegister, std::vector<Software::ProbesStruct>& StandardProbes, std::vector<std::vector<uint8_t>>& ProbeValueRegister, uint32_t& ProbeIndex, uint64_t& ProbeInfo, uint32_t RegisterTransitionCycle, uint32_t InstrNr, uint64_t SimulationIdx, uint32_t DestinationRegisterValue, uint8_t RegNr);
+        void CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegister, std::vector<Software::ProbesStruct>& StandardProbes, std::vector<std::vector<uint8_t>>& ProbeValueRegister, uint32_t& ProbeIndex, uint64_t& ProbeInfo, uint32_t RegisterTransitionCycle, mulator::InstructionCounter& InstrCounter, uint64_t SimulationIdx, uint32_t DestinationRegisterValue, uint8_t RegNr);
         
         /**
          * @brief Create a Horizontal Probe 
@@ -333,6 +333,25 @@ namespace Software
          * @param ProbeFromProbingSet probe to extract the dependency information
          */
         void ExtractExtensionSizeProbeInfo(uint16_t& ExtensionSize, Software::ProbesStruct& ProbeFromProbingSet);
+
+        /**
+         * @brief TODO
+         * 
+         * @param InMisprediction 
+         * @param ProbeFromProbingSet 
+         */
+        void ExtractInMispredictionProbeInfo(bool& InMisprediction, Software::ProbesStruct& ProbeFromProbingSet);
+
+        /**
+         * @brief TODO
+         * 
+         * @param LogicalCycle 
+         * @param ProbeFromProbingSet 
+         */
+        void ExtractLogicalCycleProbeInfo(uint32_t& LogicalCycle, Software::ProbesStruct& ProbeFromProbingSet);
+
+
+
 
         void FillHigherOrderRedundantCases(std::vector<std::vector<uint32_t>>&);
         void RedundancyNormalProbe(std::vector<std::vector<uint32_t>>&);

@@ -63,12 +63,15 @@ namespace mulator
         InstructionCounter(uint32_t);
         uint32_t IncLogical();
         uint32_t IncReal();
+        uint32_t DecReal();
         uint32_t Logical();
         uint32_t Real();
+        uint32_t Offset();
         int branchPredictionRecursionDepth = 0;
         private:
         uint32_t logical;
         uint32_t real;
+        uint32_t offset;
     };
 
     class Emulator
@@ -224,7 +227,7 @@ namespace mulator
 
         Condition pop_IT_condition();
         
-        bool execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimulationStruct& , ::Software::ProbeTrackingStruct& , ::Software::HelperStruct&, bool, bool&, const int, const uint64_t, const uint32_t, const uint32_t,  std::vector<std::vector<std::vector<uint8_t>>>&);
+        bool execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimulationStruct& , ::Software::ProbeTrackingStruct& , ::Software::HelperStruct&, bool, bool&, mulator::InstructionCounter&, const uint64_t, const uint32_t, const uint32_t,  std::vector<std::vector<std::vector<uint8_t>>>&);
         void check_shadow_register_constraints(uint32_t& next_shadow_register_value, Software::ThreadSimulationStruct& ThreadSimulation, uint32_t address, uint8_t byte);      
 
         bool execute(const Instruction& instr, uint32_t randomness_start_addr, uint32_t randomness_end_addr);
