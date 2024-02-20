@@ -44,7 +44,7 @@ no_of_test_clock_cycles % number of blocks to define clock cycles which should b
 1-30 %11520    % clock cycles 4, 5, 6 14122
 
 no_of_simulations % total number of simulations (traces) in the tests, should be a factor of 64
-4096 %100000000
+1280 %100000000
 
 no_of_step_simulations % number of simulations in each step, should be a factor of 64, and a divisor of no_of_simulations
 64 %1000000
@@ -68,15 +68,21 @@ probes_include   % those wires which should be included for probing (all : to in
 all
 
 probes_exclude   % those wires which should be exclused for probing (all : to exclude them all, 0 : to exclude none, e.g., 2 : to exclude two and name them) 
-2
+7
 
+VR
+FULLHR
 FULLVR
+HR
+MEM
+MEMSHADOW
 PF
 
-%VR
-%FULLHR
-%FULLVR
-%HR
-%MEM
-%MEMSHADOW
-%PF
+enable_sea
+yes
+
+no_of_steps_in_wrong_sea
+3
+
+max_recursion_depth_in_sea
+1

@@ -2052,6 +2052,62 @@ void Software::Read::SettingsFile(char* InputSettingsFileName, Software::Setting
 
 			SettingsFileCheckList |= (1 << 17);
 		}
+		else if (!strcmp(Str1, "enable_sea"))
+		{
+			ReadNonCommentFromFile(SettingsFile, Str1, "%");
+			if (!strcmp(Str1, "no"))
+				Settings->enableSpeculativeExecutionAwareness = false;
+			else if (!strcmp(Str1, "yes"))
+				Settings->enableSpeculativeExecutionAwareness = true;
+			else
+			{
+				fclose(SettingsFile);
+				free(Str1);
+				free(Str2);
+				free(Str3);
+                throw std::runtime_error("Given value for \"enable_sea\" is not valid, can be only no or yes!");
+			}
+
+			SettingsFileCheckList |= (1 << 19);
+		}
+		else if (!strcmp(Str1, "no_of_steps_in_wrong_sea"))
+		{
+			ReadNonCommentFromFile(SettingsFile, Str1, "%");
+			templl = strtoll(Str1, &tmptr, 10);
+			if ((*tmptr) || (templl < 0))
+			{
+				ErrorMessage = "config file: given value for no_of_steps_in_wrong_sea is not valid, should be greater or equal zero";
+				fclose(SettingsFile);
+				free(Str1);
+				free(Str2);
+				free(Str3);
+				free(Str4);
+				throw std::runtime_error(ErrorMessage);
+			}
+
+			Settings->numSeaStepsInWrongBranch= templl;
+			
+			SettingsFileCheckList |= (1 << 20);
+		}
+		else if (!strcmp(Str1, "max_recursion_depth_in_sea"))
+		{
+			ReadNonCommentFromFile(SettingsFile, Str1, "%");
+			templl = strtoll(Str1, &tmptr, 10);
+			if ((*tmptr) || (templl < 0))
+			{
+				ErrorMessage = "config file: given value for max_recursion_depth_in_sea is not valid, should be greater or equal zero";
+				fclose(SettingsFile);
+				free(Str1);
+				free(Str2);
+				free(Str3);
+				free(Str4);
+				throw std::runtime_error(ErrorMessage);
+			}
+
+			Settings->maxSeaRecursionDepth = templl;
+			
+			SettingsFileCheckList |= (1 << 21);
+		}
 
 		else if ((strlen(Str1) > 0) && (Str1[0] != '%'))
 		{
@@ -2064,6 +2120,8 @@ void Software::Read::SettingsFile(char* InputSettingsFileName, Software::Setting
 				free(Str4);
 				throw std::runtime_error(ErrorMessage);
 		}
+
+
     } while (!feof(SettingsFile));
 
     fclose(SettingsFile);
@@ -2072,7 +2130,7 @@ void Software::Read::SettingsFile(char* InputSettingsFileName, Software::Setting
 	free(Str3);
 	free(Str4);
 
-    if ((SettingsFileCheckList & ((1 << 19) - 1)) != ((1 << 19) - 1))
+    if ((SettingsFileCheckList & ((1 << 22) - 1)) != ((1 << 22) - 1))
     {
         printf("config file: all required information are not given\n");
 
@@ -2139,6 +2197,24 @@ void Software::Read::SettingsFile(char* InputSettingsFileName, Software::Setting
 	{
 		Settings->Max_No_ReportEntries = 10;
 		printf("\ndefault \"no_of_entries_in_report\" = 10 is taken\n");
+	}
+
+	if (!(SettingsFileCheckList & (1 << 19)))
+	{
+		Settings->enableSpeculativeExecutionAwareness = false;
+		printf("\ndefault \"enable_sea\" = no is taken\n");
+	}
+	
+	if(Settings->enableSpeculativeExecutionAwareness){
+		if (!(SettingsFileCheckList & (1 << 20)))
+			throw std::runtime_error("\"no_of_steps_in_wrong_sea\" is not given\n");
+		if (!(SettingsFileCheckList & (1 << 21)))
+			throw std::runtime_error("\"max_recursion_depth_in_sea\" is not given\n");
+	}else{
+		if ((SettingsFileCheckList & (1 << 20)))
+			printf("\nwarning: \"no_of_steps_in_wrong_sea\" is set but \"enable_sea\" is \"no\"\n");
+		if ((SettingsFileCheckList & (1 << 21)))
+			printf("\nwarning: \"max_recursion_depth_in_sea\" is set but \"enable_sea\" is \"no\"\n");
 	}
 
 }

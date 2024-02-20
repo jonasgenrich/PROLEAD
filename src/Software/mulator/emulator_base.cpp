@@ -215,18 +215,6 @@ InstructionCounter::InstructionCounter(uint32_t l)
     real = l;
 }
 
-void InstructionCounter::Set(uint32_t l)
-{
-    logical = l;
-    real = l;
-}
-
-void InstructionCounter::Set(uint32_t l, uint32_t r)
-{
-    logical = l;
-    real = r;
-}
-
 uint32_t InstructionCounter::IncLogical()
 {
     logical++;
@@ -251,7 +239,7 @@ uint32_t InstructionCounter::Real()
 }
 
 
-void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, int branchPredictionRecursionDepth){
+void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, Software::SettingsStruct& Settings){
     const int InstrNr = InstrCounter.Real();
     bool MemoryOperation = false;
     
@@ -297,9 +285,8 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         InTestClockCycles = true;
     }
 
-    #ifdef J_BRANCH // erster Entwurf um "der falschen Branch zu folgen"
-    bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
-    if (!alwaysExecuted && instr.name == Mnemonic::B && branchPredictionRecursionDepth < J_MAX_BP_RECURSION_DEPTH ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
+    // bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
+    if (Settings.enableSpeculativeExecutionAwareness && instr.name == Mnemonic::B && InstrCounter.branchPredictionRecursionDepth < Settings.maxSeaRecursionDepth ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
     {
         Emulator EmuClone(*this);
 
@@ -317,19 +304,18 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         }
         // copy ProbeTracker:
         ::Software::ProbeTrackingStruct ProbeTrackerFalseBranch(ProbeTracker);
-        for( ; InstrCounter.Real() < InstrNr + (uint32_t) 3 ; InstrCounter.IncReal())
+        InstrCounter.branchPredictionRecursionDepth++;
+        for( ; InstrCounter.Real() < InstrNr + (uint32_t) Settings.numSeaStepsInWrongBranch ; InstrCounter.IncReal())
         {
-            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, branchPredictionRecursionDepth + 1);
+            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, Settings);
         }
+        InstrCounter.branchPredictionRecursionDepth--;
         #ifdef J_DEBUG
         std::cout << "end of the wrong branch" << std::endl;
         #endif
     }else{
         execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
     }
-    #else
-    execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrNr, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
-    #endif
     
     u32 PSR_value = 0;
     if (m_psr_updated)
