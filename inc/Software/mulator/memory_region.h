@@ -26,6 +26,7 @@ namespace mulator
         {
             return bytes + (address - offset);
         }
+        bool dirty = true;
     };
 
 }

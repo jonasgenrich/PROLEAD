@@ -25,6 +25,7 @@
 // #define DEBUG
 // #define J_DEBUG
 // #define J_SINGLE_ROUND
+#define J_COPY_ON_WRITE
 
 namespace mulator
 {

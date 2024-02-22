@@ -34,13 +34,24 @@ Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()),
 
     m_return_code = other.m_return_code;
 
+    #ifdef J_COPY_ON_WRITE
+    m_flash       = other.m_flash;
+    m_flash.dirty = false;
+    #else
     m_flash       = other.m_flash;
     m_flash.bytes = new u8[m_flash.size];
     std::memcpy(m_flash.bytes, other.m_flash.bytes, m_flash.size);
+    #endif
 
+    #ifdef J_COPY_ON_WRITE
+    m_ram       = other.m_ram;
+    m_ram.dirty = false;
+    #else
     m_ram       = other.m_ram;
     m_ram.bytes = new u8[m_ram.size];
     std::memcpy(m_ram.bytes, other.m_ram.bytes, m_ram.size);
+    #endif
+
 
     m_pipeline_cpu_states = other.m_pipeline_cpu_states;
     m_pipeline_stages = other.m_pipeline_stages;
@@ -52,8 +63,15 @@ Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()),
 
 Emulator::~Emulator()
 {
+    #ifdef J_COPY_ON_WRITE
+    if( m_ram.dirty )
+        delete[] m_ram.bytes;
+    if( m_flash.dirty )
+        delete[] m_flash.bytes;
+    #else
     delete[] m_ram.bytes;
     delete[] m_flash.bytes;
+    #endif
 }
 
 InstructionDecoder Emulator::get_decoder() const
@@ -68,10 +86,17 @@ Architecture Emulator::get_architecture() const
 
 void Emulator::set_flash_region(u32 offset, u32 size)
 {
+    #ifdef J_COPY_ON_WRITE
+    if (m_flash.bytes != nullptr && m_flash.dirty)
+    {
+        delete[] m_flash.bytes;
+    }
+    #else
     if (m_flash.bytes != nullptr)
     {
         delete[] m_flash.bytes;
     }
+    #endif
 
     m_flash.offset         = offset;
     m_flash.size           = size;
@@ -189,6 +214,40 @@ void Emulator::read_memory(u32 address, u8* buffer, u32 len) const
 
 void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
 {
+    #ifdef J_COPY_ON_WRITE
+    if (m_flash.contains(dst_address, len))
+    {
+        if(m_flash.dirty)
+        {
+            std::memcpy(m_flash.get(dst_address), buffer, len);
+        }else
+        {
+            u8* tmp_ptr = m_flash.bytes;
+            m_flash.bytes = new u8[m_flash.size];
+            std::memcpy(m_flash.bytes, tmp_ptr, m_flash.size);
+            m_flash.dirty = true;
+            std::memcpy(m_flash.get(dst_address), buffer, len);
+        }
+    }
+    else if (m_ram.contains(dst_address, len))
+    {
+        if(m_ram.dirty)
+        {
+            std::memcpy(m_ram.get(dst_address), buffer, len);
+        }else
+        {
+            u8* tmp_ptr = m_ram.bytes;
+            m_ram.bytes = new u8[m_ram.size];
+            std::memcpy(m_ram.bytes, tmp_ptr, m_ram.size);
+            m_ram.dirty = true;
+            std::memcpy(m_ram.get(dst_address), buffer, len);
+        }
+    }
+    else
+    {
+        throw std::runtime_error("INVALID_MEMORY_ACCESS");
+    }
+    #else
     if (m_flash.contains(dst_address, len))
     {
         std::memcpy(m_flash.get(dst_address), buffer, len);
@@ -201,6 +260,7 @@ void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
     {
         throw std::runtime_error("INVALID_MEMORY_ACCESS");
     }
+    #endif
 }
 
 InstructionCounter::InstructionCounter()
