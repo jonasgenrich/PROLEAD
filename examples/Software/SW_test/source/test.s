@@ -8,7 +8,7 @@
 .type   test, %function;
 
 test:
-    b testE
+    b testF
 nop
 nop
 nop
@@ -108,6 +108,28 @@ testE: // test(input_s0_local, input_s1_local)
     b skipE
     eor r2, r3
     skipE:
+
+    pop {r4-r11,lr}
+    bx lr
+nop
+nop
+nop
+nop
+nop
+
+
+testF: // test(input_s0_local, input_s1_local)
+    push {r4-r11,lr}
+    mov r2, #0
+    mov r3, #0
+
+    b skipF
+    ldr r2, [r1]
+    nop
+    b skipF
+    ldr r3, [r0]
+    skipF:
+    eor r2, r3
 
     pop {r4-r11,lr}
     bx lr
