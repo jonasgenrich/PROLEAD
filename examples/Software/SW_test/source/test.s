@@ -8,7 +8,7 @@
 .type   test, %function;
 
 test:
-    b testF
+    b testA
 nop
 nop
 nop
@@ -20,13 +20,11 @@ testA: // test(input_s0_local, input_s1_local)
     mov r2, #0
     mov r3, #0
 
-    ldr r2, [r0]
-    mov r3, #1
-    cmp r3, #1
-    beq skipA
     ldr r2, [r1]
+    ldr r3, [r0]
+    b skipA
+    eor r2, r3
     skipA:
-    
     pop {r4-r11,lr}
     bx lr
 nop
@@ -40,15 +38,12 @@ testB: // test(input_s0_local, input_s1_local)
     mov r2, #0
     mov r3, #0
 
+    ldr r2, [r0]
     mov r3, #1
     cmp r3, #1
     beq skipB
     ldr r2, [r1]
-    nop
-    nop
-    nop
     skipB:
-    ldr r2, [r0]
     
     pop {r4-r11,lr}
     bx lr
@@ -66,9 +61,10 @@ testC: // test(input_s0_local, input_s1_local)
     mov r3, #1
     cmp r3, #1
     beq skipC
-    ldr r2, [r1, #4]
     ldr r2, [r1]
-    mov r2, #0
+    nop
+    nop
+    nop
     skipC:
     ldr r2, [r0]
     
@@ -85,11 +81,15 @@ testD: // test(input_s0_local, input_s1_local)
     mov r2, #0
     mov r3, #0
 
-    b skipD
+    mov r3, #1
+    cmp r3, #1
+    beq skipD
+    ldr r2, [r1, #4]
     ldr r2, [r1]
+    mov r2, #0
     skipD:
     ldr r2, [r0]
-
+    
     pop {r4-r11,lr}
     bx lr
 nop
@@ -103,11 +103,10 @@ testE: // test(input_s0_local, input_s1_local)
     mov r2, #0
     mov r3, #0
 
-    ldr r2, [r1]
-    ldr r3, [r0]
     b skipE
-    eor r2, r3
+    ldr r2, [r1]
     skipE:
+    ldr r2, [r0]
 
     pop {r4-r11,lr}
     bx lr
@@ -118,6 +117,8 @@ nop
 nop
 
 
+
+
 testF: // test(input_s0_local, input_s1_local)
     push {r4-r11,lr}
     mov r2, #0
@@ -125,11 +126,60 @@ testF: // test(input_s0_local, input_s1_local)
 
     b skipF
     ldr r2, [r1]
-    nop
     b skipF
     ldr r3, [r0]
     skipF:
     eor r2, r3
+
+    pop {r4-r11,lr}
+    bx lr
+nop
+nop
+nop
+nop
+nop
+
+testG: // test(input_s0_local, input_s1_local)
+    push {r4-r11,lr}
+    mov r2, #0
+    mov r3, #0
+
+    ldr r2, [r1]
+    b skipG
+    ldr r3, [r0]
+    skipG:
+    eor r2, r3
+
+    pop {r4-r11,lr}
+    bx lr
+nop
+nop
+nop
+nop
+nop
+
+testH: // test(input_s0_local, input_s1_local)
+    push {r4-r11,lr}
+    mov r2, #0
+    mov r3, #0
+
+    mov r4, #1
+    cmp r4, #1
+    bne skipH // not taken
+    skipH_:
+    ldr r2, [r1]
+    ldr r3, [r0]
+    eor r2, r3
+    //b skipHH
+    nop
+    skipH:
+    b skipH_
+    
+    skipHH:
+    nop
+    nop
+    nop
+    nop
 
     pop {r4-r11,lr}
     bx lr
