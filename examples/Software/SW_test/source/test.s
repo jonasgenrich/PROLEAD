@@ -8,7 +8,12 @@
 .type   test, %function;
 
 test:
-    b testB
+    b testE
+nop
+nop
+nop
+nop
+nop
 
 testA: // test(input_s0_local, input_s1_local)
     push {r4-r11,lr}
@@ -21,12 +26,14 @@ testA: // test(input_s0_local, input_s1_local)
     beq skipA
     ldr r2, [r1]
     skipA:
-    mov r3, #123
-    eor r2, r3
-    mov r0, r3
     
     pop {r4-r11,lr}
     bx lr
+nop
+nop
+nop
+nop
+nop
 
 testB: // test(input_s0_local, input_s1_local)
     push {r4-r11,lr}
@@ -42,12 +49,14 @@ testB: // test(input_s0_local, input_s1_local)
     nop
     skipB:
     ldr r2, [r0]
-    mov r3, #123
-    eor r2, r3
-    mov r0, r3
     
     pop {r4-r11,lr}
     bx lr
+nop
+nop
+nop
+nop
+nop
 
 testC: // test(input_s0_local, input_s1_local)
     push {r4-r11,lr}
@@ -57,36 +66,53 @@ testC: // test(input_s0_local, input_s1_local)
     mov r3, #1
     cmp r3, #1
     beq skipC
+    ldr r2, [r1, #4]
     ldr r2, [r1]
-    //mov r2, #0
-    nop
-    nop
-    nop
+    mov r2, #0
     skipC:
     ldr r2, [r0]
-    mov r3, #123
-    eor r2, r3
-    mov r0, r3
     
     pop {r4-r11,lr}
     bx lr
+nop
+nop
+nop
+nop
+nop
 
 testD: // test(input_s0_local, input_s1_local)
     push {r4-r11,lr}
     mov r2, #0
     mov r3, #0
 
-    mov r3, #1
-    cmp r3, #1
-    beq skipD
-    ldr r2, [r1, #4]
+    b skipD
     ldr r2, [r1]
-    mov r2, #0
     skipD:
     ldr r2, [r0]
-    mov r3, #123
-    eor r2, r3
-    mov r0, r3
-    
+
     pop {r4-r11,lr}
     bx lr
+nop
+nop
+nop
+nop
+nop
+
+testE: // test(input_s0_local, input_s1_local)
+    push {r4-r11,lr}
+    mov r2, #0
+    mov r3, #0
+
+    ldr r2, [r1]
+    ldr r3, [r0]
+    b skipE
+    eor r2, r3
+    skipE:
+
+    pop {r4-r11,lr}
+    bx lr
+nop
+nop
+nop
+nop
+nop
