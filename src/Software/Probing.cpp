@@ -8,11 +8,11 @@ void Software::Probing::CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegi
 	for(const auto& BitIdx: NormalProbesRegister){
         StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo | (RegNr << REG1_OFFSET) | (BitIdx << BIT_OFFSET));
         StandardProbes.at(ProbeIndex).TransitionCycles = RegisterTransitionCycle;
-		if (InstrCounter.branchPredictionRecursionDepth)
+		if (InstrCounter.branchPredictionRecursionDepth > 0)
 		{
 			StandardProbes.at(ProbeIndex).InMisprediction = true;
-			StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
 		}
+		StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
         ProbeValueRegister.at(BitIdx).at(InstrNr) |= (((DestinationRegisterValue >> BitIdx) & 1) << (SimulationIdx & 0x7));
         ProbeIndex++;
     }

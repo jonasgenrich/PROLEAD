@@ -80,10 +80,10 @@ void Software::Print::SoftwareMaximumProbingSet(uint32_t TestOrder, ::Software::
 				case 4:
 					if(InMisprediction)
 					{
-						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ") in misprediction logicalCycle: " + std::to_string(LogicalCycle);
+						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction";
 					}else
 					{
-						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")";
+						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")";
 					}
 					break;
 				case 5: ProbingSet += "HR" + std::to_string(RegisterNumber) + "(" + std::to_string(Cycle) + ")";break;
