@@ -30,27 +30,21 @@ Emulator::Emulator(Architecture arch, boost::variate_generator<boost::mt19937&, 
 
 Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()), m_prolead_prng{other.m_prolead_prng}
 {
+    #ifdef J_DEBUG
+    std::cout << "clone Emulator" << std::endl;
+    #endif
+
     m_memory_shadow_register = 0;
 
     m_return_code = other.m_return_code;
 
-    #ifdef J_COPY_ON_WRITE
-    m_flash       = other.m_flash;
-    m_flash.dirty = false;
-    #else
     m_flash       = other.m_flash;
     m_flash.bytes = new u8[m_flash.size];
     std::memcpy(m_flash.bytes, other.m_flash.bytes, m_flash.size);
-    #endif
 
-    #ifdef J_COPY_ON_WRITE
-    m_ram       = other.m_ram;
-    m_ram.dirty = false;
-    #else
     m_ram       = other.m_ram;
     m_ram.bytes = new u8[m_ram.size];
     std::memcpy(m_ram.bytes, other.m_ram.bytes, m_ram.size);
-    #endif
 
 
     m_pipeline_cpu_states = other.m_pipeline_cpu_states;
@@ -60,6 +54,53 @@ Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()),
     m_emulated_time = other.m_emulated_time;
 
 }
+
+#ifdef J_COPY_ON_WRITE
+Emulator::Emulator(const Emulator& other, bool copy_on_write) : m_decoder(other.get_architecture()), m_prolead_prng{other.m_prolead_prng}
+{
+    #ifdef J_DEBUG
+    std::cout << "clone Emulator (in copy on write)";
+    #ifdef J_COPY_ON_WRITE
+    if(copy_on_write)
+        std::cout << " with copy on write";
+    #endif
+    std::cout << std::endl;
+    #endif
+
+    m_memory_shadow_register = 0;
+
+    m_return_code = other.m_return_code;
+
+    if(copy_on_write)
+    {
+        m_flash       = other.m_flash; // shallow copy, u8* bytes still points to the memory of the other.m_flash
+        m_flash.dirty = false;
+    }else
+    {
+        m_flash       = other.m_flash;
+        m_flash.bytes = new u8[m_flash.size];
+        std::memcpy(m_flash.bytes, other.m_flash.bytes, m_flash.size);
+    }
+
+    if(copy_on_write)
+    {
+        m_ram       = other.m_ram; // shallow copy, u8* bytes still points to the memory of the other.m_ram
+        m_ram.dirty = false;
+    }else
+    {
+        m_ram       = other.m_ram;
+        m_ram.bytes = new u8[m_ram.size];
+        std::memcpy(m_ram.bytes, other.m_ram.bytes, m_ram.size);
+    }
+
+
+    m_pipeline_cpu_states = other.m_pipeline_cpu_states;
+    m_pipeline_stages = other.m_pipeline_stages;
+
+    m_cpu_state     = other.m_cpu_state;
+    m_emulated_time = other.m_emulated_time;
+}
+#endif
 
 Emulator::~Emulator()
 {
@@ -222,6 +263,9 @@ void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
             std::memcpy(m_flash.get(dst_address), buffer, len);
         }else
         {
+            #ifdef J_DEBUG
+            std::cout << "copy m_flash in write_memory" << std::endl;
+            #endif
             u8* tmp_ptr = m_flash.bytes;
             m_flash.bytes = new u8[m_flash.size];
             std::memcpy(m_flash.bytes, tmp_ptr, m_flash.size);
@@ -236,6 +280,9 @@ void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
             std::memcpy(m_ram.get(dst_address), buffer, len);
         }else
         {
+            #ifdef J_DEBUG
+            std::cout << "copy m_ram in write_memory" << std::endl;
+            #endif
             u8* tmp_ptr = m_ram.bytes;
             m_ram.bytes = new u8[m_ram.size];
             std::memcpy(m_ram.bytes, tmp_ptr, m_ram.size);
@@ -363,7 +410,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     // bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
     if (Settings.enableSpeculativeExecutionAwareness && instr.name == Mnemonic::B && InstrCounter.branchPredictionRecursionDepth < Settings.maxSeaRecursionDepth ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
     {
+        #ifdef J_COPY_ON_WRITE
+        Emulator EmuClone(*this, true);
+        #else
         Emulator EmuClone(*this);
+        #endif
 
         bool branchTaken = execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
 
@@ -1491,10 +1542,34 @@ void Emulator::write_memory_internal(u32 address, u32 value, u8 bytes)
 
     if (m_ram.contains(address, bytes))
     {
+        #ifdef J_COPY_ON_WRITE
+        if(!m_ram.dirty)
+        {
+            #ifdef J_DEBUG
+            std::cout << "copy m_ram in write_memory_internal" << std::endl;
+            #endif
+            u8* tmp_ptr = m_ram.bytes;
+            m_ram.bytes = new u8[m_ram.size];
+            std::memcpy(m_ram.bytes, tmp_ptr, m_ram.size);
+            m_ram.dirty = true;
+        }
+        #endif
         mem = &m_ram;
     }
     else if (m_flash.contains(address, bytes))
     {
+        #ifdef J_COPY_ON_WRITE
+        if(!m_flash.dirty)
+        {
+            #ifdef J_DEBUG
+            std::cout << "copy m_flash in write_memory_internal" << std::endl;
+            #endif
+            u8* tmp_ptr = m_flash.bytes;
+            m_flash.bytes = new u8[m_flash.size];
+            std::memcpy(m_flash.bytes, tmp_ptr, m_flash.size);
+            m_flash.dirty = true;
+        }
+        #endif        
         mem = &m_flash;
     }
 
