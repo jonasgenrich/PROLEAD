@@ -30,10 +30,6 @@ Emulator::Emulator(Architecture arch, boost::variate_generator<boost::mt19937&, 
 
 Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()), m_prolead_prng{other.m_prolead_prng}
 {
-    #ifdef J_DEBUG
-    std::cout << "clone Emulator" << std::endl;
-    #endif
-
     m_memory_shadow_register = 0;
 
     m_return_code = other.m_return_code;
@@ -58,14 +54,6 @@ Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()),
 #ifdef J_COPY_ON_WRITE
 Emulator::Emulator(const Emulator& other, bool copy_on_write) : m_decoder(other.get_architecture()), m_prolead_prng{other.m_prolead_prng}
 {
-    #ifdef J_DEBUG
-    std::cout << "clone Emulator (in copy on write)";
-    #ifdef J_COPY_ON_WRITE
-    if(copy_on_write)
-        std::cout << " with copy on write";
-    #endif
-    std::cout << std::endl;
-    #endif
 
     m_memory_shadow_register = 0;
 
@@ -323,6 +311,13 @@ InstructionCounter::InstructionCounter(uint32_t l)
     real = l;
 }
 
+InstructionCounter::InstructionCounter(const InstructionCounter& ic)
+{
+    logical = ic.logical;
+    real = ic.real;
+    offset = ic.offset;
+}
+
 uint32_t InstructionCounter::IncLogical()
 {
     logical++;
@@ -360,7 +355,15 @@ uint32_t InstructionCounter::Offset()
     return offset;
 }
 
-void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, Software::SettingsStruct& Settings){
+void InstructionCounter::Update(InstructionCounter& ic)
+{
+    real = ic.Real();
+    logical = ic.Logical();
+    offset = ic.Offset();
+
+}
+
+void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, Software::SettingsStruct& Settings, bool invertCondition){
     const int InstrNr = InstrCounter.Real();
     bool MemoryOperation = false;
     
@@ -384,6 +387,9 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     if (m_return_code != ReturnCode::OK)
     {
+        #ifdef J_DEBUG
+        std::cout << "return - ReturnCode: " << to_string(m_return_code) << std::endl; 
+        #endif
         return;
     }
 
@@ -407,41 +413,77 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         InTestClockCycles = true;
     }
 
-    // bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
-    if (Settings.enableSpeculativeExecutionAwareness && instr.name == Mnemonic::B && InstrCounter.branchPredictionRecursionDepth < Settings.maxSeaRecursionDepth ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
+    bool skipInstruction = false;
+    if( invertCondition )
     {
+        #ifdef J_DEBUG
+        std::cout << "invertCondition - before: " << instr.condition;
+        #endif
+        bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
+        if( alwaysExecuted )
+        {
+            #ifdef J_DEBUG
+            std::cout << " alwaysExecuted - instruction is skiped" << std::endl;
+            #endif
+            skipInstruction = true;
+        }else
+        {
+            instr.condition = static_cast<mulator::Condition>(instr.condition ^ 1); // invert the condition
+            #ifdef J_DEBUG
+            std::cout << " after: " << instr.condition << std::endl;
+            #endif
+        }   
+    }
+
+    bool branchIntoMisprediction = false;
+    InstructionCounter* InstrCounterClone = nullptr;
+    if ( !invertCondition && Settings.enableSpeculativeExecutionAwareness && InstrCounter.branchPredictionRecursionDepth < Settings.maxSeaRecursionDepth &&
+         ( instr.name == Mnemonic::B || instr.name == Mnemonic::BL )
+    ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
+    {   // if invertCondition is true this execution is heading to the "wrong" branch; the content of this is statement shout the never be executed in the same cycle 
+        branchIntoMisprediction = true;
         #ifdef J_COPY_ON_WRITE
         Emulator EmuClone(*this, true);
         #else
         Emulator EmuClone(*this);
         #endif
 
-        bool branchTaken = execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+        #ifdef J_DEBUG
+        std::cout << "############################ start of the misprediction " << std::endl;
+        std::cout << "      branchPredictionRecursionDepth: " << InstrCounter.branchPredictionRecursionDepth+1 << std::endl;
+        std::cout << "      instruction: " << to_string(instr.name) << std::endl;
+        #endif
 
-        #ifdef J_DEBUG
-        std::cout << "start of the wrong branch branchPredictionRecursionDepth: " << InstrCounter.branchPredictionRecursionDepth+1 << std::endl;
-        #endif
-        if(branchTaken)
-        {
-            EmuClone.branch_write_PC(EmuClone.read_register_internal(Register::PC) - 4 + instr.size);
-        }else
-        {
-            EmuClone.branch_write_PC(EmuClone.read_register_internal(Register::PC) + instr.imm);
-        }
-        // copy ProbeTracker:
+        
         ::Software::ProbeTrackingStruct ProbeTrackerFalseBranch(ProbeTracker);
-        InstrCounter.branchPredictionRecursionDepth++;
-        InstrCounter.IncReal();
-        for( ; InstrCounter.Real() < InstrNr + 1 + (uint32_t) Settings.numSeaStepsInWrongBranch ; InstrCounter.IncReal())
+        InstrCounterClone = new InstructionCounter(InstrCounter);
+        (*InstrCounterClone).branchPredictionRecursionDepth++;
+        // ---- execute branch with inverted condition ----
+        InstrCounterClone->IncReal(); // this is a new "real" instruction wich gets its own real instruction number so the counter needs to be increased here
+        EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, *InstrCounterClone, SimulationIdx, randomness_start_addr, randomness_end_addr, Settings, true/*this inverts the condition of the instruction*/);
+        //execute instructions on the wrong branch
+        InstrCounterClone->IncReal(); // inc so the first instruction in the loop does not get the same instruction numer as the inverted branch
+        for( uint32_t oldReal = InstrCounterClone->Real(); InstrCounterClone->Real() < oldReal + (uint32_t) Settings.numSeaStepsInWrongBranch ; InstrCounterClone->IncReal())
         {
-            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, Settings);
+            EmuClone.emulate_PROLEAD(ThreadSimulation, ProbeTrackerFalseBranch, Helper, ProbeValues, *InstrCounterClone, SimulationIdx, randomness_start_addr, randomness_end_addr, Settings);
         }
-        InstrCounter.DecReal();
-        InstrCounter.branchPredictionRecursionDepth--;
+        InstrCounterClone->DecReal(); // the correct instruction number is already incremented when this function returns. the last increment of the for loop above must be changed back.
+        //(without the decrement there would be 2 increments here)
+        (*InstrCounterClone).branchPredictionRecursionDepth--;
         #ifdef J_DEBUG
-        std::cout << "end of the wrong branch" << std::endl;
+        std::cout << "############################ end of the misprediction" << std::endl;
         #endif
-    }else{
+    }
+
+    if(!skipInstruction){
+        execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
+    }else
+    {
+        // skip instruction - replace by nop
+        instr.name = Mnemonic::NOP;
+        #ifdef J_DEBUG
+        std::cout << "instruction replaced by NOP" << std::endl;
+        #endif
         execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
     }
     
@@ -966,6 +1008,13 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
             Software::Probing::CreatePipelineForwardingProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.PipelineForwardingProbesIncluded.at(Bit), Bit, ProbeIndex, ProbeInfo, m_pipeline_stages, m_pipeline_cpu_states);
         }
     }
+
+    // if there was an branch into an misprediction the instruction counter needs to be updated
+    // after the setting of the probes for this instruction 
+    if( branchIntoMisprediction )
+        InstrCounter.Update(*InstrCounterClone);
+    if( InstrCounterClone != nullptr )
+        delete InstrCounterClone;
 
 
 

@@ -62,12 +62,14 @@ namespace mulator
         public:
         InstructionCounter();
         InstructionCounter(uint32_t);
+        InstructionCounter(const InstructionCounter&);
         uint32_t IncLogical();
         uint32_t IncReal();
         uint32_t DecReal();
         uint32_t Logical();
         uint32_t Real();
         uint32_t Offset();
+        void Update(InstructionCounter&);
         int branchPredictionRecursionDepth = 0;
         private:
         uint32_t logical;
@@ -148,7 +150,7 @@ namespace mulator
         /*
         *   Starts emulation for PROLEAD
         */
-        void emulate_PROLEAD(::Software::ThreadSimulationStruct& , ::Software::ProbeTrackingStruct&, ::Software::HelperStruct&, std::vector<std::vector<std::vector<uint8_t>>>&, mulator::InstructionCounter& , const uint64_t , const uint32_t , const uint32_t, Software::SettingsStruct& );    
+        void emulate_PROLEAD(::Software::ThreadSimulationStruct& , ::Software::ProbeTrackingStruct&, ::Software::HelperStruct&, std::vector<std::vector<std::vector<uint8_t>>>&, mulator::InstructionCounter& , const uint64_t , const uint32_t , const uint32_t, Software::SettingsStruct&, bool = false);    
         
         /*
         * Stop the ongoing emulation. Useful in hooks.
