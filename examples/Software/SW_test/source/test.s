@@ -8,7 +8,7 @@
 .type   test, %function;
 
 test:
-    b testA
+    b testCBnZ
 nop
 nop
 nop
@@ -188,3 +188,22 @@ nop
 nop
 nop
 nop
+
+testCBnZ:
+    push {r4-r11,lr}
+    // -
+    mov r4, #0
+    ldr r4, [r0]
+    mov r5, #0
+    CBNZ r5, _end_testCBnZ
+    ldr r5, [r1]
+    eor r4, r5
+    // -
+    _end_testCBnZ:
+    pop {r4-r11,lr}
+    bx lr
+    nop
+    nop
+    nop
+    nop
+    nop

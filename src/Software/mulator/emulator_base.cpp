@@ -419,26 +419,48 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         #ifdef J_DEBUG
         std::cout << "invertCondition - before: " << instr.condition;
         #endif
-        bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
-        if( alwaysExecuted )
+
+        // J_TODO: maybe a more elegant solution is needed for the case of CBZ/CBNZ instructions 
+        if( instr.name == Mnemonic::CBZ || instr.name == Mnemonic::CBNZ )
         {
-            #ifdef J_DEBUG
-            std::cout << " alwaysExecuted - instruction is skiped" << std::endl;
-            #endif
-            skipInstruction = true;
+            u32 value = read_register_internal(instr.Rn);
+            if ((instr.name == Mnemonic::CBZ && value == 0) || (instr.name == Mnemonic::CBNZ && value != 0))
+            {
+                #ifdef J_DEBUG
+                std::cout << " CBZ / CBNZ executed - instruction is skiped" << std::endl;
+                #endif
+                skipInstruction = true;
+            }else
+            {
+                #ifdef J_DEBUG
+                std::cout << " CBZ / CBNZ not executed - changing to unconditional branch" << std::endl;
+                #endif
+                instr.name = Mnemonic::B;
+                instr.condition = static_cast<mulator::Condition>( 0b1110 );
+            }
         }else
         {
-            instr.condition = static_cast<mulator::Condition>(instr.condition ^ 1); // invert the condition
-            #ifdef J_DEBUG
-            std::cout << " after: " << instr.condition << std::endl;
-            #endif
-        }   
+            bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
+            if( alwaysExecuted )
+            {
+                #ifdef J_DEBUG
+                std::cout << " alwaysExecuted - instruction is skiped" << std::endl;
+                #endif
+                skipInstruction = true;
+            }else
+            {
+                instr.condition = static_cast<mulator::Condition>(instr.condition ^ 1); // invert the condition
+                #ifdef J_DEBUG
+                std::cout << " after: " << instr.condition << std::endl;
+                #endif
+            }
+        }
     }
 
     bool branchIntoMisprediction = false;
     InstructionCounter* InstrCounterClone = nullptr;
     if ( !invertCondition && Settings.enableSpeculativeExecutionAwareness && InstrCounter.branchPredictionRecursionDepth < Settings.maxSeaRecursionDepth &&
-         ( instr.name == Mnemonic::B || instr.name == Mnemonic::BL )
+         ( instr.name == Mnemonic::B || instr.name == Mnemonic::BL || instr.name == Mnemonic::CBZ || instr.name == Mnemonic::CBNZ )
     ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
     {   // if invertCondition is true this execution is heading to the "wrong" branch; the content of this is statement shout the never be executed in the same cycle 
         branchIntoMisprediction = true;
