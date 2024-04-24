@@ -18,51 +18,81 @@ void Software::Probing::CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegi
     }
 }
 
-void Software::Probing::CreateHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t RegisterTransitionCycle, uint8_t ExtensionSize, uint32_t& ProbeIndex, uint32_t InstrNr, uint8_t RegisterNumber){
-    uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (5 << ID_OFFSET)  | (RegisterNumber << REG1_OFFSET) | ExtensionSize;
+void Software::Probing::CreateHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t RegisterTransitionCycle, uint8_t ExtensionSize, uint32_t& ProbeIndex, mulator::InstructionCounter& InstrCounter, uint8_t RegisterNumber){
+    const int InstrNr = InstrCounter.Real();
+	
+	uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (5 << ID_OFFSET)  | (RegisterNumber << REG1_OFFSET) | ExtensionSize;
     StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo);
     StandardProbes.at(ProbeIndex).TransitionCycles = RegisterTransitionCycle;
+
+	if(InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
 
     ProbeIndex++;
 
 }
 
-void Software::Probing::CreateLargeVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr){
+void Software::Probing::CreateLargeVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr, mulator::InstructionCounter& InstrCounter){
 
     StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo;
     StandardProbes.at(ProbeIndex).TransitionCycles = TransCycleRegNr | (static_cast<uint64_t>(TransCyclePartnerRegNr) << 32);
 
+	if(InstrCounter.branchPredictionRecursionDepth > 0){
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
     ProbeIndex++;
 
 }
 
-void Software::Probing::CreateSmallVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr){
+void Software::Probing::CreateSmallVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr, mulator::InstructionCounter& InstructionCounter){
 
     StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo;
     StandardProbes.at(ProbeIndex).TransitionCycles = TransCycleRegNr | (static_cast<uint64_t>(CyclePartnerRegNr) << 32);
 
+	if(InstructionCounter.branchPredictionRecursionDepth > 0){
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstructionCounter.Logical() + InstructionCounter.Offset();
+
     ProbeIndex++;
 }
 
-void Software::Probing::CreateLargeFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr){
+void Software::Probing::CreateLargeFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr, mulator::InstructionCounter& InstrCounter){
 
     StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo;
     StandardProbes.at(ProbeIndex).TransitionCycles = TransCycleRegNr | (static_cast<uint64_t>(TransCyclePartnerRegNr) << 32); //cycles of current values in ProbeTracker.RegisterLatestClockCycle, transitions in ProbeTracker.VerticalLatestClockCycle
+	
+	if(InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
 
     ProbeIndex++;
 
 }
 
-void Software::Probing::CreateSmallFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr){
+void Software::Probing::CreateSmallFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr, mulator::InstructionCounter& InstrCounter){
     StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo;
     StandardProbes.at(ProbeIndex).TransitionCycles = TransCycleRegNr | (static_cast<uint64_t>(CyclePartnerRegNr) << 32);
 
+	if(InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
     ProbeIndex++;
 
 }
 
 
-void Software::Probing::CreateLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr, uint32_t TransValuePC, uint32_t TransValuePSR){
+void Software::Probing::CreateLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr, uint32_t TransValuePC, uint32_t TransValuePSR, mulator::InstructionCounter& InstrCounter){
 	uint32_t probedValues = 0;
 	for(const auto& RegisterIndex: FullVerticalProbes){
 		probedValues |= ((RegisterValues[RegisterIndex] >> BitIdx) & 0x1) << RegisterIndex;
@@ -76,10 +106,17 @@ void Software::Probing::CreateLargeFullVerticalProbe(std::vector<Software::Probe
 	uint8_t ExtensionSize = FullVerticalProbes.size() + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), RegNr) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), 15) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), 16);
 	StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo  | (BitIdx << BIT_OFFSET) | (ExtensionSize);
 	StandardProbes.at(ProbeIndex).TransitionCycles = probedValues;
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 }
 
-void Software::Probing::CreateSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint8_t RegNr2, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueReg1, uint32_t TransValueReg2){
+void Software::Probing::CreateSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint8_t RegNr2, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueReg1, uint32_t TransValueReg2, mulator::InstructionCounter& InstrCounter){
 
 	uint32_t probedValues = 0;
 	for(const auto& RegisterIndex: FullVerticalProbes){
@@ -93,11 +130,18 @@ void Software::Probing::CreateSmallFullVerticalProbe(std::vector<Software::Probe
 	uint8_t ExtensionSize = FullVerticalProbes.size() + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), RegNr1) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), RegNr2);
 	StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo | (BitIdx << BIT_OFFSET) | (ExtensionSize);
 	StandardProbes.at(ProbeIndex).TransitionCycles = probedValues;
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 
 }
 
-void Software::Probing::CreateOneRegisterOnlyFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr){
+void Software::Probing::CreateOneRegisterOnlyFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr, mulator::InstructionCounter& InstrCounter){
 	uint32_t probedValues = 0;
 	for(const auto& RegisterIndex: FullVerticalProbes){
 		probedValues |= ((RegisterValues[RegisterIndex] >> BitIdx) & 0x1) << RegisterIndex;
@@ -109,11 +153,18 @@ void Software::Probing::CreateOneRegisterOnlyFullVerticalProbe(std::vector<Softw
 	uint8_t ExtensionSize = FullVerticalProbes.size() + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), RegNr1);
 	StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo  | (BitIdx << BIT_OFFSET) | (ExtensionSize);
 	StandardProbes.at(ProbeIndex).TransitionCycles = probedValues;
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 
 }
 
-void Software::Probing::CreateDSPLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC, uint32_t TransValuePSR){
+void Software::Probing::CreateDSPLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC, uint32_t TransValuePSR, mulator::InstructionCounter& InstrCounter){
 	uint32_t probedValues = 0;
 	for(const auto& RegisterIndex: FullVerticalProbes){
 		probedValues |= ((RegisterValues[RegisterIndex] >> BitIdx) & 0x1) << RegisterIndex;
@@ -128,10 +179,17 @@ void Software::Probing::CreateDSPLargeFullVerticalProbe(std::vector<Software::Pr
 	uint8_t ExtensionSize = FullVerticalProbes.size() + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), low_RegNr) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), high_RegNr) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), 15) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), 16);
 	StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo  | (BitIdx << BIT_OFFSET) | (ExtensionSize);
 	StandardProbes.at(ProbeIndex).TransitionCycles = probedValues;
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 }
 
-void Software::Probing::CreateDSPSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC){
+void Software::Probing::CreateDSPSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC, mulator::InstructionCounter& InstrCounter){
 	uint32_t probedValues = 0;
 	for(const auto& RegisterIndex: FullVerticalProbes){
 		probedValues |= ((RegisterValues[RegisterIndex] >> BitIdx) & 0x1) << RegisterIndex;
@@ -145,22 +203,34 @@ void Software::Probing::CreateDSPSmallFullVerticalProbe(std::vector<Software::Pr
 	uint8_t ExtensionSize = FullVerticalProbes.size() + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), low_RegNr) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), high_RegNr) + (uint8_t)std::binary_search(FullVerticalProbes.begin(), FullVerticalProbes.end(), 15);
 	StandardProbes.at(ProbeIndex).ProbeInfo = ProbeInfo  | (BitIdx << BIT_OFFSET) | (ExtensionSize);
 	StandardProbes.at(ProbeIndex).TransitionCycles = probedValues;
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 }
 
-void Software::Probing::CreateMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded,  uint64_t ProbeInfo, uint32_t& ProbeIndex, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle){
-
+void Software::Probing::CreateMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded,  uint64_t ProbeInfo, uint32_t& ProbeIndex, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle, mulator::InstructionCounter& InstrCounter){
+	bool InMisprediction = InstrCounter.branchPredictionRecursionDepth > 0;
     for(auto& BitIdx: MemoryShadowRegisterProbesIncluded){
         StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo | (BitIdx << BIT_OFFSET));
         StandardProbes.at(ProbeIndex).TransitionCycles = ((static_cast<uint64_t>(memory_shadow_register) << 32) | (next_shadow_register_value));
         StandardProbes.at(ProbeIndex).SpecialInfo = TransitionCycle;//ProbeTracker.MemoryLatestClockCycle;
+		if(InMisprediction)
+		{
+			StandardProbes.at(ProbeIndex).InMisprediction = InMisprediction;
+		}
+		StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
         ProbeIndex++;
     }
-
 }
 
 
-void Software::Probing::CreateSeperateLoadStoreMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded, uint32_t RegNr,  uint32_t InstrNr, uint32_t& ProbeIndex, uint32_t load_store_memory_shadow_register, uint32_t next_load_store_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize, uint32_t LoadStoreFlag){
+void Software::Probing::CreateSeperateLoadStoreMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded, uint32_t RegNr,  mulator::InstructionCounter& InstrCounter, uint32_t& ProbeIndex, uint32_t load_store_memory_shadow_register, uint32_t next_load_store_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize, uint32_t LoadStoreFlag){
+	uint32_t InstrNr = InstrCounter.Real();
 
 	//LoadStoreFlag == 1 -> Load
 	//LoadStoreFlag == 0 -> Store
@@ -170,20 +240,36 @@ void Software::Probing::CreateSeperateLoadStoreMemShadowProbe(std::vector<Softwa
         StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo | (BitIdx << BIT_OFFSET));
         StandardProbes.at(ProbeIndex).TransitionCycles = ((static_cast<uint64_t>(load_store_memory_shadow_register) << 32) | (next_load_store_shadow_register_value));
         StandardProbes.at(ProbeIndex).SpecialInfo = TransitionCycle;
+
+		if (InstrCounter.branchPredictionRecursionDepth > 0)
+		{
+			StandardProbes.at(ProbeIndex).InMisprediction = true;
+		}
+		StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
         ProbeIndex++;
     }
 
 }
 
-void Software::Probing::CreateHorizontalMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t InstrNr, uint32_t& ProbeIndex, uint8_t RegNr, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize){
-    uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (3 << ID_OFFSET) | (RegNr << REG1_OFFSET) | ExtensionSize;
+void Software::Probing::CreateHorizontalMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, mulator::InstructionCounter& InstrCounter, uint32_t& ProbeIndex, uint8_t RegNr, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize){
+    const int InstrNr = InstrCounter.Real();
+
+	uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << CYCLE_OFFSET) | (3 << ID_OFFSET) | (RegNr << REG1_OFFSET) | ExtensionSize;
     StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo);
     StandardProbes.at(ProbeIndex).TransitionCycles =  ((static_cast<uint64_t>(memory_shadow_register) << 32) | (next_shadow_register_value));
 	StandardProbes.at(ProbeIndex).SpecialInfo = TransitionCycle;
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 }
 
-void Software::Probing::CreatePipelineForwardingProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& PipelineForwardingProbes, uint8_t BitIdx, uint32_t& ProbeIndex, uint64_t ProbeInfo, uint32_t NrOfPipelineStages, std::vector<::mulator::CPU_State>& pipeline_cpu_states){
+void Software::Probing::CreatePipelineForwardingProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& PipelineForwardingProbes, uint8_t BitIdx, uint32_t& ProbeIndex, uint64_t ProbeInfo, uint32_t NrOfPipelineStages, std::vector<::mulator::CPU_State>& pipeline_cpu_states, mulator::InstructionCounter& InstrCounter){
 
 	
 	uint32_t bit_pos_ctr = 0;
@@ -211,6 +297,13 @@ void Software::Probing::CreatePipelineForwardingProbe(std::vector<Software::Prob
 
 
 	StandardProbes.at(ProbeIndex).ProbeInfo = (ProbeInfo | (BitIdx << BIT_OFFSET) | (bit_pos_ctr));
+
+	if (InstrCounter.branchPredictionRecursionDepth > 0)
+	{
+		StandardProbes.at(ProbeIndex).InMisprediction = true;
+	}
+	StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+
 	ProbeIndex++;
 }
 

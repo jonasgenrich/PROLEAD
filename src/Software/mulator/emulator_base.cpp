@@ -590,17 +590,17 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
                 //horizontal probe Rd
                 if(!Helper.HorizontalProbesExcluded.at(RegNr)){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(RegNr), Helper.HorizontalBitsIncluded.at(RegNr).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, RegNr);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(RegNr), Helper.HorizontalBitsIncluded.at(RegNr).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, RegNr);
                 }
 
                 //horizontal probe PC
                 if(SeperatePCUpdate && ((uint8_t)(!Helper.HorizontalProbesExcluded.at(Register::PC)))){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PC), Helper.HorizontalBitsIncluded.at(Register::PC).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, Register::PC);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PC), Helper.HorizontalBitsIncluded.at(Register::PC).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, Register::PC);
                 }
 
                 //horizontal probe PSR
                 if(m_psr_updated && ((uint8_t)(!Helper.HorizontalProbesExcluded.at(Register::PSR)))){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), Helper.HorizontalBitsIncluded.at(Register::PSR).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, Register::PSR);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), Helper.HorizontalBitsIncluded.at(Register::PSR).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, Register::PSR);
                 }
 
                 //vertical probe Rd
@@ -612,14 +612,14 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     std::tie(PartnerRegNr, BitIdx) = tup;
                     if((PartnerRegNr == Register::PC) || ((PartnerRegNr == Register::PSR) && m_psr_updated)){
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (HigherIdOccurred << DEPENDENCY_OFFSET) | (7 << ID_OFFSET) | (RegNr << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + 2 * ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         Increment_HigherId = true;
                     }
                     else{
                         HigherIdOccurred += (uint8_t)Increment_HigherId;
                         Increment_HigherId = false;
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (HigherIdOccurred << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (RegNr << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                     }
                 }
 
@@ -633,11 +633,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         }
                         else if((PartnerRegNr == Register::PSR) && m_psr_updated){
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (3 << DEPENDENCY_OFFSET) | (7 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + 2 * ThreadSimulation.TestTransitional);
-                            Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                            Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (3 << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                            Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                            Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         }
                     }
                 }
@@ -651,7 +651,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (4 << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (Register::PSR << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                            Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                            Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         }
                     }
                 }
@@ -666,12 +666,12 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     for(const auto& RegisterIndex: Helper.FULLHRProbesIncluded.at(RegNr)){
                         if((RegisterIndex == Register::PC) || ((RegisterIndex == Register::PSR) && m_psr_updated)){
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((5 + HigherIdOccurred) << DEPENDENCY_OFFSET) |  (9 << ID_OFFSET) | (RegNr << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(RegisterIndex).size() + (1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(RegNr).size());
-                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             HigherIdOccurred = 1;
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((5 + HigherIdOccurred) << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (RegNr << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | (Helper.NormalProbesIncluded.at(RegisterIndex).size() + (1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(RegNr).size());
-                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                         }
 
                     }
@@ -685,11 +685,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                             }
                             else if((RegisterIndex == Register::PSR) && m_psr_updated){
                                 ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (7 << DEPENDENCY_OFFSET) | (9 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(RegisterIndex).size() + (1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(Register::PC).size());
-                                Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                                Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             }
                             else{
                                 ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (7 << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | (Helper.NormalProbesIncluded.at(RegisterIndex).size() + (1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(Register::PC).size());
-                                Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                                Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             }
                         }
                     }
@@ -701,7 +701,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                             }
                             else{
                                 ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (8 << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (Register::PSR << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | (Helper.NormalProbesIncluded.at(RegisterIndex).size() + (1 + ThreadSimulation.TestTransitional) * Helper.NormalProbesIncluded.at(Register::PSR).size());
-                                Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                                Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             }
                         }
                     }
@@ -716,7 +716,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         uint32_t TransitionValuePC = ProbeTracker.RegisterLatestValue.at(Register::PC);
                         uint32_t TransitionValuePSR = ProbeTracker.RegisterLatestValue.at(Register::PSR);
                         for(const auto& Bit: Helper.FullVerticalRelevantBits){ 
-                            Software::Probing::CreateLargeFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, RegNr, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRegNr, TransitionValuePC, TransitionValuePSR);
+                            Software::Probing::CreateLargeFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, RegNr, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRegNr, TransitionValuePC, TransitionValuePSR, InstrCounter);
                         }
 
                     }
@@ -725,7 +725,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         uint32_t TransitionValuePSR = ProbeTracker.RegisterLatestValue.at(Register::PSR);
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (9 << DEPENDENCY_OFFSET)  | (10 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (Register::PSR << REG2_OFFSET);
                         for(const auto& Bit: Helper.FullVerticalRelevantBits){
-                            Software::Probing::CreateSmallFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, Register::PC, Register::PSR, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValuePC, TransitionValuePSR);
+                            Software::Probing::CreateSmallFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, Register::PC, Register::PSR, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValuePC, TransitionValuePSR, InstrCounter);
                         }
                     }
                     else if(!m_psr_updated && (SeperatePCUpdate)){ //Rd + PC
@@ -733,14 +733,14 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         uint32_t TransitionValuePC = ProbeTracker.RegisterLatestValue.at(Register::PC);
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (9 << DEPENDENCY_OFFSET)  | (10 << ID_OFFSET) | (RegNr << REG1_OFFSET) | (Register::PC << REG2_OFFSET);
                         for(const auto& Bit: Helper.FullVerticalRelevantBits){
-                            Software::Probing::CreateSmallFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, RegNr, Register::PC, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRegNr, TransitionValuePC);
+                            Software::Probing::CreateSmallFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, RegNr, Register::PC, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRegNr, TransitionValuePC, InstrCounter);
                         }
                     }
                     else{ //Rd
                         uint32_t TransitionValuePC = ProbeTracker.RegisterLatestValue.at(Register::PC);
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (9 << DEPENDENCY_OFFSET)  | (12 << ID_OFFSET) | (Register::PC << REG1_OFFSET);
                         for(const auto& Bit: Helper.FullVerticalRelevantBits){
-                            Software::Probing::CreateOneRegisterOnlyFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, Register::PC, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValuePC);
+                            Software::Probing::CreateOneRegisterOnlyFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, Register::PC, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValuePC, InstrCounter);
                         }
                     }
                 }
@@ -817,22 +817,22 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
                 //horizontal probe RdLo
                 if(!Helper.HorizontalProbesExcluded.at(low_RegNr)){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), Helper.HorizontalBitsIncluded.at(low_RegNr).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, low_RegNr);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), Helper.HorizontalBitsIncluded.at(low_RegNr).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, low_RegNr);
                 }
 
                 //horizontal probe RdHi
                 if(!Helper.HorizontalProbesExcluded.at(high_RegNr)){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), Helper.HorizontalBitsIncluded.at(high_RegNr).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, high_RegNr);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), Helper.HorizontalBitsIncluded.at(high_RegNr).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, high_RegNr);
                 }
 
                 //horizontal probe PC
                 if(!Helper.HorizontalProbesExcluded.at(Register::PC)){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PC), Helper.HorizontalBitsIncluded.at(Register::PC).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, Register::PC);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PC), Helper.HorizontalBitsIncluded.at(Register::PC).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, Register::PC);
                 }
 
                 //horizontal probe PSR
                 if(m_psr_updated && (!Helper.HorizontalProbesExcluded.at(Register::PSR))){
-                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), Helper.HorizontalBitsIncluded.at(Register::PSR).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrNr, Register::PSR);
+                    Software::Probing::CreateHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), Helper.HorizontalBitsIncluded.at(Register::PSR).size() << ThreadSimulation.TestTransitional, ProbeIndex, InstrCounter, Register::PSR);
                 }
 
                 
@@ -845,14 +845,14 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     std::tie(PartnerRegNr, BitIdx) = tup;
                     if((PartnerRegNr == Register::PC) || ((PartnerRegNr == Register::PSR) && m_psr_updated) || (PartnerRegNr == high_RegNr)){
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((HigherIdOccurred) << DEPENDENCY_OFFSET) | (7 << ID_OFFSET) | (low_RegNr << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + 2 * ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         Increment_HigherId = true;
                     }
                     else{
                         HigherIdOccurred += (uint8_t)Increment_HigherId;
                         Increment_HigherId = false;
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((HigherIdOccurred) << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (low_RegNr << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr),  ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr),  ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                     }
                 }
 
@@ -863,7 +863,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     std::tie(PartnerRegNr, BitIdx) = tup;
                     if((PartnerRegNr == Register::PC) || ((PartnerRegNr == Register::PSR) && m_psr_updated)){
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((HigherIdOccurred) << DEPENDENCY_OFFSET) | (7 << ID_OFFSET) | (high_RegNr << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + 2 * ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         Increment_HigherId = true;
                     }
                     else if((PartnerRegNr == low_RegNr)){
@@ -873,7 +873,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         HigherIdOccurred += (uint8_t)Increment_HigherId;
                         Increment_HigherId = false;
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((HigherIdOccurred) << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (high_RegNr << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                     }
                 }
 
@@ -886,11 +886,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     }
                     else if((PartnerRegNr == Register::PSR) && m_psr_updated){
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (5 << DEPENDENCY_OFFSET) | (7 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + 2 * ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateLargeVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                     }
                     else{
                         ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (5 << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                        Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                     }
                 }
 
@@ -903,7 +903,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (6 << DEPENDENCY_OFFSET) | (6 << ID_OFFSET) | (Register::PSR << REG1_OFFSET) | (PartnerRegNr << REG2_OFFSET) | (BitIdx << BIT_OFFSET) | (2 + ThreadSimulation.TestTransitional);
-                            Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr));
+                            Software::Probing::CreateSmallVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(PartnerRegNr), InstrCounter);
                         }
                     }
                 }
@@ -915,12 +915,12 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     for(const auto& RegisterIndex: Helper.FULLHRProbesIncluded.at(low_RegNr)){
                         if((RegisterIndex == Register::PC) || ((RegisterIndex == Register::PSR) && m_psr_updated) || (RegisterIndex == high_RegNr)){                      
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((7 + HigherIdOccurred) << DEPENDENCY_OFFSET) | (9 << ID_OFFSET) | (low_RegNr << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(low_RegNr).size() << ThreadSimulation.TestTransitional) + (Helper.NormalProbesIncluded.at(RegisterIndex).size() << ThreadSimulation.TestTransitional));
-                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             HigherIdOccurred += 1;
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((7 + HigherIdOccurred) << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (low_RegNr << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(low_RegNr).size() << ThreadSimulation.TestTransitional) + Helper.NormalProbesIncluded.at(RegisterIndex).size());
-                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(low_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                         }
 
                     }
@@ -930,7 +930,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                     for(const auto& RegisterIndex: Helper.FULLHRProbesIncluded.at(high_RegNr)){
                         if((RegisterIndex == Register::PC) || ((RegisterIndex == Register::PSR) && m_psr_updated)){
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((10 + HigherIdOccurred) << DEPENDENCY_OFFSET) | (9 << ID_OFFSET) | (high_RegNr << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(high_RegNr).size() << ThreadSimulation.TestTransitional) + (Helper.NormalProbesIncluded.at(RegisterIndex).size() << ThreadSimulation.TestTransitional));
-                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             HigherIdOccurred = 1;
                         }
                         else if((RegisterIndex == low_RegNr)){
@@ -938,7 +938,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | ((10 + HigherIdOccurred) << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (high_RegNr << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(high_RegNr).size() << ThreadSimulation.TestTransitional) + Helper.NormalProbesIncluded.at(RegisterIndex).size());
-                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(high_RegNr), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                         }
                     }
 
@@ -950,11 +950,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                         }
                         else if((RegisterIndex == Register::PSR) && m_psr_updated){
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (12 << DEPENDENCY_OFFSET) | (9 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(Register::PC).size() << ThreadSimulation.TestTransitional) + (Helper.NormalProbesIncluded.at(RegisterIndex).size() << ThreadSimulation.TestTransitional));
-                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateLargeFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                         }
                         else{
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (12 << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (Register::PC << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(Register::PC).size() << ThreadSimulation.TestTransitional) + Helper.NormalProbesIncluded.at(RegisterIndex).size());
-                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                            Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PC), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                         }
                     }
 
@@ -966,7 +966,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                             }
                             else{
                                 ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (13 << DEPENDENCY_OFFSET) | (8 << ID_OFFSET) | (Register::PSR << REG1_OFFSET) | (RegisterIndex << REG2_OFFSET) | ((Helper.NormalProbesIncluded.at(Register::PSR).size() << ThreadSimulation.TestTransitional) + Helper.NormalProbesIncluded.at(RegisterIndex).size());
-                                Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex));
+                                Software::Probing::CreateSmallFullHorizontalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), ProbeInfo, ProbeIndex, ProbeTracker.RegisterLatestClockCycle.at(Register::PSR), ProbeTracker.RegisterLatestClockCycle.at(RegisterIndex), InstrCounter);
                             }
                         }
                     }
@@ -983,7 +983,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                             uint32_t TransitionValuePSR = ProbeTracker.RegisterLatestValue.at(Register::PSR);
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (14 << DEPENDENCY_OFFSET) | (14 << ID_OFFSET) | (low_RegNr << REG1_OFFSET) | (high_RegNr << REG2_OFFSET);
                             for(const auto& Bit: Helper.FullVerticalRelevantBits){ 
-                                Software::Probing::CreateDSPLargeFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, low_RegNr, high_RegNr, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRdLo, TransitionValueRdHi, TransitionValuePC, TransitionValuePSR);
+                                Software::Probing::CreateDSPLargeFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, low_RegNr, high_RegNr, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRdLo, TransitionValueRdHi, TransitionValuePC, TransitionValuePSR, InstrCounter);
                             }
                         }
                         else{   //RdHi + RdLo + PC
@@ -992,7 +992,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
                             uint32_t TransitionValuePC = ProbeTracker.RegisterLatestValue.at(Register::PC);
                             ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (14 << DEPENDENCY_OFFSET) | (13 << ID_OFFSET) | (low_RegNr << REG1_OFFSET) | (high_RegNr << REG2_OFFSET);
                             for(const auto& Bit: Helper.FullVerticalRelevantBits){ 
-                                Software::Probing::CreateDSPSmallFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, low_RegNr, high_RegNr, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRdLo, TransitionValueRdHi, TransitionValuePC);
+                                Software::Probing::CreateDSPSmallFullVerticalProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.FullVerticalProbesIncluded.at(Bit), Bit, low_RegNr, high_RegNr, ProbeIndex, ProbeInfo, ProbeTracker.RegisterLatestValue, TransitionValueRdLo, TransitionValueRdHi, TransitionValuePC, InstrCounter);
                             }
                         }
                 }
@@ -1027,7 +1027,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
         uint64_t ProbeInfo = (static_cast<uint64_t>(InstrNr) << 32) | (static_cast<uint64_t>(15) << DEPENDENCY_OFFSET)  | (static_cast<uint64_t>(15) << ID_OFFSET);
         for(const auto& Bit: Helper.PipelineForwardingRelevantBits){
-            Software::Probing::CreatePipelineForwardingProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.PipelineForwardingProbesIncluded.at(Bit), Bit, ProbeIndex, ProbeInfo, m_pipeline_stages, m_pipeline_cpu_states);
+            Software::Probing::CreatePipelineForwardingProbe(ThreadSimulation.StandardProbesPerSimulation.at(SimulationIdx), Helper.PipelineForwardingProbesIncluded.at(Bit), Bit, ProbeIndex, ProbeInfo, m_pipeline_stages, m_pipeline_cpu_states, InstrCounter);
         }
     }
 

@@ -65,18 +65,47 @@ void Software::Print::SoftwareMaximumProbingSet(uint32_t TestOrder, ::Software::
 		
 		if(ExtensionSize != 0){
 			switch(Id){
-				case 0: ProbingSet += "MEM[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
-				case 1: ProbingSet += "MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
-				case 2: {
-					if(RegisterNumber == 1){
-						ProbingSet += "LOAD_MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
+				case 0:
+					if(InMisprediction){
+						ProbingSet += "MEM[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction";
+					}else{
+						// ProbingSet += "MEM[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")";
+						ProbingSet += "MEM[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")";
 					}
-					else{
-						ProbingSet += "STORE_MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
+					break;
+				case 1:
+					if(InMisprediction)
+					{
+						ProbingSet += "MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction";
+					}else{
+						ProbingSet += "MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")"; 
+					}
+					break;
+				case 2: {
+					if(InMisprediction){
+						if(RegisterNumber == 1){
+							ProbingSet += "LOAD_MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction"; break;
+						}
+						else{
+							ProbingSet += "STORE_MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction"; break;
+						}
+					}else{
+						if(RegisterNumber == 1){
+							ProbingSet += "LOAD_MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")"; break;
+						}
+						else{
+							ProbingSet += "STORE_MEMSHADOW[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")"; break;
+						}
 					}
 					break;
 				}
-				case 3: ProbingSet += "HR_MEMSHADOW(" + std::to_string(Cycle) +  ")"; break;
+				case 3:
+					if(InMisprediction){
+						ProbingSet += "HR_MEMSHADOW(" + std::to_string(LogicalCycle) +  ") in misprediction";
+					}else{
+						ProbingSet += "HR_MEMSHADOW(" + std::to_string(LogicalCycle) +  ")";
+					}
+					break;
 				case 4:
 					if(InMisprediction)
 					{
@@ -86,17 +115,53 @@ void Software::Print::SoftwareMaximumProbingSet(uint32_t TestOrder, ::Software::
 						ProbingSet += "R" + std::to_string(RegisterNumber) + "[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")";
 					}
 					break;
-				case 5: ProbingSet += "HR" + std::to_string(RegisterNumber) + "(" + std::to_string(Cycle) + ")";break;
+				case 5:
+					if(InMisprediction){
+						ProbingSet += "HR" + std::to_string(RegisterNumber) + "(" + std::to_string(LogicalCycle) + ") in misprediction";
+					}else{
+						ProbingSet += "HR" + std::to_string(RegisterNumber) + "(" + std::to_string(LogicalCycle) + ")";
+					}
+					
+					break;
 				case 6:
-				case 7: ProbingSet += "VR[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
+				case 7: 
+					if(InMisprediction){
+						ProbingSet += "VR[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction";
+					}else{
+						// ProbingSet += "VR[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")";
+						ProbingSet += "VR[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")";
+					}
+					break;
 				case 8:
-				case 9: ProbingSet += "FULLHR(" + std::to_string(Cycle) + ")"; break;
+				case 9:
+					if(InMisprediction){
+						ProbingSet += "FULLHR(" + std::to_string(LogicalCycle) + ") in misprediction"; 
+					}else{
+						// ProbingSet += "FULLHR(" + std::to_string(Cycle) + ")"; 
+						ProbingSet += "FULLHR(" + std::to_string(LogicalCycle) + ")"; 
+					}
+					break;
 				case 10:
 				case 11:
 				case 12:
 				case 13:
-				case 14: ProbingSet += "FULLVR[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
-				case 15: ProbingSet += "PIPE_FORWARD[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")"; break;
+				case 14:
+					if(InMisprediction){
+						ProbingSet += "FULLVR[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction";
+					}else{
+						// ProbingSet += "FULLVR[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")";
+						ProbingSet += "FULLVR[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")";
+					}
+					break;
+				case 15:
+					if(InMisprediction){
+						ProbingSet += "PIPE_FORWARD[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ") in misprediction";
+					}else{
+						// ProbingSet += "PIPE_FORWARD[" + std::to_string(Bit) + "](" + std::to_string(Cycle) + ")";
+						ProbingSet += "PIPE_FORWARD[" + std::to_string(Bit) + "](" + std::to_string(LogicalCycle) + ")";
+					}
+					
+					break;
 				// case 0xf:  ProbingSet += "_"; break;
 				default: ProbingSet += "???";
 			}

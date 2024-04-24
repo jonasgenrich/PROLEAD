@@ -87,7 +87,7 @@ namespace Software
          * @param InstrNr instruction number when probe was generated
          * @param RegisterNumber Number of Register that is probed
          */
-        void CreateHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t RegisterTransitionCycle, uint8_t ExtensionSize, uint32_t& ProbeIndex, uint32_t InstrNr, uint8_t RegisterNumber);
+        void CreateHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t RegisterTransitionCycle, uint8_t ExtensionSize, uint32_t& ProbeIndex, mulator::InstructionCounter& InstrCounter, uint8_t RegisterNumber);
 
         /**
          * @brief Create a Large Vertical Probe 
@@ -98,7 +98,7 @@ namespace Software
          * @param TransCycleRegNr transition cycle of register
          * @param TransCyclePartnerRegNr transition cycle of partner register
          */
-        void CreateLargeVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr);
+        void CreateLargeVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a Small Vertical Probe 
@@ -109,7 +109,7 @@ namespace Software
          * @param TransCycleRegNr transition cycle of register
          * @param CyclePartnerRegNr cycle of partner register
          */
-        void CreateSmallVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr);
+        void CreateSmallVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr, mulator::InstructionCounter& InstructionCounter);
         
         /**
          * @brief Create a Large Full Horizontal Probe 
@@ -120,7 +120,7 @@ namespace Software
          * @param TransCycleRegNr transition cycle of register
          * @param TransCyclePartnerRegNr transition cycle of partner register
          */
-        void CreateLargeFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr);
+        void CreateLargeFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t TransCyclePartnerRegNr, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a Small Full Horizontal Probe 
@@ -131,7 +131,7 @@ namespace Software
          * @param TransCycleRegNr transition cycle of register
          * @param CyclePartnerRegNr cycle of partner register
          */
-        void CreateSmallFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr);
+        void CreateSmallFullHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint64_t& ProbeInfo , uint32_t& ProbeIndex, uint32_t TransCycleRegNr, uint32_t CyclePartnerRegNr, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a Large Full Vertical Probe 
@@ -147,7 +147,7 @@ namespace Software
          * @param TransValuePC old value of PC
          * @param TransValuePSR old value of PSR
          */
-        void CreateLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr, uint32_t TransValuePC, uint32_t TransValuePSR);
+        void CreateLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr, uint32_t TransValuePC, uint32_t TransValuePSR, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a Small Full Vertical Probe object
@@ -163,7 +163,7 @@ namespace Software
          * @param TransValueReg1 old value of first register
          * @param TransValueReg2 old value of second register
          */
-        void CreateSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint8_t RegNr2, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueReg1, uint32_t TransValueReg2);
+        void CreateSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint8_t RegNr2, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueReg1, uint32_t TransValueReg2, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a One Register Only Full Vertical Probe object
@@ -177,7 +177,7 @@ namespace Software
          * @param RegisterValues values of all probed registers for this probe
          * @param TransValueRegNr old value of register
          */
-        void CreateOneRegisterOnlyFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr);
+        void CreateOneRegisterOnlyFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t RegNr1, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueRegNr,mulator::InstructionCounter& InstrCounter);
 
         /**
          * @brief 
@@ -195,7 +195,7 @@ namespace Software
          * @param TransValuePC old value of pc register
          * @param TransValuePSR old value of psr register
          */
-        void CreateDSPLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC, uint32_t TransValuePSR);
+        void CreateDSPLargeFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC, uint32_t TransValuePSR, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a
@@ -212,7 +212,7 @@ namespace Software
          * @param TransValueHighRegNr old value of higher register
          * @param TransValuePC old value of pc register
          */
-        void CreateDSPSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC);
+        void CreateDSPSmallFullVerticalProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& FullVerticalProbes, uint8_t BitIdx, uint8_t low_RegNr, uint8_t high_RegNr, uint32_t& ProbeIndex, uint64_t ProbeInfo, std::vector<uint32_t>& RegisterValues, uint32_t TransValueLowRegNr, uint32_t TransValueHighRegNr, uint32_t TransValuePC, mulator::InstructionCounter& InstrCounter);
         
         void CreateMemoryProbe();
 
@@ -227,7 +227,7 @@ namespace Software
          * @param next_shadow_register_value new value of memory shadow register
          * @param TransitionCycle transition cycle of register
          */
-        void CreateMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded,  uint64_t ProbeInfo, uint32_t& ProbeIndex, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle);
+        void CreateMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded,  uint64_t ProbeInfo, uint32_t& ProbeIndex, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle, mulator::InstructionCounter& InstrCounter);
         
         /**
          * @brief Create a Seperate Load Store Mem Shadow Probe probe
@@ -243,7 +243,7 @@ namespace Software
          * @param ExtensionSize How many standard probes will be created when resolving the probe
          * @param LoadStoreFlag Decide memory register is for load or store operation
          */
-        void CreateSeperateLoadStoreMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded, uint32_t RegNr, uint32_t InstrNr, uint32_t& ProbeIndex, uint32_t load_store_memory_shadow_register, uint32_t next_load_store_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize, uint32_t LoadStoreFlag);
+        void CreateSeperateLoadStoreMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& MemoryShadowRegisterProbesIncluded, uint32_t RegNr, mulator::InstructionCounter& InstrCounter, uint32_t& ProbeIndex, uint32_t load_store_memory_shadow_register, uint32_t next_load_store_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize, uint32_t LoadStoreFlag);
         
         /**
          * @brief Create a Horizontal Mem Shadow Probe probe
@@ -257,7 +257,7 @@ namespace Software
          * @param TransitionCycle transition cycle of register
          * @param ExtensionSize How many standard probes will be created when resolving the probe
          */
-        void CreateHorizontalMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t InstrNr, uint32_t& ProbeIndex, uint8_t RegNr, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize);
+        void CreateHorizontalMemShadowProbe(std::vector<Software::ProbesStruct>& StandardProbes, mulator::InstructionCounter& InstrCounter, uint32_t& ProbeIndex, uint8_t RegNr, uint32_t memory_shadow_register, uint32_t next_shadow_register_value, uint32_t TransitionCycle, uint32_t ExtensionSize);
 
         /**
          * @brief Create a Pipeline Forwarding Probe probe
@@ -270,7 +270,7 @@ namespace Software
          * @param NrOfPipelineStages number of pipeline stages
          * @param pipeline_cpu_states cpu states of last #NrOfPipelineStages cycles
          */
-        void CreatePipelineForwardingProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& PipelineForwardingProbes, uint8_t BitIdx, uint32_t& ProbeIndex, uint64_t ProbeInfo, uint32_t NrOfPipelineStages, std::vector<::mulator::CPU_State>& pipeline_cpu_states);
+        void CreatePipelineForwardingProbe(std::vector<Software::ProbesStruct>& StandardProbes, std::vector<uint8_t>& PipelineForwardingProbes, uint8_t BitIdx, uint32_t& ProbeIndex, uint64_t ProbeInfo, uint32_t NrOfPipelineStages, std::vector<::mulator::CPU_State>& pipeline_cpu_states, mulator::InstructionCounter& InstrCounter);
 
         /**
          * @brief extract all informations from probe info
