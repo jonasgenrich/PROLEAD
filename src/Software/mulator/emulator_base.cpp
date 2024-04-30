@@ -309,6 +309,7 @@ InstructionCounter::InstructionCounter(uint32_t l)
 {
     logical = l;
     real = l;
+    offset = 0;
 }
 
 InstructionCounter::InstructionCounter(const InstructionCounter& ic)
@@ -409,8 +410,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     bool InTestClockCycles = false;
 
-    if(std::binary_search(ThreadSimulation.TestClockCycles.begin(), ThreadSimulation.TestClockCycles.end(), InstrNr)){
+    if(std::binary_search(ThreadSimulation.TestClockCycles.begin(), ThreadSimulation.TestClockCycles.end(), InstrCounter.Logical())){
         InTestClockCycles = true;
+        #ifdef J_DEBUG
+        std::cout << "InTestClockCycle" << std::endl;
+        #endif
     }
 
     bool skipInstruction = false;
