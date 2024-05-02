@@ -51,15 +51,15 @@ Emulator::Emulator(const Emulator& other) : m_decoder(other.get_architecture()),
 
 }
 
-#ifdef J_COPY_ON_WRITE
-Emulator::Emulator(const Emulator& other, bool copy_on_write) : m_decoder(other.get_architecture()), m_prolead_prng{other.m_prolead_prng}
+
+Emulator::Emulator(const Emulator& other, bool copy_memory_on_write) : m_decoder(other.get_architecture()), m_prolead_prng{other.m_prolead_prng}
 {
 
     m_memory_shadow_register = 0;
 
     m_return_code = other.m_return_code;
 
-    if(copy_on_write)
+    if(copy_memory_on_write)
     {
         m_flash       = other.m_flash; // shallow copy, u8* bytes still points to the memory of the other.m_flash
         m_flash.dirty = false;
@@ -70,7 +70,7 @@ Emulator::Emulator(const Emulator& other, bool copy_on_write) : m_decoder(other.
         std::memcpy(m_flash.bytes, other.m_flash.bytes, m_flash.size);
     }
 
-    if(copy_on_write)
+    if(copy_memory_on_write)
     {
         m_ram       = other.m_ram; // shallow copy, u8* bytes still points to the memory of the other.m_ram
         m_ram.dirty = false;
@@ -88,19 +88,15 @@ Emulator::Emulator(const Emulator& other, bool copy_on_write) : m_decoder(other.
     m_cpu_state     = other.m_cpu_state;
     m_emulated_time = other.m_emulated_time;
 }
-#endif
+
 
 Emulator::~Emulator()
 {
-    #ifdef J_COPY_ON_WRITE
     if( m_ram.dirty )
         delete[] m_ram.bytes;
     if( m_flash.dirty )
         delete[] m_flash.bytes;
-    #else
-    delete[] m_ram.bytes;
-    delete[] m_flash.bytes;
-    #endif
+
 }
 
 InstructionDecoder Emulator::get_decoder() const
@@ -115,17 +111,10 @@ Architecture Emulator::get_architecture() const
 
 void Emulator::set_flash_region(u32 offset, u32 size)
 {
-    #ifdef J_COPY_ON_WRITE
     if (m_flash.bytes != nullptr && m_flash.dirty)
     {
         delete[] m_flash.bytes;
     }
-    #else
-    if (m_flash.bytes != nullptr)
-    {
-        delete[] m_flash.bytes;
-    }
-    #endif
 
     m_flash.offset         = offset;
     m_flash.size           = size;
@@ -243,7 +232,6 @@ void Emulator::read_memory(u32 address, u8* buffer, u32 len) const
 
 void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
 {
-    #ifdef J_COPY_ON_WRITE
     if (m_flash.contains(dst_address, len))
     {
         if(m_flash.dirty)
@@ -282,20 +270,6 @@ void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
     {
         throw std::runtime_error("INVALID_MEMORY_ACCESS");
     }
-    #else
-    if (m_flash.contains(dst_address, len))
-    {
-        std::memcpy(m_flash.get(dst_address), buffer, len);
-    }
-    else if (m_ram.contains(dst_address, len))
-    {
-        std::memcpy(m_ram.get(dst_address), buffer, len);
-    }
-    else
-    {
-        throw std::runtime_error("INVALID_MEMORY_ACCESS");
-    }
-    #endif
 }
 
 InstructionCounter::InstructionCounter()
@@ -365,6 +339,11 @@ void InstructionCounter::Update(InstructionCounter& ic)
 }
 
 void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, Software::SettingsStruct& Settings, bool invertCondition){
+    
+    #ifdef J_DEBUG
+    std::cout << std::endl;
+    #endif
+
     const int InstrNr = InstrCounter.Real();
     bool MemoryOperation = false;
     
@@ -413,9 +392,14 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     if(std::binary_search(ThreadSimulation.TestClockCycles.begin(), ThreadSimulation.TestClockCycles.end(), InstrCounter.Logical())){
         InTestClockCycles = true;
         #ifdef J_DEBUG
-        std::cout << "InTestClockCycle" << std::endl;
+        std::cout << "In Test Clock Cycle" << std::endl;
         #endif
     }
+    #ifdef J_DEBUG
+    else{
+        std::cout << "Not in test Clock Cycle !!!!!!" << std::endl;
+    }
+    #endif
 
     bool skipInstruction = false;
     if( invertCondition )
@@ -468,11 +452,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
     {   // if invertCondition is true this execution is heading to the "wrong" branch; the content of this is statement shout the never be executed in the same cycle 
         branchIntoMisprediction = true;
-        #ifdef J_COPY_ON_WRITE
-        Emulator EmuClone(*this, true);
-        #else
-        Emulator EmuClone(*this);
-        #endif
+        Emulator EmuClone(*this, true /*copy memory on write*/);
 
         #ifdef J_DEBUG
         std::cout << "############################ start of the misprediction " << std::endl;
@@ -1617,7 +1597,6 @@ void Emulator::write_memory_internal(u32 address, u32 value, u8 bytes)
 
     if (m_ram.contains(address, bytes))
     {
-        #ifdef J_COPY_ON_WRITE
         if(!m_ram.dirty)
         {
             #ifdef J_DEBUG
@@ -1628,12 +1607,10 @@ void Emulator::write_memory_internal(u32 address, u32 value, u8 bytes)
             std::memcpy(m_ram.bytes, tmp_ptr, m_ram.size);
             m_ram.dirty = true;
         }
-        #endif
         mem = &m_ram;
     }
     else if (m_flash.contains(address, bytes))
     {
-        #ifdef J_COPY_ON_WRITE
         if(!m_flash.dirty)
         {
             #ifdef J_DEBUG
@@ -1644,7 +1621,6 @@ void Emulator::write_memory_internal(u32 address, u32 value, u8 bytes)
             std::memcpy(m_flash.bytes, tmp_ptr, m_flash.size);
             m_flash.dirty = true;
         }
-        #endif        
         mem = &m_flash;
     }
 

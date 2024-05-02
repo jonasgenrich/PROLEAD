@@ -25,7 +25,6 @@
 // #define DEBUG
 // #define J_DEBUG
 // #define J_SINGLE_ROUND
-#define J_COPY_ON_WRITE
 
 namespace mulator
 {
@@ -84,9 +83,7 @@ namespace mulator
         Emulator(Architecture arch);
         Emulator(Architecture arch, boost::variate_generator<boost::mt19937&, boost::uniform_int<uint64_t>> ThreadPrng, uint32_t NrOfPipelineStages); //self written constructor
         Emulator(const Emulator& other);
-        #ifdef J_COPY_ON_WRITE
-        Emulator(const Emulator& other, bool copy_on_write);
-        #endif
+        Emulator(const Emulator& other, bool copy_memory_on_write);
         ~Emulator();
 
         /*
