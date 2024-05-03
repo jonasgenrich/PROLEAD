@@ -655,10 +655,12 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
              * 
              */
             uint32_t old_mem_value = read_memory_internal(address, bytes);
+            old_mem_value = mask_probing_memory(address, bytes, old_mem_value);
 
             
             //has nothing to do with memory probing
             write_memory_internal(address, read_register_internal(instr.Rd), bytes);
+            make_memory_visible_for_probing(address, bytes);
 
 
             /**
@@ -1195,9 +1197,11 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
                 if ((instr.imm >> i) & 1)
                 {
                     uint32_t old_mem_value = read_memory_internal(address, 4);
+                    old_mem_value = mask_probing_memory(address, 4, old_mem_value);
 
                     write_memory_internal(address, read_register_internal((Register)i), 4);
-                   
+                    make_memory_visible_for_probing(address, 4);
+
                     //MemoryProbing
 
                     uint32_t new_mem_value = read_memory_internal(address, 4);
@@ -1649,8 +1653,10 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
 
                     //used for memory probing
                     uint32_t old_mem_value = read_memory_internal(address, 4);
+                    old_mem_value = mask_probing_memory(address, 4, old_mem_value);
 
                     write_memory_internal(address, reg1, 4);
+                    make_memory_visible_for_probing(address, 4);
 
                     //memory probing  
                     uint32_t new_mem_value = read_memory_internal(address, 4);
@@ -1780,8 +1786,10 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
 
                     //used for memory probing
                     uint32_t old_mem_value = read_memory_internal(address, 4);
-                
+                    old_mem_value = mask_probing_memory(address, 4, old_mem_value);
+
                     write_memory_internal(address, reg, 4);
+                    make_memory_visible_for_probing(address, 4);
 
                     //MemoryProbing
                     uint32_t new_mem_value = reg;
@@ -1984,8 +1992,11 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
 
             //used for memory probing
             uint32_t old_mem_value = read_memory_internal(address, 4);
+            old_mem_value = mask_probing_memory(address, 4, old_mem_value);
+
 
             write_memory_internal(address, read_register_internal(instr.Rd), 4);
+            make_memory_visible_for_probing(address, 4);
 
             // memory probing  
             uint32_t new_mem_value = read_memory_internal(address, 4);
@@ -2012,8 +2023,10 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
 
             //used for memory probing
             old_mem_value = read_memory_internal(address + 4, 4);
+            old_mem_value = mask_probing_memory(address + 4, 4, old_mem_value);
 
             write_memory_internal(address + 4, read_register_internal(instr.Rm), 4);
+            make_memory_visible_for_probing(address + 4, 4);
 
             //memory probing  
 
@@ -2254,8 +2267,11 @@ bool Emulator::execute_PROLEAD(const Instruction& instr, ::Software::ThreadSimul
             {
                 //used for memory probing
                 uint32_t old_mem_value = read_memory_internal(address, bytes);
+                old_mem_value = mask_probing_memory(address, bytes, old_mem_value);
+
 
                 write_memory_internal(address, read_register_internal(instr.Rm), bytes);
+                make_memory_visible_for_probing(address, bytes);
 
                 //memory probing  
                 
@@ -4611,6 +4627,7 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
             }
 
             write_memory_internal(address, read_register_internal(instr.Rd), bytes);
+            make_memory_visible_for_probing(address, bytes);
 
             /**
              * @brief shadow register update
@@ -5056,6 +5073,8 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
                 if ((instr.imm >> i) & 1)
                 {
                     write_memory_internal(address, read_register_internal((Register)i), 4);
+                    make_memory_visible_for_probing(address, 4);
+
                     /**
                      * @brief shadow register update
                      * 
@@ -5218,6 +5237,7 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
 
 
                     write_memory_internal(address, reg1, 4);
+                    make_memory_visible_for_probing(address, 4);
 
                     /**
                      * @brief shadow register update
@@ -5281,6 +5301,7 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
                     u32 reg = read_register_internal((Register)i);
 
                     write_memory_internal(address, reg, 4);
+                    make_memory_visible_for_probing(address, 4);
 
 
                     /**
@@ -5394,7 +5415,8 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
             }
 
             write_memory_internal(address, read_register_internal(instr.Rd), 4);
-            
+            make_memory_visible_for_probing(address, 4);
+
             /**
              * @brief shadow register update
              * 
@@ -5404,6 +5426,7 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
 
 
             write_memory_internal(address + 4, read_register_internal(instr.Rm), 4);
+            make_memory_visible_for_probing(address + 4, 4);
 
 
             /**
@@ -5550,6 +5573,7 @@ bool Emulator::execute_instantiation(const Instruction& instr, ::Software::Threa
             if (exclusive_monitors_pass(address, bytes))
             {
                 write_memory_internal(address, read_register_internal(instr.Rm), bytes);
+                make_memory_visible_for_probing(address, bytes);
 
                 /**
                  * @brief shadow register update
