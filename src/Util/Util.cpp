@@ -586,7 +586,11 @@ double Util::GetGValue(unsigned int NumberOfGroups, unsigned int NumberOfSimulat
     }
 
     gValue *= 2;
-    Df = (NumberOfGroups - 1) * (SanitisedTableSize - 1);
+    if(SanitisedTableSize){
+      Df = (NumberOfGroups - 1) * (SanitisedTableSize -1);
+    }else{
+      Df = 0;
+    }
 
     if (gValue < 0.0){
         gValue = 0.0;
