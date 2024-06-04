@@ -61,7 +61,7 @@ void *_sbrk(int incr) {
 *       Declare and define here your cipher                                                            *
 ********************************************************************************************************/
 
-__attribute__((noinline)) void cipher(unsigned char a[], unsigned char b[]){
+__attribute__((noinline)) void cipher(uint32_t a,uint32_t b){
     test( a, b );
 }
 
@@ -131,7 +131,9 @@ int main(){
     /***************************************************************************************************************
     *       Call initialize_local as often as the number of inputs with correct variables (cf. example below)      *
     ****************************************************************************************************************/
-    cipher(input_s0_local, input_s1_local);
+    //input_s0_local[0] = input_s0_local[0] ^ input_s1_local[0];
+    
+    cipher( (uint32_t) input_s0_local[0], (uint32_t) input_s1_local[0]);
 
 
     /***************************************************************************************************************

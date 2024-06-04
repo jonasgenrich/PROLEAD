@@ -1,209 +1,131 @@
 .syntax unified
 .thumb
-
 .text
-
 .align 4
 .global   test
 .type   test, %function;
 
+// setup test variables
+rA .req r2
+rB .req r3
+rC .req r4
+rD .req r5
+rE .req r6
+rF .req r7
+rG .req r8
+
+rX .req r9
+rY .req r10
+
+rZ .req r11
+
+
 test:
-    b testCBnZ
-nop
-nop
-nop
-nop
-nop
+                        // Instr Nr
+    push {r0-r11, lr}   // 1
+    mov r2,  #0         // 2
+    mov r3,  #0         // 3
+    mov r4,  #0         // 4z
+    mov r5,  #0         // 5
+    mov r6,  #0         // 6
+    mov r7,  #0         // 7
+    mov r8,  #0         // 8
+    mov r9,  #0         // 9
+    mov r10, #0         // 10
+    mov r11, #0         // 11
+    .rept 3
+    nop                 // 12,13,14
+    .endr
+    // start of test setup: first instruction is number 15
 
-testA: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
+    // LOOP-0 from MIRACLE: MIcRo-ArChitectural Leakage Evaluation:
+    mov rY, #0
+    loop:
+    eor rY, rF
+    mov rY, #0
+    add rG, #-1
+    cmp rG, #0
+    bne loop
+    done:
+    eor rA, rB
+    eor rC, rD
+    eor rE, rF
+    //bx lr
 
-    ldr r2, [r1]
-    ldr r3, [r0]
-    b skipA
-    eor r2, r3
-    skipA:
-    pop {r4-r11,lr}
+    // end of test setup
+    .rept 200
+    nop         // nop barrier
+    .endr
+    pop {r0-r11, lr}
     bx lr
-nop
-nop
-nop
-nop
-nop
-
-testB: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
-
-    ldr r2, [r0]
-    mov r3, #1
-    cmp r3, #1
-    beq skipB
-    ldr r2, [r1]
-    skipB:
-    
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
-
-testC: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
-
-    mov r3, #1
-    cmp r3, #1
-    beq skipC
-    ldr r2, [r1]
-    nop
-    nop
-    nop
-    skipC:
-    ldr r2, [r0]
-    
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
-
-testD: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
-
-    mov r3, #1
-    cmp r3, #1
-    beq skipD
-    ldr r2, [r1, #4]
-    ldr r2, [r1]
-    mov r2, #0
-    skipD:
-    ldr r2, [r0]
-    
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
-
-testE: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
-
-    b skipE
-    ldr r2, [r1]
-    skipE:
-    ldr r2, [r0]
-
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
 
 
 
+@ // BRANCH-FWD from MIRACLE: MIcRo-ArChitectural Leakage Evaluation:
+@ cmp rG, rG
+@ eor rA, rB
+@ beq target
+@ eor rC, rD
+@ eor rE, rF
+@ target:
+@ .rept 10;
+@ eor rZ, rZ
+@ .endr
+@ // bx lr
 
-testF: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
+@ // BRANCH-BWD from MIRACLE: MIcRo-ArChitectural Leakage Evaluation:
+@ b branch
+@ target:
+@ .rept 200
+@ eor rZ, rZ
+@ .endr
+@ bx lr
+@ branch:
+@ .rept 10
+@ eor rZ, rZ
+@ .endr
+@ cmp rZ, rZ
+@ eor rA, rB
+@ beq target
+@ eor rC, rD
+@ eor rE, rF
 
-    b skipF
-    ldr r2, [r1]
-    b skipF
-    ldr r3, [r0]
-    skipF:
-    eor r2, r3
+@ // JUMP-FWD from MIRACLE: MIcRo-ArChitectural Leakage Evaluation:
+@ eor rA, rB
+@ b target
+@ eor rC, rD
+@ eor rE, rF
+@ target:
+@ .rept 10
+@ eor rZ, rZ
+@ .endr
+@ //bx lr
 
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
+@ // JUMP-BWD from MIRACLE: MIcRo-ArChitectural Leakage Evaluation:
+@ b branch
+@ target:
+@ .rept 200
+@ eor rZ, rZ
+@ .endr
+@ // bx lr
+@ branch:
+@ .rept 10
+@ eor rZ, rZ
+@ .endr
+@ eor rA, rB
+@ b target
+@ eor rC, rD
+@ eor rE, rF
 
-testG: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
+.unreq rA
+.unreq rB
+.unreq rC
+.unreq rD
+.unreq rE
+.unreq rF
+.unreq rG
 
-    ldr r2, [r1]
-    b skipG
-    ldr r3, [r0]
-    skipG:
-    eor r2, r3
+.unreq rX
+.unreq rY
 
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
-
-testH: // test(input_s0_local, input_s1_local)
-    push {r4-r11,lr}
-    mov r2, #0
-    mov r3, #0
-
-    mov r4, #1
-    cmp r4, #1
-    bne skipH // not taken
-    skipH_:
-    ldr r2, [r1]
-    ldr r3, [r0]
-    eor r2, r3
-    //b skipHH
-    nop
-    skipH:
-    b skipH_
-    
-    skipHH:
-    nop
-    nop
-    nop
-    nop
-
-    pop {r4-r11,lr}
-    bx lr
-nop
-nop
-nop
-nop
-nop
-
-testCBnZ:
-    push {r4-r11,lr}
-    // -
-    mov r4, #0
-    ldr r4, [r0]
-    mov r5, #0
-    CBNZ r5, _end_testCBnZ
-    ldr r5, [r1]
-    eor r4, r5
-    // -
-    _end_testCBnZ:
-    pop {r4-r11,lr}
-    bx lr
-    nop
-    nop
-    nop
-    nop
-    nop
+.unreq rZ
