@@ -1,0 +1,768 @@
+========== State after 32 simulations ==========
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+@[R13[0](1)] ==> [R13[0](1), R13[0](0)] -log10(p) = 0.000000 --> OKAY
+
+========== State after 64 simulations ==========
+@[R2[15](5648)] ==> [R2[15](5836), R2[15](5835)] -log10(p) = 3.212278 --> OKAY
+@[R2[2](7178)] ==> [R2[2](7470), R2[2](7467)] -log10(p) = 3.212278 --> OKAY
+@[R2[15](5603)] ==> [R2[15](5771), R2[15](5767)] -log10(p) = 3.212278 --> OKAY
+@[R2[28](7383)] ==> [R2[28](7743), R2[28](7742)] -log10(p) = 3.559970 --> OKAY
+@[R2[28](7338)] ==> [R2[28](7678), R2[28](7674)] -log10(p) = 3.559970 --> OKAY
+@[R2[15](8708)] ==> [R2[15](8728), R2[15](8724)] -log10(p) = 3.610885 --> OKAY
+@[R2[15](8753)] ==> [R2[15](8793), R2[15](8792)] -log10(p) = 3.610885 --> OKAY
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 5.729249 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 6.707950 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 7.258977 --> LEAKAGE
+
+========== State after 96 simulations ==========
+@[R3[0](3926)] ==> [R3[0](3986), R3[0](3981)] -log10(p) = 4.101625 --> OKAY
+@[R2[0](3929)] ==> [R2[0](3989), R2[0](3988)] -log10(p) = 4.101625 --> OKAY
+@[R3[0](3933)] ==> [R3[0](3993), R3[0](3986)] -log10(p) = 4.101625 --> OKAY
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 4.326738 --> OKAY
+@[R9[15](7709)] ==> [R9[15](7813), R9[15](7807)] -log10(p) = 4.461072 --> OKAY
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 4.508274 --> OKAY
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 7.585588 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 8.357168 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 9.020553 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 10.737904 --> LEAKAGE
+
+========== State after 128 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 5.125995 --> LEAKAGE
+@[R1[20](59 in misprediction)] ==> [R1[20](83), R1[20](78)] -log10(p) = 5.443912 --> LEAKAGE
+@[R9[15](7709)] ==> [R9[15](7813), R9[15](7807)] -log10(p) = 5.451701 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 7.627402 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 8.091117 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 8.573231 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 10.371660 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 11.099332 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 11.891211 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 14.455301 --> LEAKAGE
+
+========== State after 160 simulations ==========
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 5.842289 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 6.816780 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 7.341486 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 10.304278 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 10.547361 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 11.125492 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 11.183843 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 13.437094 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 14.709587 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 17.953679 --> LEAKAGE
+
+========== State after 192 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 6.268152 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 6.842169 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 7.030854 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 11.436611 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 12.677593 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 13.996090 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 14.112628 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 15.925841 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 16.563020 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 19.376969 --> LEAKAGE
+
+========== State after 224 simulations ==========
+@[R1[21](59 in misprediction)] ==> [R1[21](83), R1[21](78)] -log10(p) = 7.355939 --> LEAKAGE
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 7.558210 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 7.951328 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 13.011140 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 15.124617 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 16.275707 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 16.895849 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 17.850315 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 20.486221 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 20.955808 --> LEAKAGE
+
+========== State after 256 simulations ==========
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 8.503168 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 8.520711 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 10.843475 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 15.740537 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 16.593789 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 19.224573 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 19.346440 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 21.656608 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 23.768746 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 25.323962 --> LEAKAGE
+
+========== State after 288 simulations ==========
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 9.732825 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 9.796769 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 10.273118 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 17.540525 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 18.796590 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 20.249786 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 22.767860 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 23.110750 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 26.140251 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 28.213603 --> LEAKAGE
+
+========== State after 320 simulations ==========
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 11.591457 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 11.748108 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 11.761851 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 16.546353 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 20.456485 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 23.476074 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 25.299615 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 26.195801 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 27.859283 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 30.935038 --> LEAKAGE
+
+========== State after 352 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 12.630624 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 12.939504 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 12.990118 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 18.607224 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 22.843726 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 24.942286 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 25.864923 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 27.596860 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 30.929678 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 31.296115 --> LEAKAGE
+
+========== State after 384 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 13.850680 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 14.523766 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 15.428577 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 18.818165 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 25.671524 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 26.536817 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 27.737263 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 29.999886 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 33.241046 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 34.154325 --> LEAKAGE
+
+========== State after 416 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 15.819082 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 16.285779 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 17.378317 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 19.551341 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 28.435740 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 28.617405 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 30.707483 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 32.298038 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 36.918088 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 37.471013 --> LEAKAGE
+
+========== State after 448 simulations ==========
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 17.275693 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 17.875289 --> LEAKAGE
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 19.532128 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 21.393820 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 30.330769 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 30.407209 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 33.101731 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 33.920711 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 39.597070 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 40.562680 --> LEAKAGE
+
+========== State after 480 simulations ==========
+@[R1[8](59 in misprediction)] ==> [R1[8](83), R1[8](78)] -log10(p) = 16.976191 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 19.210249 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 19.457348 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 23.356080 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 31.512314 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 32.535290 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 36.602272 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 37.118590 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 42.349364 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 43.826186 --> LEAKAGE
+
+========== State after 512 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 17.558389 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 19.350582 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 19.554979 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 27.611643 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 34.334268 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 34.984167 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 38.332277 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 39.042142 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 45.408739 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 47.411577 --> LEAKAGE
+
+========== State after 544 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 17.808556 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 21.740122 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 22.025939 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 29.426358 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 36.232255 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 37.086552 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 39.635507 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 41.211005 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 47.449381 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 48.514468 --> LEAKAGE
+
+========== State after 576 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 18.603888 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 23.125275 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 23.863614 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 31.013708 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 37.268857 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 38.765579 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 42.737633 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 44.047639 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 51.748832 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 52.082767 --> LEAKAGE
+
+========== State after 608 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 19.992590 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 25.740528 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 25.944792 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 32.994123 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 40.947363 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 41.960355 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 44.591095 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 46.305988 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 53.115088 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 54.845463 --> LEAKAGE
+
+========== State after 640 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 20.364704 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 26.317519 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 27.732788 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 35.158417 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 43.509982 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 43.670306 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 45.750209 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 48.147950 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 56.399078 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 57.220983 --> LEAKAGE
+
+========== State after 672 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 21.557314 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 28.560370 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 29.053628 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 34.917813 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 44.588270 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 45.226919 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 46.702312 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 51.940577 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 58.082532 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 59.350094 --> LEAKAGE
+
+========== State after 704 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 22.967944 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 30.361909 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 32.168802 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 38.573874 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 45.840809 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 47.693440 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 49.227034 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 53.192422 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 61.330035 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 63.078643 --> LEAKAGE
+
+========== State after 736 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 24.869217 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 31.192551 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 35.310725 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 40.528827 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 48.506726 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 49.875719 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 52.882850 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 57.437209 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 64.312186 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 66.005568 --> LEAKAGE
+
+========== State after 768 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 25.967821 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 31.779614 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 38.267650 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 41.125464 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 50.902504 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 51.868901 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 56.763972 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 60.464511 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 67.893733 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 69.089011 --> LEAKAGE
+
+========== State after 800 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 27.900653 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 31.885795 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 41.762529 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 41.920694 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 52.215361 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 55.011343 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 56.126996 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 62.101035 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 69.491392 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 71.101598 --> LEAKAGE
+
+========== State after 832 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 28.736586 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 32.280312 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 43.589059 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 44.436802 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 55.251851 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 55.574063 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 58.713209 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 64.821494 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 72.274380 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 73.875066 --> LEAKAGE
+
+========== State after 864 simulations ==========
+@[R1[13](59 in misprediction)] ==> [R1[13](83), R1[13](78)] -log10(p) = 30.211110 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 35.004766 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 45.747673 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 47.969465 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 57.935611 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 58.499231 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 60.662918 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 66.451957 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 75.895318 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 77.223597 --> LEAKAGE
+
+========== State after 896 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 32.494393 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 36.909920 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 47.644813 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 51.428425 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 60.918467 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 61.450150 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 62.683309 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 68.300304 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 79.573291 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 80.446161 --> LEAKAGE
+
+========== State after 928 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 34.945171 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 37.394163 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 49.099753 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 51.695956 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 60.647408 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 62.050355 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 63.840802 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 67.186015 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 82.971023 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 83.747414 --> LEAKAGE
+
+========== State after 960 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 36.075593 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 39.524400 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 50.993667 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 51.346053 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 62.021477 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 65.483051 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 66.809406 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 68.994550 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 85.632617 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 86.949890 --> LEAKAGE
+
+========== State after 992 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 36.672344 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 42.149428 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 51.815868 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 52.356556 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 63.217771 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 67.823858 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 67.928629 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 70.784022 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 86.661460 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 89.536189 --> LEAKAGE
+
+========== State after 1024 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 36.686430 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 43.894638 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 52.656206 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 53.581578 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 65.830707 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 69.686069 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 70.969523 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 72.864625 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 89.055953 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 93.420654 --> LEAKAGE
+
+========== State after 1056 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 37.673369 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 44.892086 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 55.009407 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 56.503118 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 66.381145 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 69.305597 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 73.246165 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 75.827613 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 92.585430 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 95.951318 --> LEAKAGE
+
+========== State after 1088 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 39.391698 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 46.157511 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 55.295153 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 56.451704 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 67.973163 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 71.685750 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 74.283306 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 78.170719 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 94.310128 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 100.538978 --> LEAKAGE
+
+========== State after 1120 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 40.066960 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 47.717271 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 57.325449 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 58.725132 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 69.607153 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 74.068023 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 76.996115 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 78.327982 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 95.359213 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 103.485226 --> LEAKAGE
+
+========== State after 1152 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 41.148093 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 47.736699 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 57.158196 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 61.136584 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 72.915224 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 77.183174 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 80.635585 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 81.494336 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 97.460360 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 104.532416 --> LEAKAGE
+
+========== State after 1184 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 41.425791 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 51.000003 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 59.068297 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 60.919071 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 75.345506 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 80.318849 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 83.463925 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 83.617295 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 98.757006 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 105.287139 --> LEAKAGE
+
+========== State after 1216 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 43.520252 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 50.059723 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 61.010882 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 62.514926 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 77.590214 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 81.541453 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 84.300940 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 86.085554 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 101.036609 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 108.548566 --> LEAKAGE
+
+========== State after 1248 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 44.864925 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 52.299387 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 62.327881 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 63.553689 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 78.990187 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 84.387856 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 87.164037 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 89.425148 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 103.233553 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 111.167772 --> LEAKAGE
+
+========== State after 1280 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 45.812294 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 51.296095 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 64.293979 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 65.614159 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 81.103701 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 87.885405 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 90.009309 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 90.723324 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 105.543860 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 114.151501 --> LEAKAGE
+
+========== State after 1312 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 48.741939 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 52.150471 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 65.760748 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 67.887756 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 81.463261 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 90.056259 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 91.230708 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 94.093515 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 108.113300 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 116.739489 --> LEAKAGE
+
+========== State after 1344 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 50.678093 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 54.458148 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 67.927569 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 69.226592 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 82.939206 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 93.057063 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 94.038348 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 96.978982 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 109.377115 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 120.373632 --> LEAKAGE
+
+========== State after 1376 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 53.344436 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 55.675128 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 67.954660 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 70.981311 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 85.680115 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 95.742338 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 96.458169 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 96.482915 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 111.910377 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 122.959820 --> LEAKAGE
+
+========== State after 1408 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 54.751917 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 57.876783 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 70.287251 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 71.586572 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 88.801919 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 98.016124 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 98.422248 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 98.713673 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 115.937314 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 127.046987 --> LEAKAGE
+
+========== State after 1440 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 58.192747 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 60.103065 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 71.823214 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 72.611262 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 88.454512 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 100.122971 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 100.422733 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 101.933500 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 119.114661 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 130.761975 --> LEAKAGE
+
+========== State after 1472 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 59.859162 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 60.255354 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 72.732075 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 74.410478 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 89.497228 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 101.268685 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 101.979952 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 104.263840 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 120.624932 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 132.982131 --> LEAKAGE
+
+========== State after 1504 simulations ==========
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 60.295364 --> LEAKAGE
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 60.726087 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 72.746581 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 75.713184 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 91.593448 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 102.043848 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 104.118958 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 106.882238 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 122.667317 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 134.476589 --> LEAKAGE
+
+========== State after 1536 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 59.697314 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 62.092529 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 72.616998 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 78.689526 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 91.766045 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 106.249059 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 107.176990 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 107.351361 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 126.226366 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 135.852101 --> LEAKAGE
+
+========== State after 1568 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 60.057074 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 62.538927 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 75.206731 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 80.396697 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 94.358557 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 109.430102 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 109.959830 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 110.737300 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 129.613578 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 137.663066 --> LEAKAGE
+
+========== State after 1600 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 60.708638 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 63.784990 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 76.337230 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 81.482727 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 95.287468 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 109.886981 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 111.347878 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 113.442211 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 132.655059 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 139.763581 --> LEAKAGE
+
+========== State after 1632 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 62.902568 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 65.344902 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 78.317729 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 82.674584 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 96.313654 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 111.456892 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 111.989079 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 114.765648 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 135.226716 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 142.828178 --> LEAKAGE
+
+========== State after 1664 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 63.830976 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 67.512117 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 78.423490 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 84.684343 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 100.323900 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 112.573463 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 113.827574 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 118.467202 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 136.912767 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 145.935616 --> LEAKAGE
+
+========== State after 1696 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 64.641079 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 67.707641 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 81.507493 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 84.453001 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 100.944586 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 115.466798 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 116.935888 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 119.613845 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 139.738442 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 145.758903 --> LEAKAGE
+
+========== State after 1728 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 66.561965 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 70.866949 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 84.777757 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 86.568100 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 104.837295 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 116.235383 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 120.960601 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 123.164499 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 141.254909 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 148.686671 --> LEAKAGE
+
+========== State after 1760 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 66.279248 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 70.793133 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 85.680644 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 88.631147 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 106.138962 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 117.778061 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 123.265471 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 126.258679 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 144.240389 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 151.657745 --> LEAKAGE
+
+========== State after 1792 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 66.563199 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 71.563254 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 85.726759 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 90.997734 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 108.325432 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 119.935350 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 126.048864 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 128.970675 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 147.572324 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 154.545012 --> LEAKAGE
+
+========== State after 1824 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 67.619950 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 72.889504 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 88.006223 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 92.816949 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 110.116029 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 121.394363 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 129.747086 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 129.829952 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 151.378236 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 157.429861 --> LEAKAGE
+
+========== State after 1856 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 68.264995 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 73.190055 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 90.255056 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 95.396987 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 113.008931 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 124.205399 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 132.610499 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 134.025190 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 154.076220 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 161.059345 --> LEAKAGE
+
+========== State after 1888 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 67.895368 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 74.862255 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 92.293132 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 99.408069 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 114.975104 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 127.677573 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 136.577823 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 137.009174 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 157.362154 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 163.857032 --> LEAKAGE
+
+========== State after 1920 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 70.209689 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 75.818396 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 94.236269 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 100.710965 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 115.094110 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 130.436178 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 139.289537 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 139.842936 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 162.178024 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 167.267607 --> LEAKAGE
+
+========== State after 1952 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 72.251393 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 76.749282 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 94.176174 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 101.266462 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 115.676674 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 132.572268 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 140.210639 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 140.777953 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 165.343185 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 170.884580 --> LEAKAGE
+
+========== State after 1984 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 73.420107 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 77.478743 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 95.808195 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 102.446501 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 113.251198 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 133.190888 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 140.834061 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 142.035130 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 167.634057 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 173.655274 --> LEAKAGE
+
+========== State after 2016 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 73.818494 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 77.998366 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 97.845244 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 104.781342 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 115.419991 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 135.851657 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 142.365533 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 145.867576 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 170.920322 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 176.456197 --> LEAKAGE
+
+========== State after 2048 simulations ==========
+@[R1[7](59 in misprediction)] ==> [R1[7](83), R1[7](78)] -log10(p) = 76.004810 --> LEAKAGE
+@[R1[3](59 in misprediction)] ==> [R1[3](83), R1[3](78)] -log10(p) = 79.106473 --> LEAKAGE
+@[R1[30](59 in misprediction)] ==> [R1[30](83), R1[30](78)] -log10(p) = 99.663314 --> LEAKAGE
+@[R1[0](59 in misprediction)] ==> [R1[0](83), R1[0](78)] -log10(p) = 107.337785 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 118.387510 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 138.584995 --> LEAKAGE
+@[R1[2](59 in misprediction)] ==> [R1[2](83), R1[2](78)] -log10(p) = 146.922978 --> LEAKAGE
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 147.714829 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 174.286425 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 177.934252 --> LEAKAGE
+

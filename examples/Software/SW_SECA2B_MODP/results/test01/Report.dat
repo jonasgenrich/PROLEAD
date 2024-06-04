@@ -1,0 +1,109 @@
+Library file:   library.lib
+Library name:   NANG45
+Design file:    ../../source/main.c ../../source/gadgets.S
+Module name:    circuit
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+
+Start Software Leakage Evaluation
+
+Source file(s): ../../source/main.c ../../source/gadgets.S
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+../../source/main.c: In function 'secadd':
+../../source/main.c:334:13: warning: unused variable 'd' [-Wunused-variable]
+  334 |   size_t i, d;
+      |             ^
+../../source/main.c: In function 'main':
+../../source/main.c:476:16: warning: unused variable 'd' [-Wunused-variable]
+  476 |   size_t i, j, d;
+      |                ^
+../../source/main.c:475:16: warning: unused variable 'err' [-Wunused-variable]
+  475 |   volatile int err;
+      |                ^~~
+../../source/main.c:473:11: warning: unused variable 'coeffs_out' [-Wunused-variable]
+  473 |   int16_t coeffs_out[NSHARES * BSSIZE];
+      |           ^~~~~~~~~~
+../../source/gadgets.S: Assembler messages:
+../../source/gadgets.S:198: Warning: register range not in ascending order
+../../source/gadgets.S:215: Warning: register range not in ascending order
+config file: all required information are not given
+
+default "no_of_entries_in_report" = 10 is taken
+could not find <cipher> symbol in compiled main-function. Checking for compiler optimized modifications...
+found in main (order of occurrance):
+	address: 8000598	function: <cipher.constprop.2>
+
+taking <cipher.constprop.2>
+press enter to continue with this function to test...Prepare shared data for 8 threads ...done!
+
+Start software evaluation...
+---------------------------------------------------------------------------------------------------------------------------------------------
+|      Elapsed Time |     Memory Consumption |        #Sets |       Simulations | Probing Set with highest Information Leakage |  -log10(p) |
+---------------------------------------------------------------------------------------------------------------------------------------------
+|         9.476333s |             3.127200GB |       604672 |                32 |                                    R13[0](1) |   0.000000 |
+|        18.702597s |             3.258272GB |       604672 |                64 |                  R1[14](59) in misprediction |   7.258977 |
+|        28.252107s |             3.264108GB |       604672 |                96 |                  R1[14](59) in misprediction |  10.737904 |
+|        37.813585s |             3.258352GB |       604672 |               128 |                  R1[14](59) in misprediction |  14.455301 |
+|        47.191567s |             3.269524GB |       604672 |               160 |                  R1[14](59) in misprediction |  17.953679 |
+|        56.487550s |             3.267748GB |       604672 |               192 |                  R1[14](59) in misprediction |  19.376969 |
+|        65.883142s |             3.258352GB |       604672 |               224 |                  R1[14](59) in misprediction |  20.955808 |
+|        75.257901s |             3.258352GB |       604672 |               256 |                  R1[14](59) in misprediction |  25.323962 |
+|        84.998366s |             3.258352GB |       604672 |               288 |                  R1[14](59) in misprediction |  28.213603 |
+|        95.044649s |             3.258352GB |       604672 |               320 |                  R1[14](59) in misprediction |  30.935038 |
+|       104.455312s |             3.258352GB |       604672 |               352 |                  R1[14](59) in misprediction |  31.296115 |
+|       113.886404s |             3.258352GB |       604672 |               384 |                  R1[14](59) in misprediction |  34.154325 |
+|       123.368548s |             3.258352GB |       604672 |               416 |                  R1[18](59) in misprediction |  37.471013 |
+|       132.765045s |             3.258352GB |       604672 |               448 |                  R1[14](59) in misprediction |  40.562680 |
+|       142.266765s |             3.258352GB |       604672 |               480 |                  R1[14](59) in misprediction |  43.826186 |
+|       151.771444s |             3.258352GB |       604672 |               512 |                  R1[14](59) in misprediction |  47.411577 |
+|       161.363091s |             3.258352GB |       604672 |               544 |                  R1[14](59) in misprediction |  48.514468 |
+|       170.870021s |             3.258352GB |       604672 |               576 |                  R1[18](59) in misprediction |  52.082767 |
+|       180.324577s |             3.258352GB |       604672 |               608 |                  R1[14](59) in misprediction |  54.845463 |
+|       189.806811s |             3.258352GB |       604672 |               640 |                  R1[14](59) in misprediction |  57.220983 |
+|       199.182474s |             3.258352GB |       604672 |               672 |                  R1[18](59) in misprediction |  59.350094 |
+|       208.460526s |             3.258352GB |       604672 |               704 |                  R1[18](59) in misprediction |  63.078643 |
+|       217.916567s |             3.258352GB |       604672 |               736 |                  R1[18](59) in misprediction |  66.005568 |
+|       227.368797s |             3.258352GB |       604672 |               768 |                  R1[18](59) in misprediction |  69.089011 |
+|       236.768398s |             3.258352GB |       604672 |               800 |                  R1[18](59) in misprediction |  71.101598 |
+|       246.259860s |             3.258352GB |       604672 |               832 |                  R1[18](59) in misprediction |  73.875066 |
+|       255.669707s |             3.258352GB |       604672 |               864 |                  R1[18](59) in misprediction |  77.223597 |
+|       265.184019s |             3.258352GB |       604672 |               896 |                  R1[18](59) in misprediction |  80.446161 |
+|       274.732263s |             3.258352GB |       604672 |               928 |                  R1[18](59) in misprediction |  83.747414 |
+|       284.228003s |             3.258352GB |       604672 |               960 |                  R1[18](59) in misprediction |  86.949890 |
+|       293.679631s |             3.258352GB |       604672 |               992 |                  R1[18](59) in misprediction |  89.536189 |
+|       303.153377s |             3.258352GB |       604672 |              1024 |                  R1[18](59) in misprediction |  93.420654 |
+|       312.633820s |             3.258352GB |       604672 |              1056 |                  R1[18](59) in misprediction |  95.951318 |
+|       322.132829s |             3.258352GB |       604672 |              1088 |                  R1[18](59) in misprediction | 100.538978 |
+|       331.716093s |             3.258352GB |       604672 |              1120 |                  R1[18](59) in misprediction | 103.485226 |
+|       341.181264s |             3.258352GB |       604672 |              1152 |                  R1[18](59) in misprediction | 104.532416 |
+|       350.754201s |             3.258352GB |       604672 |              1184 |                  R1[18](59) in misprediction | 105.287139 |
+|       360.330530s |             3.258352GB |       604672 |              1216 |                  R1[18](59) in misprediction | 108.548566 |
+|       369.937496s |             3.258352GB |       604672 |              1248 |                  R1[18](59) in misprediction | 111.167772 |
+|       379.144543s |             3.258352GB |       604672 |              1280 |                  R1[18](59) in misprediction | 114.151501 |
+|       388.627284s |             3.258352GB |       604672 |              1312 |                  R1[18](59) in misprediction | 116.739489 |
+|       398.074379s |             3.258352GB |       604672 |              1344 |                  R1[18](59) in misprediction | 120.373632 |
+|       407.441653s |             3.258352GB |       604672 |              1376 |                  R1[18](59) in misprediction | 122.959820 |
+|       416.864039s |             3.258352GB |       604672 |              1408 |                  R1[18](59) in misprediction | 127.046987 |
+|       426.328014s |             3.258352GB |       604672 |              1440 |                  R1[18](59) in misprediction | 130.761975 |
+|       435.759642s |             3.258352GB |       604672 |              1472 |                  R1[18](59) in misprediction | 132.982131 |
+|       445.235223s |             3.258352GB |       604672 |              1504 |                  R1[18](59) in misprediction | 134.476589 |
+|       454.552900s |             3.258352GB |       604672 |              1536 |                  R1[18](59) in misprediction | 135.852101 |
+|       464.065591s |             3.258352GB |       604672 |              1568 |                  R1[18](59) in misprediction | 137.663066 |
+|       473.540288s |             3.258352GB |       604672 |              1600 |                  R1[18](59) in misprediction | 139.763581 |
+|       483.220838s |             3.258352GB |       604672 |              1632 |                  R1[18](59) in misprediction | 142.828178 |
+|       492.791839s |             3.258352GB |       604672 |              1664 |                  R1[18](59) in misprediction | 145.935616 |
+|       502.910590s |             3.258352GB |       604672 |              1696 |                  R1[18](59) in misprediction | 145.758903 |
+|       512.624547s |             3.258352GB |       604672 |              1728 |                  R1[18](59) in misprediction | 148.686671 |
+|       522.513719s |             3.264024GB |       604672 |              1760 |                  R1[18](59) in misprediction | 151.657745 |
+|       532.331409s |             3.258352GB |       604672 |              1792 |                  R1[18](59) in misprediction | 154.545012 |
+|       541.890557s |             3.258352GB |       604672 |              1824 |                  R1[18](59) in misprediction | 157.429861 |
+|       551.417059s |             3.258352GB |       604672 |              1856 |                  R1[18](59) in misprediction | 161.059345 |
+|       561.389848s |             3.258352GB |       604672 |              1888 |                  R1[18](59) in misprediction | 163.857032 |
+|       571.626863s |             3.258352GB |       604672 |              1920 |                  R1[18](59) in misprediction | 167.267607 |
+|       581.381115s |             3.258352GB |       604672 |              1952 |                  R1[18](59) in misprediction | 170.884580 |
+|       591.553838s |             3.258352GB |       604672 |              1984 |                  R1[18](59) in misprediction | 173.655274 |
+|       600.953208s |             3.258352GB |       604672 |              2016 |                  R1[18](59) in misprediction | 176.456197 |
+|       610.485073s |             3.258352GB |       604672 |              2048 |                  R1[18](59) in misprediction | 177.934252 |
