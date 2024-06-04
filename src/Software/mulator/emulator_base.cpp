@@ -268,7 +268,7 @@ void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
             std::memcpy(m_flash.get(dst_address), buffer, len);
         }else
         {
-            #ifdef J_DEBUG
+            #ifdef SEA_DEBUG
             std::cout << "copy m_flash in write_memory" << std::endl;
             #endif
             u8* tmp_ptr = m_flash.bytes;
@@ -285,7 +285,7 @@ void Emulator::write_memory(u32 dst_address, const u8* buffer, u32 len)
             std::memcpy(m_ram.get(dst_address), buffer, len);
         }else
         {
-            #ifdef J_DEBUG
+            #ifdef SEA_DEBUG
             std::cout << "copy m_ram in write_memory" << std::endl;
             #endif
             u8* tmp_ptr = m_ram.bytes;
@@ -369,7 +369,7 @@ void InstructionCounter::Update(InstructionCounter& ic)
 
 void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulation, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues, ::InstructionCounter& InstrCounter, const uint64_t SimulationIdx, const uint32_t randomness_start_addr, const uint32_t randomness_end_addr, Software::SettingsStruct& Settings, bool invertCondition){
     
-    #ifdef J_DEBUG
+    #ifdef SEA_DEBUG
     std::cout << std::endl;
     #endif
 
@@ -396,7 +396,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     if (m_return_code != ReturnCode::OK)
     {
-        #ifdef J_DEBUG
+        #ifdef SEA_DEBUG
         std::cout << "return - ReturnCode: " << to_string(m_return_code) << std::endl; 
         #endif
         return;
@@ -411,7 +411,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         return;
     }
 
-    #ifdef J_DEBUG
+    #ifdef SEA_DEBUG
     std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl;
     std::cout << "Real:" << std::to_string(InstrCounter.Real()) << "  Logical:" << std::to_string(InstrCounter.Logical()) << "  Offset:" << std::to_string(InstrCounter.Offset()) << std::endl;  
     #endif
@@ -420,11 +420,11 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     if(std::binary_search(ThreadSimulation.TestClockCycles.begin(), ThreadSimulation.TestClockCycles.end(), InstrCounter.Logical())){
         InTestClockCycles = true;
-        #ifdef J_DEBUG
+        #ifdef SEA_DEBUG
         std::cout << "In Test Clock Cycle" << std::endl;
         #endif
     }
-    #ifdef J_DEBUG
+    #ifdef SEA_DEBUG
     else{
         std::cout << "Not in test Clock Cycle !!!!!!" << std::endl;
     }
@@ -433,23 +433,23 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     bool skipInstruction = false;
     if( invertCondition )
     {
-        #ifdef J_DEBUG
+        #ifdef SEA_DEBUG
         std::cout << "invertCondition - before: " << instr.condition;
         #endif
 
-        // J_TODO: maybe a more elegant solution is needed for the case of CBZ/CBNZ instructions 
+        // todo: maybe a more elegant solution is needed for the case of CBZ/CBNZ instructions 
         if( instr.name == Mnemonic::CBZ || instr.name == Mnemonic::CBNZ )
         {
             u32 value = read_register_internal(instr.Rn);
             if ((instr.name == Mnemonic::CBZ && value == 0) || (instr.name == Mnemonic::CBNZ && value != 0))
             {
-                #ifdef J_DEBUG
+                #ifdef SEA_DEBUG
                 std::cout << " CBZ / CBNZ executed - instruction is skiped" << std::endl;
                 #endif
                 skipInstruction = true;
             }else
             {
-                #ifdef J_DEBUG
+                #ifdef SEA_DEBUG
                 std::cout << " CBZ / CBNZ not executed - changing to unconditional branch" << std::endl;
                 #endif
                 instr.name = Mnemonic::B;
@@ -460,14 +460,14 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
             bool alwaysExecuted = ( (instr.condition >> 1) == 0b111 );
             if( alwaysExecuted )
             {
-                #ifdef J_DEBUG
+                #ifdef SEA_DEBUG
                 std::cout << " alwaysExecuted - instruction is skiped" << std::endl;
                 #endif
                 skipInstruction = true;
             }else
             {
                 instr.condition = static_cast<mulator::Condition>(instr.condition ^ 1); // invert the condition
-                #ifdef J_DEBUG
+                #ifdef SEA_DEBUG
                 std::cout << " after: " << instr.condition << std::endl;
                 #endif
             }
@@ -477,13 +477,13 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     bool branchIntoMisprediction = false;
     InstructionCounter* InstrCounterClone = nullptr;
     if ( !invertCondition && Settings.enableSpeculativeExecutionAwareness && InstrCounter.branchPredictionRecursionDepth < Settings.maxSeaRecursionDepth &&
-         ( instr.name == Mnemonic::B || instr.name == Mnemonic::BL || instr.name == Mnemonic::CBZ || instr.name == Mnemonic::CBNZ )
+         ( instr.name == Mnemonic::B || instr.name == Mnemonic::BL || instr.name == Mnemonic::BX || instr.name == Mnemonic::BLX || instr.name == Mnemonic::CBZ || instr.name == Mnemonic::CBNZ )
     ) // check whether it is a conditional branch instruction + if the max recursion depth is reached
     {   // if invertCondition is true this execution is heading to the "wrong" branch; the content of this is statement shout the never be executed in the same cycle 
         branchIntoMisprediction = true;
         Emulator EmuClone(*this, true /*copy memory on write*/);
 
-        #ifdef J_DEBUG
+        #ifdef SEA_DEBUG
         std::cout << "############################ start of the misprediction " << std::endl;
         std::cout << "      branchPredictionRecursionDepth: " << InstrCounter.branchPredictionRecursionDepth+1 << std::endl;
         std::cout << "      instruction: " << to_string(instr.name) << std::endl;
@@ -505,7 +505,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
         InstrCounterClone->DecReal(); // the correct instruction number is already incremented when this function returns. the last increment of the for loop above must be changed back.
         //(without the decrement there would be 2 increments here)
         (*InstrCounterClone).branchPredictionRecursionDepth--;
-        #ifdef J_DEBUG
+        #ifdef SEA_DEBUG
         std::cout << "############################ end of the misprediction" << std::endl;
         #endif
     }
@@ -516,7 +516,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
     {
         // skip instruction - replace by nop
         instr.name = Mnemonic::NOP;
-        #ifdef J_DEBUG
+        #ifdef SEA_DEBUG
         std::cout << "instruction replaced by NOP" << std::endl;
         #endif
         execute_PROLEAD(instr, ThreadSimulation, ProbeTracker, Helper,  InTestClockCycles, MemoryOperation, InstrCounter, SimulationIdx, randomness_start_addr, randomness_end_addr, ProbeValues);
@@ -1628,7 +1628,7 @@ void Emulator::write_memory_internal(u32 address, u32 value, u8 bytes)
     {
         if(!m_ram.dirty)
         {
-            #ifdef J_DEBUG
+            #ifdef SEA_DEBUG
             std::cout << "copy m_ram in write_memory_internal" << std::endl;
             #endif
             u8* tmp_ptr = m_ram.bytes;
@@ -1642,7 +1642,7 @@ void Emulator::write_memory_internal(u32 address, u32 value, u8 bytes)
     {
         if(!m_flash.dirty)
         {
-            #ifdef J_DEBUG
+            #ifdef SEA_DEBUG
             std::cout << "copy m_flash in write_memory_internal" << std::endl;
             #endif
             u8* tmp_ptr = m_flash.bytes;

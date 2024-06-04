@@ -141,8 +141,8 @@ namespace Software{
 		uint64_t							ProbeInfo;		 ///< Uniquly identifies a probe, (Cycle | Dependency | ID | RegNr1 | RegNr2 | Bit | ExtensionSize)			
 		uint64_t							SpecialInfo;	///< Contains information that might change depending on type of probe
 
-		bool								InMisprediction = false; // J_TODO
-		uint32_t							LogicalCycle;	// J_TODO
+		bool								InMisprediction = false; ///< Is set if the probe is created inside of a misprediction
+		uint32_t							LogicalCycle;	///< This Contains the "logical" cycle of the instruction
 	};
 
 	/**

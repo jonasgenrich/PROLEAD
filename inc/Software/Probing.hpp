@@ -70,7 +70,7 @@ namespace Software
          * @param ProbeIndex index of probe in list of standard probes where new probe will be inserted
          * @param ProbeInfo probe information of ProbesStruct that will be filled
          * @param RegisterTransitionCycle transition cycle of register
-         * @param InstrCounter J_TODO: instruction number when probe was generated
+         * @param InstrCounter holds the logical and the real instruction number
          * @param SimulationIdx current simulation number
          * @param DestinationRegisterValue value of probed destination register
          * @param RegNr Number of Register that is probed
@@ -84,7 +84,7 @@ namespace Software
          * @param RegisterTransitionCycle transition cycle of register
          * @param ExtensionSize How many standard probes will be created when resolving the probe
          * @param ProbeIndex index of probe in list of standard probes where new probe will be inserted
-         * @param InstrNr instruction number when probe was generated
+         * @param InstrCounter holds the logical and the real instruction number
          * @param RegisterNumber Number of Register that is probed
          */
         void CreateHorizontalProbe(std::vector<Software::ProbesStruct>& StandardProbes, uint32_t RegisterTransitionCycle, uint8_t ExtensionSize, uint32_t& ProbeIndex, mulator::InstructionCounter& InstrCounter, uint8_t RegisterNumber);
@@ -235,7 +235,7 @@ namespace Software
          * @param StandardProbes list of generated probes 
          * @param MemoryShadowRegisterProbesIncluded bits that are considered when probing memory shadow register
          * @param RegNr register number if multiple probes in one instructions are generated to ensure sorted order
-         * @param InstrNr instruction number when probe was generated
+         * @param InstrCounter holds the logical and the real instruction number
          * @param ProbeIndex index of probe in list of standard probes where new probe will be inserted
          * @param load_store_memory_shadow_register old value of load/store memory shadow register
          * @param next_load_store_shadow_register_value new value of load/store memory shadow register
@@ -249,7 +249,7 @@ namespace Software
          * @brief Create a Horizontal Mem Shadow Probe probe
          * 
          * @param StandardProbes list of generated probes 
-         * @param InstrNr instruction number when probe was generated
+         * @param InstrCounter holds the logical and the real instruction number
          * @param ProbeIndex index of probe in list of standard probes where new probe will be inserted
          * @param RegNr register number if multiple probes in one instructions are generated to ensure sorted order
          * @param memory_shadow_register old value of memory shadow register

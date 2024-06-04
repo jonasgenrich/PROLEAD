@@ -13,6 +13,13 @@ void Software::Probing::CreateNormalProbe(std::vector<uint8_t>& NormalProbesRegi
 			StandardProbes.at(ProbeIndex).InMisprediction = true;
 		}
 		StandardProbes.at(ProbeIndex).LogicalCycle = InstrCounter.Logical() + InstrCounter.Offset();
+		// resize ProbeValues if necessary
+		if( ProbeValueRegister.at(BitIdx).size() <= InstrNr )
+		{
+			// std::cout << "resize ProbeValueRegister from " << ProbeValueRegister.at(BitIdx).size();
+			ProbeValueRegister.at(BitIdx).resize( (unsigned int) (ProbeValueRegister.at(BitIdx).size() * 1.2) , 0); // very simple and probably not the most efficient approach to determine the new size TODO: find a more efficient determination of the size
+			// std::cout << " to " << ProbeValueRegister.at(BitIdx).size() << std::endl;
+		}
         ProbeValueRegister.at(BitIdx).at(InstrNr) |= (((DestinationRegisterValue >> BitIdx) & 1) << (SimulationIdx & 0x7));
         ProbeIndex++;
     }

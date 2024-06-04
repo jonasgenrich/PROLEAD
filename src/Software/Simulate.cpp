@@ -127,7 +127,7 @@ void Software::Simulate::Instantiate_Emulator(mulator::Emulator& emu, ::Software
 }
 
 void Software::Simulate::Run(mulator::Emulator& Emu, ::Software::ThreadSimulationStruct& ThreadSimulation, SettingsStruct& Settings, ::Software::ProbeTrackingStruct& ProbeTracker, ::Software::HelperStruct& Helper, std::vector<std::vector<std::vector<uint8_t>>>& ProbeValues,  uint64_t SimulationIdx, uint32_t CycleSplit, mulator::InstructionCounter& InstrCounter){
-	#ifdef J_DEBUG
+	#ifdef SEA_DEBUG
 	std::cout << "ThreadSimulation.CycleStart.at(CycleSplit)" << ThreadSimulation.CycleStart.at(CycleSplit) << " InstrCounter.Logical()" << InstrCounter.Logical() << std::endl;
 	#endif
     // for(uint32_t InstructionNr = ThreadSimulation.CycleStart.at(CycleSplit); InstructionNr <= ThreadSimulation.CycleEnd.at(CycleSplit); ++InstructionNr)

@@ -234,27 +234,38 @@ void Software::Print::ProbeReport(std::vector<::Software::ThreadSimulationStruct
 
 //***************************************************************************************
 void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software::ProbingSetStruct& ProbingSet, double Probability, FILE* fp, ::Software::HelperStruct& GlobalHelper){
+
+	// the first instruction number is always the logical instruction number, all instructions after that are the real ones (i.e. with all cycles the emulator has run including all mispredictions).
+
 	unsigned int ProbeIndex = 0;
 	fprintf(fp, "@[");
 
+	bool InMisprediction;
 	uint8_t Id, Bit, RegisterNumber, PartnerRegisterNumber, Dependency;
-	uint32_t Cycle;//, TransitionCycle;
+	uint32_t Cycle, LogicalCycle;//, TransitionCycle;
 	uint16_t ExtensionSize;
 
     for(ProbeIndex = 0; ProbeIndex < ProbingSet.StandardProbe.size(); ++ProbeIndex){
-        
 		Software::Probing::ExtractAllProbeInfo(RegisterNumber, Id, PartnerRegisterNumber, Cycle, Bit, ExtensionSize, Dependency, ProbingSet.StandardProbe.at(ProbeIndex));
+		Software::Probing::ExtractInMispredictionProbeInfo(InMisprediction, ProbingSet.StandardProbe.at(ProbeIndex));
+		Software::Probing::ExtractLogicalCycleProbeInfo(LogicalCycle, ProbingSet.StandardProbe.at(ProbeIndex));
 		if(ExtensionSize != 0){
 			switch(Id){
 				case 0:{
-					fprintf(fp, "MEM[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
+					if(InMisprediction)
+						fprintf(fp, "MEM[%u](%u in misprediction)", Bit, static_cast<uint32_t>(LogicalCycle));
+					else
+						fprintf(fp, "MEM[%u](%u)", Bit, static_cast<uint32_t>(LogicalCycle));
 					fprintf(fp, " ==> [");
 					fprintf(fp, "MEM[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
 					fprintf(fp, "]");
 					break;
 				}
 				case 1:{
-					fprintf(fp, "MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
+					if(InMisprediction)
+						fprintf(fp, "MEMSHADOW[%u](%u in misprediction)", Bit, static_cast<uint32_t>(LogicalCycle));
+					else
+						fprintf(fp, "MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(LogicalCycle));
 					fprintf(fp, " ==> [MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
 					if(Setting.TestTransitional){
 						fprintf(fp, ", MEMSHADOW[%u](%u)]", Bit, static_cast<uint32_t>(ProbingSet.StandardProbe.at(ProbeIndex).SpecialInfo & 0xffffffff));
@@ -263,14 +274,20 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 				}
 				case 2:{
 					if(RegisterNumber == 1){
-						fprintf(fp, "LOAD_MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
+						if(InMisprediction)
+							fprintf(fp, "LOAD_MEMSHADOW[%u](%u in misprediction)", Bit, static_cast<uint32_t>(LogicalCycle));
+						else
+							fprintf(fp, "LOAD_MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(LogicalCycle));
 						fprintf(fp, " ==> [LOAD_MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
 						if(Setting.TestTransitional){
 							fprintf(fp, ", LOAD_MEMSHADOW[%u](%u)]", Bit, static_cast<uint32_t>(ProbingSet.StandardProbe.at(ProbeIndex).SpecialInfo & 0xffffffff));
 						}
 					}
 					else{
-						fprintf(fp, "STORE_MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
+						if(InMisprediction)
+							fprintf(fp, "STORE_MEMSHADOW[%u](%u in misprediction)", Bit, static_cast<uint32_t>(LogicalCycle));
+						else
+							fprintf(fp, "STORE_MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(LogicalCycle));
 						fprintf(fp, " ==> [STORE_MEMSHADOW[%u](%u)", Bit, static_cast<uint32_t>(Cycle));
 						if(Setting.TestTransitional){
 							fprintf(fp, ", STORE_MEMSHADOW[%u](%u)]", Bit, static_cast<uint32_t>(ProbingSet.StandardProbe.at(ProbeIndex).SpecialInfo & 0xffffffff));
@@ -279,7 +296,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 3:{
-					fprintf(fp, "HR_MEMSHADOW(%u)", static_cast<uint32_t>(Cycle));
+					if(InMisprediction)
+						fprintf(fp, "HR_MEMSHADOW(%u in misprediction)", static_cast<uint32_t>(LogicalCycle));
+					else
+						fprintf(fp, "HR_MEMSHADOW(%u)", static_cast<uint32_t>(LogicalCycle));
 					fprintf(fp, " ==> [");
 					for(const auto& BitIdx: GlobalHelper.HorizontalBitsIncluded.at(17)){
 						fprintf(fp, "MEMSHADOW[%u](%u), ", BitIdx, static_cast<uint32_t>(Cycle));
@@ -291,7 +311,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 4:{
-					fprintf(fp, "R%u[%u](%u)]", (static_cast<uint32_t>(RegisterNumber)), Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "R%u[%u](%u in misprediction)]", (static_cast<uint32_t>(RegisterNumber)), Bit, LogicalCycle);
+					else
+						fprintf(fp, "R%u[%u](%u)]", (static_cast<uint32_t>(RegisterNumber)), Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 
 					fprintf(fp, "R%u[%u](%u)",  (static_cast<uint32_t>(RegisterNumber)), static_cast<uint32_t>(Bit), static_cast<uint32_t>(Cycle));
@@ -302,11 +325,14 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 5:{
-					fprintf(fp, "HR%u(%u)", (static_cast<uint32_t>(RegisterNumber)), static_cast<uint32_t>(Cycle));
+					if(InMisprediction)
+						fprintf(fp, "HR%u(%u in misprediction)", (static_cast<uint32_t>(RegisterNumber)), static_cast<uint32_t>(LogicalCycle));
+					else
+						fprintf(fp, "HR%u(%u)", (static_cast<uint32_t>(RegisterNumber)), static_cast<uint32_t>(LogicalCycle));
 					fprintf(fp, " ==> [");
 
 					for(const auto& BitIdx: GlobalHelper.HorizontalBitsIncluded.at(RegisterNumber)){
-						fprintf(fp, "R%u[%u](%u), ", (static_cast<uint32_t>(RegisterNumber)), BitIdx, static_cast<uint32_t>(Cycle));
+						fprintf(fp, "R%u[%u](%u), ", (static_cast<uint32_t>(RegisterNumber)), BitIdx, static_cast<uint32_t>(LogicalCycle));
 						if(Setting.TestTransitional){
 							fprintf(fp, "R%u[%u](%u), ", (static_cast<uint32_t>(RegisterNumber)), BitIdx, static_cast<uint32_t>(ProbingSet.StandardProbe.at(ProbeIndex).TransitionCycles & 0xffffffff));
 						}
@@ -315,7 +341,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 6:{ //small vertical probe
-					fprintf(fp, "VR[%u](%u)]", static_cast<uint32_t>(Bit), static_cast<uint32_t>(Cycle));
+					if(InMisprediction)
+						fprintf(fp, "VR[%u](%u in misprediction)]", static_cast<uint32_t>(Bit), static_cast<uint32_t>(LogicalCycle));
+					else
+						fprintf(fp, "VR[%u](%u)]", static_cast<uint32_t>(Bit), static_cast<uint32_t>(LogicalCycle));
 					fprintf(fp, " ==> [");
 
 					fprintf(fp, "R%u[%u](%u), ", (static_cast<uint32_t>(RegisterNumber)), static_cast<uint32_t>(Bit), static_cast<uint32_t>(Cycle));
@@ -328,7 +357,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 7:{ //large vertical probe
-					fprintf(fp, "VR[%u](%u)]", static_cast<uint32_t>(Bit), static_cast<uint32_t>(Cycle));
+					if(InMisprediction)
+						fprintf(fp, "VR[%u](%u in misprediction)]", static_cast<uint32_t>(Bit), static_cast<uint32_t>(LogicalCycle));
+					else
+						fprintf(fp, "VR[%u](%u)]", static_cast<uint32_t>(Bit), static_cast<uint32_t>(LogicalCycle));
 					fprintf(fp, " ==> [");
 
 					fprintf(fp, "R%u[%u](%u), ", (static_cast<uint32_t>(RegisterNumber)), static_cast<uint32_t>(Bit), static_cast<uint32_t>(Cycle));
@@ -345,7 +377,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 				case 8:{ //small full HR
 					uint32_t CycleRegNr2 = static_cast<uint32_t>((ProbingSet.StandardProbe.at(ProbeIndex).TransitionCycles >> 32));
 					uint32_t TransCycleRegNr1 = static_cast<uint32_t>((ProbingSet.StandardProbe.at(ProbeIndex).TransitionCycles & 0xffffffff));
-					fprintf(fp, "FULLHR:R%u(%u) - R%u(%u)",RegisterNumber, Cycle, PartnerRegisterNumber, CycleRegNr2);
+					if(InMisprediction)
+						fprintf(fp, "FULLHR:R%u(%u in misprediction) - R%u(%u)",RegisterNumber, LogicalCycle, PartnerRegisterNumber, CycleRegNr2);
+					else
+						fprintf(fp, "FULLHR:R%u(%u) - R%u(%u)",RegisterNumber, LogicalCycle, PartnerRegisterNumber, CycleRegNr2);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.NormalProbesIncluded.at(RegisterNumber)){
 						fprintf(fp, "R%u[%u](%u)", RegisterNumber, idx, Cycle);
@@ -365,7 +400,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 				case 9:{ //large full HR probe
 					uint32_t TransCycleRegNr1 = static_cast<uint32_t>((ProbingSet.StandardProbe.at(ProbeIndex).TransitionCycles & 0xffffffff));
 					uint32_t TransCycleRegNr2 = static_cast<uint32_t>((ProbingSet.StandardProbe.at(ProbeIndex).TransitionCycles >> 32));
-					fprintf(fp, "FULLHR:R%u(%u) - R%u(%u)",RegisterNumber, Cycle, PartnerRegisterNumber, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "FULLHR:R%u(%u in misprediction) - R%u(%u)",RegisterNumber, LogicalCycle, PartnerRegisterNumber, LogicalCycle);
+					else
+						fprintf(fp, "FULLHR:R%u(%u) - R%u(%u)",RegisterNumber, LogicalCycle, PartnerRegisterNumber, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.NormalProbesIncluded.at(RegisterNumber)){
 						fprintf(fp, "R%u[%u](%u)", RegisterNumber, idx, Cycle);
@@ -385,7 +423,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 10:{ //small full VR probe
-					fprintf(fp, "FULLVR[%u](%u)",Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "FULLVR[%u](%u in misprediction)",Bit, LogicalCycle);
+					else
+						fprintf(fp, "FULLVR[%u](%u)",Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.FullVerticalProbesIncluded.at(Bit)){
 						fprintf(fp, "R%u[%u]", idx, Bit);
@@ -399,7 +440,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 11:{ //large full VR probe
-					fprintf(fp, "FULLVR[%u](%u)",Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "FULLVR[%u](%u in misprediction)",Bit, LogicalCycle);
+					else
+						fprintf(fp, "FULLVR[%u](%u)",Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.FullVerticalProbesIncluded.at(Bit)){
 						fprintf(fp, "R%u[%u]", idx, Bit);
@@ -413,7 +457,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 12:{ // special full VR probe
-					fprintf(fp, "FULLVR[%u](%u)",Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "FULLVR[%u](%u in misprediction)",Bit, LogicalCycle);
+					else
+						fprintf(fp, "FULLVR[%u](%u)",Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.FullVerticalProbesIncluded.at(Bit)){
 						fprintf(fp, "R%u[%u]", idx, Bit);
@@ -427,7 +474,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 13:{ //small DSP full VR probe
-					fprintf(fp, "FULLVR[%u](%u)",Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "FULLVR[%u](%u in misprediction)",Bit, LogicalCycle);
+					else
+						fprintf(fp, "FULLVR[%u](%u)",Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.FullVerticalProbesIncluded.at(Bit)){
 						fprintf(fp, "R%u[%u]", idx, Bit);
@@ -441,7 +491,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 14:{ //large DSP full VR probe
-					fprintf(fp, "FULLVR[%u](%u)",Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "FULLVR[%u](%u in misprediction)",Bit, LogicalCycle);
+					else
+						fprintf(fp, "FULLVR[%u](%u)",Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.FullVerticalProbesIncluded.at(Bit)){
 						fprintf(fp, "R%u[%u]", idx, Bit);
@@ -455,7 +508,10 @@ void Software::Print::ProbingSet(::Software::SettingsStruct& Setting, ::Software
 					break;
 				}
 				case 15:{ //pipeline forwarding effect
-					fprintf(fp, "PIPE_FORWARD[%u](%u)",Bit, Cycle);
+					if(InMisprediction)
+						fprintf(fp, "PIPE_FORWARD[%u](%u in misprediction)",Bit, LogicalCycle);
+					else
+						fprintf(fp, "PIPE_FORWARD[%u](%u)",Bit, LogicalCycle);
 					fprintf(fp, " ==> [");
 					for(const auto& idx: GlobalHelper.PipelineForwardingProbesIncluded.at(Bit)){
 						for(uint32_t pipeline_idx = 0; pipeline_idx < Setting.NumberOfPipelineStages; ++pipeline_idx){

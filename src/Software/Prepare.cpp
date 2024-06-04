@@ -88,6 +88,13 @@ void Software::Prepare::All(CommandLineParameterStruct& Parameter, Software::Con
 		Software::Prepare::SharedData(Settings, SharedInputData.at(SimulationIndex));
 	}
     Software::Prepare::Helper(Probes, GlobalHelper);
+
+	if(Settings->enableSpeculativeExecutionAwareness && GlobalHelper.ProbePipelineForwarding)
+	{
+		//std::cerr << "error: speculative execution awareness and pipeline forwarding probes are activated. both in combination are currently not supported!"
+		throw std::runtime_error("error: speculative execution awareness and pipeline forwarding probes are activated. both in combination are currently not supported!");
+	}
+
     std::cout << "done!" << std::endl << std::endl;
 }
 

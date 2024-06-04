@@ -93,7 +93,12 @@ void Software::Analyze::ProbingSecurity(Software::SettingsStruct& Settings,  std
             std::vector<std::vector<bool>> HighOrderUnivariateRedundancy(34, std::vector<bool>(32, false)); //17 register each 32 bit, consider transitions -> 34 registers
 
             std::vector<std::vector<std::vector<std::vector<uint8_t>>>> ProbeValues; //[simulation][registernumber][registerbit][clockcycle]
-            ProbeValues.resize(static_cast<uint64_t>(std::ceil(Settings.NumberOfStepSimulations/8.0f)), std::vector<std::vector<std::vector<uint8_t>>>(17,std::vector<std::vector<uint8_t>>(32,std::vector<uint8_t>(GlobalThreadSimulations.at(ThreadIndex).CycleEnd.back() + 1, 0))));
+            if(Settings.enableSpeculativeExecutionAwareness){   // if sea is enabled there are more instructions simulated that there are clockcycles, so this array needs to be bigger.
+                ProbeValues.resize(static_cast<uint64_t>(std::ceil(Settings.NumberOfStepSimulations/8.0f)),std::vector<std::vector<std::vector<uint8_t>>>(17,std::vector<std::vector<uint8_t>>(32,std::vector<uint8_t>((unsigned int)(GlobalThreadSimulations.at(ThreadIndex).CycleEnd.back() * 1.2 ) + 1, 0))));
+            }else
+            {
+                ProbeValues.resize(static_cast<uint64_t>(std::ceil(Settings.NumberOfStepSimulations/8.0f)), std::vector<std::vector<std::vector<uint8_t>>>(17,std::vector<std::vector<uint8_t>>(32,std::vector<uint8_t>(GlobalThreadSimulations.at(ThreadIndex).CycleEnd.back() + 1, 0))));
+            }
 
             
             for(uint32_t CycleSplit = 0; CycleSplit < GlobalThreadSimulations.at(ThreadIndex).NumberOfCycleSplits; ++CycleSplit){
@@ -114,9 +119,6 @@ void Software::Analyze::ProbingSecurity(Software::SettingsStruct& Settings,  std
                     if(!Settings.TestMultivariate){
                         Software::Probing::GetProbingSets(GlobalThreadSimulations.at(ThreadIndex), Settings, GlobalTests.at(ThreadIndex), OrderOverTwoCombination, ProbeInfoToStandardProbe, SimulationIndex);
                     }
-                    #ifdef J_SINGLE_ROUND
-                    break;
-                    #endif
                 }
                 if(!Settings.TestMultivariate){
                     if (GlobalTests.at(ThreadIndex).GlobalProbingSets.empty()){
