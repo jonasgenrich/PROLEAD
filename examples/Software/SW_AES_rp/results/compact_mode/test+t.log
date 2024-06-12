@@ -1,0 +1,31 @@
+Library file:   library.lib
+Library name:   NANG45
+Design file:    ../../source/main.c
+Module name:    circuit
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+
+Start Software Leakage Evaluation
+
+Source file(s): ../../source/main.c
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+config file: all required information are not given
+
+default "no_of_entries_in_report" = 10 is taken
+Prepare shared data for 8 threads ...done!
+
+Start software evaluation...
+---------------------------------------------------------------------------------------------------------------------------------------------
+|      Elapsed Time |     Memory Consumption |        #Sets |       Simulations | Probing Set with highest Information Leakage |  -log10(p) |
+---------------------------------------------------------------------------------------------------------------------------------------------
+|         6.353905s |             2.245928GB |       738912 |                32 |                                    R11[0](1) |   0.000000 |
+|        12.813236s |             2.254716GB |       738912 |                64 |                                  R8[7](5123) |  10.561730 |
+|        19.147022s |             2.248932GB |       738912 |                96 |                                  R8[7](6431) |  18.980545 |
+|        25.446772s |             2.248932GB |       738912 |               128 |                                  R8[7](6431) |  24.977734 |
+|        31.765917s |             2.249956GB |       738912 |               160 |                                  R8[7](6431) |  28.453444 |
+|        38.462290s |             2.251824GB |       738912 |               192 |                                 R8[7](10355) |  33.171835 |
+|        44.766124s |             2.254716GB |       738912 |               224 |                                  R8[7](6431) |  38.238017 |
+|        51.166360s |             2.254716GB |       738912 |               256 |                                  R8[7](6431) |  43.052778 |

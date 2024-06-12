@@ -1,0 +1,127 @@
+Library file:   library.lib
+Library name:   NANG45
+Design file:    ../../source/main.c ../../source/gadgets.S
+Module name:    circuit
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+
+Start Software Leakage Evaluation
+
+Source file(s): ../../source/main.c ../../source/gadgets.S
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+../../source/main.c: In function 'secadd':
+../../source/main.c:336:13: warning: unused variable 'd' [-Wunused-variable]
+  336 |   size_t i, d;
+      |             ^
+../../source/main.c: In function 'main':
+../../source/main.c:478:16: warning: unused variable 'd' [-Wunused-variable]
+  478 |   size_t i, j, d;
+      |                ^
+../../source/main.c:477:16: warning: unused variable 'err' [-Wunused-variable]
+  477 |   volatile int err;
+      |                ^~~
+../../source/main.c:475:11: warning: unused variable 'coeffs_out' [-Wunused-variable]
+  475 |   int16_t coeffs_out[NSHARES * BSSIZE];
+      |           ^~~~~~~~~~
+../../source/gadgets.S: Assembler messages:
+../../source/gadgets.S:198: Warning: register range not in ascending order
+../../source/gadgets.S:215: Warning: register range not in ascending order
+config file: all required information are not given
+
+default "no_of_entries_in_report" = 10 is taken
+could not find <cipher> symbol in compiled main-function. Checking for compiler optimized modifications...
+found in main (order of occurrance):
+	address: 8000598	function: <cipher.constprop.2>
+
+taking <cipher.constprop.2>
+press enter to continue with this function to test...Prepare shared data for 8 threads ...done!
+
+Start software evaluation...
+---------------------------------------------------------------------------------------------------------------------------------------------
+|      Elapsed Time |     Memory Consumption |        #Sets |       Simulations | Probing Set with highest Information Leakage |  -log10(p) |
+---------------------------------------------------------------------------------------------------------------------------------------------
+|        24.106665s |             5.457892GB |      1546976 |                32 |                                    MEM[0](0) |   0.000000 |
+|        45.111916s |             5.654560GB |      1546976 |                64 |     LOAD_MEMSHADOW[27](370) in misprediction |   8.630816 |
+|        65.996440s |             5.720096GB |      1546976 |                96 |     LOAD_MEMSHADOW[27](370) in misprediction |  12.457562 |
+|        87.007606s |             6.300272GB |      1546976 |               128 |     LOAD_MEMSHADOW[27](370) in misprediction |  15.935966 |
+|       107.986683s |             6.244384GB |      1546976 |               160 |     LOAD_MEMSHADOW[5](1360) in misprediction |  18.367348 |
+|       128.914791s |             6.309920GB |      1546976 |               192 |                  R1[18](59) in misprediction |  21.538746 |
+|       150.174513s |             6.309920GB |      1546976 |               224 |     LOAD_MEMSHADOW[27](370) in misprediction |  23.737752 |
+|       171.118903s |             6.370940GB |      1546976 |               256 |      LOAD_MEMSHADOW[4](964) in misprediction |  28.657736 |
+|       191.979503s |             6.309920GB |      1546976 |               288 |      LOAD_MEMSHADOW[4](964) in misprediction |  30.029468 |
+|       212.737497s |             6.309920GB |      1546976 |               320 |     LOAD_MEMSHADOW[5](1360) in misprediction |  32.474208 |
+|       233.661184s |             6.309920GB |      1546976 |               352 |     LOAD_MEMSHADOW[5](1360) in misprediction |  34.777635 |
+|       254.458859s |             6.309920GB |      1546976 |               384 |      LOAD_MEMSHADOW[4](964) in misprediction |  39.000623 |
+|       275.247085s |             6.309920GB |      1546976 |               416 |                  R1[18](59) in misprediction |  41.585250 |
+|       296.038563s |             6.309920GB |      1546976 |               448 |      LOAD_MEMSHADOW[10](86) in misprediction |  45.196672 |
+|       316.745921s |             6.309920GB |      1546976 |               480 |                  R1[18](59) in misprediction |  49.155774 |
+|       337.514386s |             6.309920GB |      1546976 |               512 |     LOAD_MEMSHADOW[22](172) in misprediction |  49.867068 |
+|       358.397250s |             6.309920GB |      1546976 |               544 |      LOAD_MEMSHADOW[10](86) in misprediction |  52.254568 |
+|       379.398650s |             6.309920GB |      1546976 |               576 |      LOAD_MEMSHADOW[10](86) in misprediction |  54.863757 |
+|       400.188512s |             6.309920GB |      1546976 |               608 |      LOAD_MEMSHADOW[10](86) in misprediction |  59.477414 |
+|       421.036503s |             6.309920GB |      1546976 |               640 |     LOAD_MEMSHADOW[22](172) in misprediction |  62.075898 |
+|       441.908276s |             6.309920GB |      1546976 |               672 |     LOAD_MEMSHADOW[22](172) in misprediction |  65.416057 |
+|       462.728710s |             6.309920GB |      1546976 |               704 |     LOAD_MEMSHADOW[22](172) in misprediction |  68.202566 |
+|       483.456403s |             6.309920GB |      1546976 |               736 |     LOAD_MEMSHADOW[22](172) in misprediction |  71.906971 |
+|       504.233086s |             6.309920GB |      1546976 |               768 |     LOAD_MEMSHADOW[22](172) in misprediction |  74.719108 |
+|       524.905965s |             6.309920GB |      1546976 |               800 |     LOAD_MEMSHADOW[22](172) in misprediction |  76.857642 |
+|       545.660455s |             6.309920GB |      1546976 |               832 |     LOAD_MEMSHADOW[22](172) in misprediction |  80.650618 |
+|       566.588184s |             6.309920GB |      1546976 |               864 |     LOAD_MEMSHADOW[22](172) in misprediction |  84.658450 |
+|       587.568076s |             6.309920GB |      1546976 |               896 |     LOAD_MEMSHADOW[22](172) in misprediction |  87.438938 |
+|       608.287031s |             6.309920GB |      1546976 |               928 |     LOAD_MEMSHADOW[22](172) in misprediction |  91.644086 |
+|       628.975464s |             6.309920GB |      1546976 |               960 |     LOAD_MEMSHADOW[22](172) in misprediction |  94.043609 |
+|       649.710685s |             6.309920GB |      1546976 |               992 |     LOAD_MEMSHADOW[22](172) in misprediction |  97.628960 |
+|       670.549735s |             6.309920GB |      1546976 |              1024 |     LOAD_MEMSHADOW[22](172) in misprediction | 100.969126 |
+|       691.335870s |             6.309920GB |      1546976 |              1056 |     LOAD_MEMSHADOW[22](172) in misprediction | 104.782984 |
+|       716.299033s |             6.309920GB |      1546976 |              1088 |     LOAD_MEMSHADOW[22](172) in misprediction | 108.406973 |
+|       738.890738s |             6.309920GB |      1546976 |              1120 |     LOAD_MEMSHADOW[22](172) in misprediction | 112.395672 |
+|       760.036447s |             6.309920GB |      1546976 |              1152 |     LOAD_MEMSHADOW[22](172) in misprediction | 112.740858 |
+|       781.384027s |             6.309920GB |      1546976 |              1184 |     LOAD_MEMSHADOW[22](172) in misprediction | 115.377678 |
+|       802.528788s |             6.309920GB |      1546976 |              1216 |     LOAD_MEMSHADOW[22](172) in misprediction | 119.970454 |
+|       823.789953s |             6.309920GB |      1546976 |              1248 |     LOAD_MEMSHADOW[22](172) in misprediction | 122.410610 |
+|       845.226326s |             6.309920GB |      1546976 |              1280 |     LOAD_MEMSHADOW[22](172) in misprediction | 124.009867 |
+|       866.371751s |             6.309920GB |      1546976 |              1312 |     LOAD_MEMSHADOW[22](172) in misprediction | 126.331436 |
+|       887.678717s |             6.309920GB |      1546976 |              1344 |     LOAD_MEMSHADOW[22](172) in misprediction | 130.137057 |
+|       908.878585s |             6.309920GB |      1546976 |              1376 |     LOAD_MEMSHADOW[22](172) in misprediction | 133.324464 |
+|       930.251492s |             6.309920GB |      1546976 |              1408 |     LOAD_MEMSHADOW[22](172) in misprediction | 136.557758 |
+|       951.344752s |             6.309920GB |      1546976 |              1440 |     LOAD_MEMSHADOW[22](172) in misprediction | 140.947689 |
+|       972.758846s |             6.309920GB |      1546976 |              1472 |     LOAD_MEMSHADOW[22](172) in misprediction | 145.797970 |
+|       993.990593s |             6.309920GB |      1546976 |              1504 |     LOAD_MEMSHADOW[22](172) in misprediction | 148.505952 |
+|      1015.322080s |             6.309920GB |      1546976 |              1536 |     LOAD_MEMSHADOW[22](172) in misprediction | 150.025153 |
+|      1036.415971s |             6.309920GB |      1546976 |              1568 |     LOAD_MEMSHADOW[22](172) in misprediction | 153.049457 |
+|      1057.593677s |             6.309920GB |      1546976 |              1600 |     LOAD_MEMSHADOW[22](172) in misprediction | 154.592205 |
+|      1078.573097s |             6.309920GB |      1546976 |              1632 |     LOAD_MEMSHADOW[22](172) in misprediction | 158.565560 |
+|      1099.816644s |             6.309920GB |      1546976 |              1664 |     LOAD_MEMSHADOW[22](172) in misprediction | 162.321889 |
+|      1122.268469s |             6.309920GB |      1546976 |              1696 |     LOAD_MEMSHADOW[22](172) in misprediction | 163.444047 |
+|      1143.873558s |             6.309920GB |      1546976 |              1728 |     LOAD_MEMSHADOW[22](172) in misprediction | 166.073646 |
+|      1166.120584s |             6.309920GB |      1546976 |              1760 |     LOAD_MEMSHADOW[22](172) in misprediction | 167.350587 |
+|      1188.500201s |             6.309920GB |      1546976 |              1792 |     LOAD_MEMSHADOW[22](172) in misprediction | 169.947935 |
+|      1209.713576s |             6.309920GB |      1546976 |              1824 |     LOAD_MEMSHADOW[22](172) in misprediction | 171.839354 |
+|      1230.459037s |             6.309920GB |      1546976 |              1856 |     LOAD_MEMSHADOW[22](172) in misprediction | 174.025573 |
+|      1251.529649s |             6.309920GB |      1546976 |              1888 |     LOAD_MEMSHADOW[22](172) in misprediction | 177.517976 |
+|      1272.643103s |             6.309920GB |      1546976 |              1920 |     LOAD_MEMSHADOW[22](172) in misprediction | 178.815606 |
+|      1293.711585s |             6.309920GB |      1546976 |              1952 |     LOAD_MEMSHADOW[22](172) in misprediction | 180.450636 |
+|      1314.685224s |             6.309920GB |      1546976 |              1984 |      LOAD_MEMSHADOW[22](86) in misprediction | 183.949703 |
+|      1335.816542s |             6.309920GB |      1546976 |              2016 |                  R1[18](59) in misprediction | 186.904861 |
+|      1357.073301s |             6.309920GB |      1546976 |              2048 |                  R1[18](59) in misprediction | 189.934158 |
+|      1378.344699s |             6.309920GB |      1546976 |              2080 |      LOAD_MEMSHADOW[10](86) in misprediction | 194.049373 |
+|      1400.806547s |             6.309920GB |      1546976 |              2112 |      LOAD_MEMSHADOW[10](86) in misprediction | 197.643397 |
+|      1422.305608s |             6.309920GB |      1546976 |              2144 |      LOAD_MEMSHADOW[10](86) in misprediction | 200.424508 |
+|      1443.307663s |             6.309920GB |      1546976 |              2176 |      LOAD_MEMSHADOW[10](86) in misprediction | 202.887855 |
+|      1464.350835s |             6.309920GB |      1546976 |              2208 |      LOAD_MEMSHADOW[10](86) in misprediction | 206.833908 |
+|      1485.651616s |             6.309920GB |      1546976 |              2240 |      LOAD_MEMSHADOW[10](86) in misprediction | 209.153970 |
+|      1506.648981s |             6.309920GB |      1546976 |              2272 |      LOAD_MEMSHADOW[10](86) in misprediction | 210.356349 |
+|      1527.655890s |             6.309920GB |      1546976 |              2304 |      LOAD_MEMSHADOW[10](86) in misprediction | 212.716244 |
+|      1548.558455s |             6.309920GB |      1546976 |              2336 |                  R1[18](59) in misprediction | 216.277998 |
+|      1569.739021s |             6.309920GB |      1546976 |              2368 |      LOAD_MEMSHADOW[22](86) in misprediction | 219.073933 |
+|      1590.827582s |             6.309920GB |      1546976 |              2400 |      LOAD_MEMSHADOW[22](86) in misprediction | 223.809041 |
+|      1611.861357s |             6.309920GB |      1546976 |              2432 |      LOAD_MEMSHADOW[22](86) in misprediction | 226.768891 |
+|      1632.957826s |             6.309920GB |      1546976 |              2464 |      LOAD_MEMSHADOW[22](86) in misprediction | 228.593504 |
+|      1654.196927s |             6.309920GB |      1546976 |              2496 |      LOAD_MEMSHADOW[22](86) in misprediction | 230.048779 |
+|      1675.791720s |             6.309920GB |      1546976 |              2528 |                  R1[18](59) in misprediction | 232.692939 |
+|      1697.048034s |             6.309920GB |      1546976 |              2560 |                  R1[18](59) in misprediction | 235.697811 |
+|      1718.136471s |             6.309920GB |      1546976 |              2592 |                  R1[18](59) in misprediction | 238.040970 |
+|      1739.110554s |             6.309920GB |      1546976 |              2624 |                  R1[18](59) in misprediction | 240.171812 |

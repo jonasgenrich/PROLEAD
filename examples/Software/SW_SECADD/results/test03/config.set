@@ -73,7 +73,9 @@ all
 
 
 probes_exclude   % those wires which should be exclused for probing (all : to exclude them all, 0 : to exclude none, e.g., 2 : to exclude two and name them) 
-1
+3
+VR
+HR
 PF
 
 enable_sea

@@ -1,0 +1,53 @@
+Library file:   library.lib
+Library name:   NANG45
+Design file:    ../../source/main.c ../../source/gadgets.S
+Module name:    circuit
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+
+Start Software Leakage Evaluation
+
+Source file(s): ../../source/main.c ../../source/gadgets.S
+Linker file:    ../../source/linker.ld
+Settings file:  config.set
+Result folder:  .
+../../source/main.c: In function 'secadd':
+../../source/main.c:248:13: warning: unused variable 'd' [-Wunused-variable]
+  248 |   size_t i, d;
+      |             ^
+../../source/main.c: In function 'main':
+../../source/main.c:588:18: warning: unused variable 'd' [-Wunused-variable]
+  588 |     size_t i, j, d;
+      |                  ^
+../../source/main.c:587:18: warning: unused variable 'err' [-Wunused-variable]
+  587 |     volatile int err;
+      |                  ^~~
+../../source/main.c:585:13: warning: unused variable 'coeffs_out' [-Wunused-variable]
+  585 |     int16_t coeffs_out[NSHARES * BSSIZE * 2];
+      |             ^~~~~~~~~~
+../../source/gadgets.S: Assembler messages:
+../../source/gadgets.S:198: Warning: register range not in ascending order
+../../source/gadgets.S:215: Warning: register range not in ascending order
+config file: all required information are not given
+
+default "no_of_entries_in_report" = 10 is taken
+
+default "enable_sea" = no is taken
+Prepare shared data for 8 threads ...done!
+
+Start software evaluation...
+---------------------------------------------------------------------------------------------------------------------------------------------
+|      Elapsed Time |     Memory Consumption |        #Sets |       Simulations | Probing Set with highest Information Leakage |  -log10(p) |
+---------------------------------------------------------------------------------------------------------------------------------------------
+|      1101.151587s |             7.302260GB |      7698912 |                32 |                                    MEM[0](0) |   0.000000 |
+|      7316.063901s |             7.927160GB |      8736928 |                64 |                                R2[28](26945) |   3.668477 |
+|      7672.686501s |             8.109100GB |      8750784 |                96 |                          MEMSHADOW[1](45289) |   5.404197 |
+|      9101.657364s |             8.137840GB |      8810400 |               128 |                     LOAD_MEMSHADOW[5](27276) |   5.792623 |
+|      9163.050962s |             8.404992GB |      8810400 |               160 |                    LOAD_MEMSHADOW[27](20643) |   6.109258 |
+|      9224.330746s |             8.458048GB |      8810400 |               192 |                          MEMSHADOW[10](3066) |   4.981244 |
+|      9286.042700s |             8.576648GB |      8810400 |               224 |                          MEMSHADOW[4](34271) |   6.204970 |
+|     15640.269086s |             8.588760GB |      9250496 |               256 |                          MEMSHADOW[4](34319) |   6.543493 |
+|     15702.056795s |             8.586828GB |      9250496 |               288 |                                R9[12](24565) |   6.411536 |
+|     15763.642798s |             8.645784GB |      9250496 |               320 |                                R9[12](24565) |   5.926204 |
+|     15825.434746s |             8.602296GB |      9250496 |               352 |                                R9[12](24565) |   5.183093 |

@@ -1,0 +1,984 @@
+========== State after 32 simulations ==========
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+@[MEM[0](0) ==> [MEM[0](0)] -log10(p) = 0.000000 --> OKAY
+
+========== State after 64 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 5.421094 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](568 in misprediction) ==> [LOAD_MEMSHADOW[25](788), LOAD_MEMSHADOW[25](779)] -log10(p) = 5.929457 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](172 in misprediction) ==> [LOAD_MEMSHADOW[27](256), LOAD_MEMSHADOW[27](247)] -log10(p) = 6.940390 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](1360 in misprediction) ==> [LOAD_MEMSHADOW[22](1404), LOAD_MEMSHADOW[22](1395)] -log10(p) = 7.015933 --> LEAKAGE
+@[LOAD_MEMSHADOW[29](1162 in misprediction) ==> [LOAD_MEMSHADOW[29](1586), LOAD_MEMSHADOW[29](1577)] -log10(p) = 7.015933 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 8.044398 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 8.044398 --> LEAKAGE
+@[LOAD_MEMSHADOW[31](1360 in misprediction) ==> [LOAD_MEMSHADOW[31](1404), LOAD_MEMSHADOW[31](1395)] -log10(p) = 8.044398 --> LEAKAGE
+@[LOAD_MEMSHADOW[31](1162 in misprediction) ==> [LOAD_MEMSHADOW[31](1586), LOAD_MEMSHADOW[31](1577)] -log10(p) = 8.630816 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 8.630816 --> LEAKAGE
+
+========== State after 96 simulations ==========
+@[LOAD_MEMSHADOW[31](1360 in misprediction) ==> [LOAD_MEMSHADOW[31](1404), LOAD_MEMSHADOW[31](1395)] -log10(p) = 8.975985 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](1360 in misprediction) ==> [LOAD_MEMSHADOW[22](1404), LOAD_MEMSHADOW[22](1395)] -log10(p) = 9.091520 --> LEAKAGE
+@[R1[4](59 in misprediction)] ==> [R1[4](83), R1[4](78)] -log10(p) = 9.091520 --> LEAKAGE
+@[LOAD_MEMSHADOW[28](86 in misprediction) ==> [LOAD_MEMSHADOW[28](130), LOAD_MEMSHADOW[28](126)] -log10(p) = 9.091520 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](172 in misprediction) ==> [LOAD_MEMSHADOW[27](256), LOAD_MEMSHADOW[27](247)] -log10(p) = 9.332880 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](568 in misprediction) ==> [LOAD_MEMSHADOW[25](788), LOAD_MEMSHADOW[25](779)] -log10(p) = 9.590712 --> LEAKAGE
+@[LOAD_MEMSHADOW[31](1162 in misprediction) ==> [LOAD_MEMSHADOW[31](1586), LOAD_MEMSHADOW[31](1577)] -log10(p) = 10.227548 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 11.154853 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 11.154853 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 12.457562 --> LEAKAGE
+
+========== State after 128 simulations ==========
+@[LOAD_MEMSHADOW[28](86 in misprediction) ==> [LOAD_MEMSHADOW[28](130), LOAD_MEMSHADOW[28](126)] -log10(p) = 11.864649 --> LEAKAGE
+@[LOAD_MEMSHADOW[17](86 in misprediction) ==> [LOAD_MEMSHADOW[17](130), LOAD_MEMSHADOW[17](126)] -log10(p) = 12.132502 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 12.132502 --> LEAKAGE
+@[LOAD_MEMSHADOW[31](1162 in misprediction) ==> [LOAD_MEMSHADOW[31](1586), LOAD_MEMSHADOW[31](1577)] -log10(p) = 12.415632 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](172 in misprediction) ==> [LOAD_MEMSHADOW[27](256), LOAD_MEMSHADOW[27](247)] -log10(p) = 13.187684 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 13.187684 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 13.187684 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 13.590965 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 13.963947 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 15.935966 --> LEAKAGE
+
+========== State after 160 simulations ==========
+@[LOAD_MEMSHADOW[17](86 in misprediction) ==> [LOAD_MEMSHADOW[17](130), LOAD_MEMSHADOW[17](126)] -log10(p) = 14.695350 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 14.695350 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 15.847185 --> LEAKAGE
+@[LOAD_MEMSHADOW[12](370 in misprediction) ==> [LOAD_MEMSHADOW[12](522), LOAD_MEMSHADOW[12](513)] -log10(p) = 16.544107 --> LEAKAGE
+@[LOAD_MEMSHADOW[31](1162 in misprediction) ==> [LOAD_MEMSHADOW[31](1586), LOAD_MEMSHADOW[31](1577)] -log10(p) = 16.924186 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 17.599633 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 17.599633 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 17.817481 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 18.041532 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 18.367348 --> LEAKAGE
+
+========== State after 192 simulations ==========
+@[LOAD_MEMSHADOW[17](86 in misprediction) ==> [LOAD_MEMSHADOW[17](130), LOAD_MEMSHADOW[17](126)] -log10(p) = 17.931576 --> LEAKAGE
+@[R1[9](59 in misprediction)] ==> [R1[9](83), R1[9](78)] -log10(p) = 17.931576 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 18.162364 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 18.722223 --> LEAKAGE
+@[LOAD_MEMSHADOW[12](370 in misprediction) ==> [LOAD_MEMSHADOW[12](522), LOAD_MEMSHADOW[12](513)] -log10(p) = 19.010657 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 19.370607 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 19.630604 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 21.144363 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 21.538746 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 21.538746 --> LEAKAGE
+
+========== State after 224 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 20.019677 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 20.059969 --> LEAKAGE
+@[LOAD_MEMSHADOW[12](370 in misprediction) ==> [LOAD_MEMSHADOW[12](522), LOAD_MEMSHADOW[12](513)] -log10(p) = 20.724830 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 20.870708 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 20.870708 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 21.051675 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 22.710686 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 22.878582 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 23.078305 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 23.737752 --> LEAKAGE
+
+========== State after 256 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 22.816165 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 23.254504 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 23.254504 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 23.837986 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 25.261057 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 25.343105 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 25.343105 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 26.311240 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 27.240580 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 28.657736 --> LEAKAGE
+
+========== State after 288 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 24.719580 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 25.697408 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 26.239690 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 26.239690 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 26.416543 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 27.783441 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 27.783441 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 28.044196 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 29.636403 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 30.029468 --> LEAKAGE
+
+========== State after 320 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 27.862045 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 29.096318 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 29.115112 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 29.174501 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 29.733542 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 29.733542 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 30.020754 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 30.020754 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 32.059552 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 32.474208 --> LEAKAGE
+
+========== State after 352 simulations ==========
+@[LOAD_MEMSHADOW[17](86 in misprediction) ==> [LOAD_MEMSHADOW[17](130), LOAD_MEMSHADOW[17](126)] -log10(p) = 30.492181 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 30.709506 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 31.425689 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 31.593497 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 31.593497 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 32.535563 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 33.834300 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 33.834300 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 34.557798 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 34.777635 --> LEAKAGE
+
+========== State after 384 simulations ==========
+@[R1[22](59 in misprediction)] ==> [R1[22](83), R1[22](78)] -log10(p) = 33.205658 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 33.481874 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 34.637452 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 35.071702 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 35.071702 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 35.642210 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 36.990642 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 37.795710 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 37.795710 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 39.000623 --> LEAKAGE
+
+========== State after 416 simulations ==========
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 36.545841 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 36.973944 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 37.767304 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 38.425281 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 38.425281 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 38.643085 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 38.986882 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 41.353065 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 41.585250 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 41.585250 --> LEAKAGE
+
+========== State after 448 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 38.065435 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 39.148213 --> LEAKAGE
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 40.204556 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 41.503647 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 41.503647 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 41.590924 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 43.064081 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 43.379531 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 45.196672 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 45.196672 --> LEAKAGE
+
+========== State after 480 simulations ==========
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 40.189194 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 41.035572 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 42.870722 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 43.556528 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 43.556528 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 45.235729 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 45.374448 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 46.635859 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 49.155774 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 49.155774 --> LEAKAGE
+
+========== State after 512 simulations ==========
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 43.178761 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 43.223371 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 44.845528 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 44.866466 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 46.224298 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 46.224298 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 49.078199 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 49.653878 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 49.653878 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 49.867068 --> LEAKAGE
+
+========== State after 544 simulations ==========
+@[LOAD_MEMSHADOW[5](1360 in misprediction) ==> [LOAD_MEMSHADOW[5](1404), LOAD_MEMSHADOW[5](1395)] -log10(p) = 44.761165 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 46.744103 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 46.961302 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 48.818441 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 49.752204 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 49.752204 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 51.531542 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 52.061250 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 52.254568 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 52.254568 --> LEAKAGE
+
+========== State after 576 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 48.588815 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 49.136973 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 51.288904 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 51.350694 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 52.415814 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 52.415814 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 54.686208 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 54.705591 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 54.863757 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 54.863757 --> LEAKAGE
+
+========== State after 608 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 50.844517 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 51.015249 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 53.025943 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 53.067283 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 55.191176 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 57.526807 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 57.526807 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 58.863082 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 59.477414 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 59.477414 --> LEAKAGE
+
+========== State after 640 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 54.070442 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 54.253648 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 54.993752 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 56.111102 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 58.818003 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 59.656769 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 59.656769 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 61.588978 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 61.588978 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 62.075898 --> LEAKAGE
+
+========== State after 672 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 56.230279 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 57.251727 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 58.051957 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 58.343787 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 61.234425 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 62.405657 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 62.405657 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 63.751344 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 63.751344 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 65.416057 --> LEAKAGE
+
+========== State after 704 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 59.567159 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 59.737764 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 60.362329 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 62.463852 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 64.430418 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 66.640761 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 66.640761 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 66.989925 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 66.989925 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 68.202566 --> LEAKAGE
+
+========== State after 736 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 61.154858 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 61.835060 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 62.287384 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 65.446507 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 65.623485 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 69.784294 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 69.784294 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 71.746806 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 71.746806 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 71.906971 --> LEAKAGE
+
+========== State after 768 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 64.131661 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 64.431860 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 64.955476 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 66.407518 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 66.692734 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 74.014716 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 74.014716 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 74.444590 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 74.444590 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 74.719108 --> LEAKAGE
+
+========== State after 800 simulations ==========
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 67.630177 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 67.794466 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 68.194365 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 68.400267 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 68.833824 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 75.948713 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 75.948713 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 76.334578 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 76.334578 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 76.857642 --> LEAKAGE
+
+========== State after 832 simulations ==========
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 70.663483 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 70.835332 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 71.690427 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 72.134472 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 72.192747 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 76.453080 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 76.453080 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 78.654736 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 78.654736 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 80.650618 --> LEAKAGE
+
+========== State after 864 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 73.518930 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 74.348692 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 74.978385 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 75.145981 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 75.369221 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 76.996138 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 76.996138 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 79.906841 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 79.906841 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 84.658450 --> LEAKAGE
+
+========== State after 896 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 74.854039 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 76.302212 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 76.373301 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 77.580644 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 78.819982 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 78.819982 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 78.853124 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 83.269469 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 83.269469 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 87.438938 --> LEAKAGE
+
+========== State after 928 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 77.096057 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 78.382435 --> LEAKAGE
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 78.677860 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 80.952188 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 81.758219 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 81.758219 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 83.153706 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 85.243519 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 85.243519 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 91.644086 --> LEAKAGE
+
+========== State after 960 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 79.149145 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 80.598205 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 81.855263 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 83.432070 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 86.110944 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 86.236209 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 86.236209 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 86.750527 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 86.750527 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 94.043609 --> LEAKAGE
+
+========== State after 992 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 81.614314 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 82.423955 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 84.434301 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 86.950218 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 87.790538 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 87.790538 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 88.819932 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 88.819932 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 90.760730 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 97.628960 --> LEAKAGE
+
+========== State after 1024 simulations ==========
+@[LOAD_MEMSHADOW[4](964 in misprediction) ==> [LOAD_MEMSHADOW[4](1320), LOAD_MEMSHADOW[4](1311)] -log10(p) = 83.713390 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 86.647730 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 87.200202 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 89.644494 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 90.042089 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 90.042089 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 91.539404 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 91.539404 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 92.952607 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 100.969126 --> LEAKAGE
+
+========== State after 1056 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 87.387496 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 87.537761 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 87.770748 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 92.540992 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 94.989688 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 94.989688 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 95.127642 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 95.512188 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 95.512188 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 104.782984 --> LEAKAGE
+
+========== State after 1088 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 89.231454 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 90.510597 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 91.393715 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 95.111942 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 97.529595 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 98.175655 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 98.175655 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 99.637057 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 99.637057 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 108.406973 --> LEAKAGE
+
+========== State after 1120 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 90.673741 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 93.073275 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 96.236816 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 97.013030 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 99.612401 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 101.166753 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 101.166753 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 102.079661 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 102.079661 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 112.395672 --> LEAKAGE
+
+========== State after 1152 simulations ==========
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 93.963916 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 94.710621 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 98.268195 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 99.751897 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 99.934334 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 99.934334 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 102.645603 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 105.718975 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 105.718975 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 112.740858 --> LEAKAGE
+
+========== State after 1184 simulations ==========
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 97.738371 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 97.844700 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 100.979743 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 101.437677 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 103.698479 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 103.698479 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 106.291837 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 108.981517 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 108.981517 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 115.377678 --> LEAKAGE
+
+========== State after 1216 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 100.131345 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 100.650157 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 103.041280 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 103.887795 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 105.660077 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 105.660077 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 109.068579 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 112.434576 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 112.434576 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 119.970454 --> LEAKAGE
+
+========== State after 1248 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 100.992879 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 102.973514 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 105.396639 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 105.800943 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 109.572828 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 109.572828 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 111.399511 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 113.730063 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 113.730063 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 122.410610 --> LEAKAGE
+
+========== State after 1280 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 104.835320 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 106.627939 --> LEAKAGE
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 106.651960 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 109.069804 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 112.037822 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 112.037822 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 114.076058 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 115.548313 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 115.548313 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 124.009867 --> LEAKAGE
+
+========== State after 1312 simulations ==========
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 105.750433 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 107.777432 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 108.624047 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 112.040065 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 116.328015 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 116.515576 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 116.515576 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 119.051891 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 119.051891 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 126.331436 --> LEAKAGE
+
+========== State after 1344 simulations ==========
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 109.387248 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 110.688504 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 111.082930 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 115.756251 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 118.490663 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 118.765717 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 118.765717 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 119.647689 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 119.647689 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 130.137057 --> LEAKAGE
+
+========== State after 1376 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 113.143436 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 113.704078 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 115.172097 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 117.919922 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 120.519241 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 120.979274 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 120.979274 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 123.332085 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 123.332085 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 133.324464 --> LEAKAGE
+
+========== State after 1408 simulations ==========
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 116.386989 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 117.083601 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 117.751738 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 122.484684 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 123.046039 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 123.114821 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 123.114821 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 123.498125 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 123.498125 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 136.557758 --> LEAKAGE
+
+========== State after 1440 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 119.573676 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 120.531686 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 120.678522 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 124.227634 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 125.763251 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 125.763251 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 126.740595 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 126.852126 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 126.852126 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 140.947689 --> LEAKAGE
+
+========== State after 1472 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 122.087177 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 123.549163 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 124.424723 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 128.140651 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 128.140651 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 128.564724 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 131.091687 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 131.207555 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 131.207555 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 145.797970 --> LEAKAGE
+
+========== State after 1504 simulations ==========
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 124.829508 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 125.687928 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 127.550623 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 131.242855 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 132.290061 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 132.290061 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 134.273582 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 134.896264 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 134.896264 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 148.505952 --> LEAKAGE
+
+========== State after 1536 simulations ==========
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 128.305124 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 128.850823 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 129.055799 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 133.731008 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 135.641423 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 136.794114 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 136.794114 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 138.411918 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 138.411918 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 150.025153 --> LEAKAGE
+
+========== State after 1568 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 130.903979 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 131.410797 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 131.902198 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 136.215627 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 137.224084 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 139.805794 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 139.805794 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 141.421201 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 141.421201 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 153.049457 --> LEAKAGE
+
+========== State after 1600 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 131.035024 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 133.480289 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 135.001732 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 137.365235 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 140.798962 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 142.444803 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 142.444803 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 145.542114 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 145.542114 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 154.592205 --> LEAKAGE
+
+========== State after 1632 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 133.362760 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 135.620302 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 137.924259 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 139.341883 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 143.688075 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 145.326372 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 145.326372 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 149.934215 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 149.934215 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 158.565560 --> LEAKAGE
+
+========== State after 1664 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 136.520570 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 138.907263 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 141.190930 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 141.816966 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 146.390075 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 149.137914 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 149.137914 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 153.244596 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 153.244596 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 162.321889 --> LEAKAGE
+
+========== State after 1696 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 137.861281 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 141.469932 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 143.175663 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 144.820753 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 148.478322 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 151.655328 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 151.655328 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 157.229244 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 157.229244 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 163.444047 --> LEAKAGE
+
+========== State after 1728 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 141.330646 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 142.640805 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 146.751656 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 149.010739 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 149.761680 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 153.810327 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 153.810327 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 158.873585 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 158.873585 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 166.073646 --> LEAKAGE
+
+========== State after 1760 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 143.494261 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 144.641925 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 148.092257 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 152.019655 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 152.817649 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 159.076351 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 159.076351 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 160.204140 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 160.204140 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 167.350587 --> LEAKAGE
+
+========== State after 1792 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 145.912642 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 147.594991 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 150.581467 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 152.538328 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 154.433939 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 162.157382 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 162.157382 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 164.290603 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 164.290603 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 169.947935 --> LEAKAGE
+
+========== State after 1824 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 148.724337 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 149.068197 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 152.954497 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 156.361160 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 157.340845 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 164.564336 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 164.564336 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 167.194295 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 167.194295 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 171.839354 --> LEAKAGE
+
+========== State after 1856 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 149.510796 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 152.608143 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 156.587822 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 160.431448 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 160.971027 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 166.288182 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 166.288182 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 170.895199 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 170.895199 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 174.025573 --> LEAKAGE
+
+========== State after 1888 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 150.919701 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 155.194084 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 159.061407 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 162.988321 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 164.365558 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 171.270997 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 171.270997 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 174.401829 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 174.401829 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 177.517976 --> LEAKAGE
+
+========== State after 1920 simulations ==========
+@[LOAD_MEMSHADOW[27](370 in misprediction) ==> [LOAD_MEMSHADOW[27](522), LOAD_MEMSHADOW[27](513)] -log10(p) = 153.066364 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 157.683741 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 160.345061 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 164.875840 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 166.012305 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 175.521950 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 175.521950 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 176.680007 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 176.680007 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 178.815606 --> LEAKAGE
+
+========== State after 1952 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 154.289735 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 160.208219 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 163.794960 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 167.330375 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 169.949519 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 179.512860 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 179.512860 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 179.680283 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 179.680283 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 180.450636 --> LEAKAGE
+
+========== State after 1984 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 158.400076 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 163.012339 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 166.528101 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 170.528943 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 172.784819 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 182.781010 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 182.781010 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 182.789598 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 183.949703 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 183.949703 --> LEAKAGE
+
+========== State after 2016 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 161.380402 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 166.059898 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 169.622572 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 171.106139 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 173.059919 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 185.060715 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 185.987171 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 185.987171 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 186.904861 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 186.904861 --> LEAKAGE
+
+========== State after 2048 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 162.377451 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 170.198391 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 172.625002 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 172.655841 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 175.308051 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 186.065766 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 186.065766 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 186.708018 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 189.934158 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 189.934158 --> LEAKAGE
+
+========== State after 2080 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 164.696663 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 172.773918 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 174.286998 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 175.239812 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 177.894261 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 189.689184 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 189.689184 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 189.907396 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 194.049373 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 194.049373 --> LEAKAGE
+
+========== State after 2112 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 169.092239 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 175.815659 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 178.195426 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 178.759193 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 180.457794 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 192.992293 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 193.271686 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 193.271686 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 197.643397 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 197.643397 --> LEAKAGE
+
+========== State after 2144 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 169.892469 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 178.505036 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 178.724517 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 181.981788 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 184.211617 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 195.268240 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 196.043774 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 196.043774 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 200.424508 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 200.424508 --> LEAKAGE
+
+========== State after 2176 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 171.703469 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 181.866776 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 182.040346 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 183.607025 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 187.598454 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 197.770272 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 198.508590 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 198.508590 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 202.887855 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 202.887855 --> LEAKAGE
+
+========== State after 2208 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 175.243187 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 184.485769 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 186.180526 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 186.692215 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 188.156386 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 200.263678 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 201.460832 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 201.460832 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 206.833908 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 206.833908 --> LEAKAGE
+
+========== State after 2240 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 178.905827 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 188.236373 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 188.383671 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 189.033707 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 192.453352 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 202.168302 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 204.765492 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 204.765492 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 209.153970 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 209.153970 --> LEAKAGE
+
+========== State after 2272 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 181.456000 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 188.773551 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 190.868626 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 191.384512 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 194.783632 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 203.077288 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 209.399366 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 209.399366 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 210.356349 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 210.356349 --> LEAKAGE
+
+========== State after 2304 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 183.661257 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 190.415087 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 195.605926 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 196.112400 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 198.667193 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 206.019254 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 211.277106 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 211.277106 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 212.716244 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 212.716244 --> LEAKAGE
+
+========== State after 2336 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 188.512994 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 194.308182 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 197.702910 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 198.555483 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 202.104252 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 210.465498 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 215.798133 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 215.798133 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 216.277998 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 216.277998 --> LEAKAGE
+
+========== State after 2368 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 191.661274 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 198.404135 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 199.065411 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 199.193445 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 204.847224 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 213.762374 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 218.578387 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 218.578387 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 219.073933 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 219.073933 --> LEAKAGE
+
+========== State after 2400 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 196.703415 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 200.045297 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 201.548452 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 202.289543 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 207.614750 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 217.049055 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 219.419511 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 219.419511 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 223.809041 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 223.809041 --> LEAKAGE
+
+========== State after 2432 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 199.074741 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 202.419585 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 204.268357 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 205.903691 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 208.249092 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 219.579884 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 222.868183 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 222.868183 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 226.768891 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 226.768891 --> LEAKAGE
+
+========== State after 2464 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 203.658182 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 205.578319 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 206.123313 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 209.691465 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 210.201684 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 222.907919 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 227.153516 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 227.153516 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 228.593504 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 228.593504 --> LEAKAGE
+
+========== State after 2496 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 204.813137 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 208.961575 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 208.999504 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 212.524352 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 212.615412 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 227.291756 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 229.593290 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 229.593290 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 230.048779 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 230.048779 --> LEAKAGE
+
+========== State after 2528 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 206.881264 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 209.995057 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 212.384069 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 215.098337 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 215.684826 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 230.357539 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 231.196729 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 231.196729 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 232.692939 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 232.692939 --> LEAKAGE
+
+========== State after 2560 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 207.589172 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 213.433732 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 213.860153 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 217.188065 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 220.632514 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 232.927507 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 233.228897 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 233.228897 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 235.697811 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 235.697811 --> LEAKAGE
+
+========== State after 2592 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 209.806139 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 216.219319 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 218.095478 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 220.010268 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 224.464313 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 234.365192 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 237.027964 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 237.027964 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 238.040970 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 238.040970 --> LEAKAGE
+
+========== State after 2624 simulations ==========
+@[LOAD_MEMSHADOW[15](568 in misprediction) ==> [LOAD_MEMSHADOW[15](788), LOAD_MEMSHADOW[15](779)] -log10(p) = 212.803336 --> LEAKAGE
+@[LOAD_MEMSHADOW[27](568 in misprediction) ==> [LOAD_MEMSHADOW[27](788), LOAD_MEMSHADOW[27](779)] -log10(p) = 219.215347 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](1162 in misprediction) ==> [LOAD_MEMSHADOW[25](1586), LOAD_MEMSHADOW[25](1577)] -log10(p) = 221.242007 --> LEAKAGE
+@[LOAD_MEMSHADOW[25](964 in misprediction) ==> [LOAD_MEMSHADOW[25](1320), LOAD_MEMSHADOW[25](1311)] -log10(p) = 221.623638 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](172 in misprediction) ==> [LOAD_MEMSHADOW[10](256), LOAD_MEMSHADOW[10](247)] -log10(p) = 227.086991 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](172 in misprediction) ==> [LOAD_MEMSHADOW[22](256), LOAD_MEMSHADOW[22](247)] -log10(p) = 237.436256 --> LEAKAGE
+@[R1[14](59 in misprediction)] ==> [R1[14](83), R1[14](78)] -log10(p) = 239.635538 --> LEAKAGE
+@[LOAD_MEMSHADOW[22](86 in misprediction) ==> [LOAD_MEMSHADOW[22](130), LOAD_MEMSHADOW[22](126)] -log10(p) = 239.635538 --> LEAKAGE
+@[LOAD_MEMSHADOW[10](86 in misprediction) ==> [LOAD_MEMSHADOW[10](130), LOAD_MEMSHADOW[10](126)] -log10(p) = 240.171812 --> LEAKAGE
+@[R1[18](59 in misprediction)] ==> [R1[18](83), R1[18](78)] -log10(p) = 240.171812 --> LEAKAGE
+
