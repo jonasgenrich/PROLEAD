@@ -413,7 +413,7 @@ void Emulator::emulate_PROLEAD(::Software::ThreadSimulationStruct& ThreadSimulat
 
     #ifdef SEA_DEBUG
     std::cout << "current executed instruction : " << to_string(instr.name) << " with dest " << to_int(instr.Rd) << " and " << to_int(instr.Rm) << " " << to_int(instr.Rn) << " " << to_int(instr.Ra) << " at " << std::hex << address <<" time: " << m_emulated_time << std::endl;
-    std::cout << "Real:" << std::to_string(InstrCounter.Real()) << "  Logical:" << std::to_string(InstrCounter.Logical()) << "  Offset:" << std::to_string(InstrCounter.Offset()) << std::endl;  
+    std::cout << "Real:" << std::to_string(InstrCounter.Real()) << "  Logical:" << std::to_string(InstrCounter.Logical()) << "  Offset:" << std::to_string(InstrCounter.Offset()) << " Logical+Offset:" << std::to_string(InstrCounter.Logical() + InstrCounter.Offset()) << std::endl;  
     #endif
 
     bool InTestClockCycles = false;
@@ -1412,7 +1412,7 @@ void Emulator::clock_cpu(uint32_t randomness_start_addr,uint32_t randomness_end_
     }
 
     if(instr.name == Mnemonic::POP){
-        std::cout << "R2: " << read_register((Register)2);
+        std::cout << "R2: " << read_register((Register)2) << std::endl;
     }
     #endif
 
@@ -1451,7 +1451,7 @@ void Emulator::clock_cpu(uint32_t randomness_start_addr,uint32_t randomness_end_
     }
 
     if(instr.name == Mnemonic::POP){
-        std::cout << "R2: " << read_register((Register)2);
+        std::cout << "R2: " << read_register((Register)2) << std::endl;
     }
     #endif
 
